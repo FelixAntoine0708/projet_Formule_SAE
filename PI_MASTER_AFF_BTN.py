@@ -40,7 +40,7 @@ GPIO.setup(bouton_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 def AFF(msg):
     skk.clear()
     skk.write(msg)
-    time.sleep(0.2)
+    time.sleep(0.1)
 
 
 
@@ -54,7 +54,7 @@ def conversion(data):
 
 def AFF_BTN(btn):
     
-    if btn == GPIO.LOW:
+    if btn == GPIO.HIGH:
         wn.bgcolor("light green")
         #turtle.clear()
         #write("BTN_ENFONCÉ!!!!!")
@@ -64,7 +64,7 @@ def AFF_BTN(btn):
         #write("BTN_PAS_ENFONCÉ!!!!!")
     
     # Attendre un certain temps
-    time.sleep(1)
+    time.sleep(0.1)
     
     
     
