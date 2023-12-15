@@ -8,7 +8,7 @@ Le projet SAE pour UdeS Affichage
 Tout code qui se trouve dedans peut être un code de test qui ne fonctionne pas toujours. Liser bien la description
 
 # ÉTAPE À SUIVRE POUR LE CODE
-1. Aller sur le dossier "CODE_PROJET"
+* Aller sur le dossier "CODE_PROJET"
 
 # CODE DE CONFIGURATION DU PI  
 
