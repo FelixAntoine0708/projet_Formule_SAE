@@ -5,4 +5,6 @@ Le projet SAE pour UdeS Affichage
 
 ##Qu'est-ce qui si trouve
 * CAN_ESPIDF
-* 
+allo\n\r
+comment
+* CODE_PROJET
