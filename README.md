@@ -4,11 +4,23 @@ Le projet SAE pour UdeS Affichage
 ![MicrosoftTeams-image](https://github.com/FelixAntoine0708/projet_Formule_SAE_A2023/assets/89605334/e4b2d43c-1281-4deb-957f-f0b4dd0a961f)
 
 
-# ***Attention*** 
-Tout code qui se trouve dedans peut être un code de test qui ne fonctionne pas toujours. Liser bien la description
+# ***ATTENTION*** 
+Les bon codes sont dans le dossier "CODE_PROJET"
+Tout code qui se trouve dedans peut être un code de test qui ne fonctionne pas toujours.
 
-# ÉTAPE À SUIVRE POUR LE CODE
+# ÉTAPE À SUIVRE POUR LE CODE DU RASPBERRY PI  
 * Aller sur le dossier "CODE_PROJET"
+* Aller dans le dossier "CANESP32_PI
+* Aller dans le dossier "RASPBERRY_PI"
+* Aller dans le dossier "FONCTIONNELLE
+* Le code final est "PI_CAN_V2_AFF_BTN_FINAL"
+
+# ÉTAPE À SUIVRE POUR LE CODE DU ESP32  
+* Aller sur le dossier "CODE_PROJET"
+* Aller dans le dossier "CANESP32_PI
+* Aller dans le dossier "ESP32"
+* Aller dans le dossier "FONCTIONNELLE"
+* Le bon dossier à ouvrir dans platformIO est "ESP32_C3_TWAI"
 
 # CODE DE CONFIGURATION DU PI  
 
