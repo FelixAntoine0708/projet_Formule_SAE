@@ -5,8 +5,7 @@ Le projet SAE pour UdeS Affichage
 
 
 # ***ATTENTION*** 
-Les bon codes sont dans le dossier "CODE_PROJET"
-Tout code qui se trouve dedans peut être un code de test qui ne fonctionne pas toujours.
+Les bon codes sont dans le dossier "CODE_PROJET". Sinon les codes qui se trouvent sur le github peut être un code de test qui ne fonctionne pas.
 
 # ÉTAPE À SUIVRE POUR LE CODE DU RASPBERRY PI  
 * Aller sur le dossier "CODE_PROJET"
