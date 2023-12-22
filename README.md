@@ -5,6 +5,7 @@ Le projet SAE pour UdeS Affichage
 
 ## Qu'est-ce qui si trouve
 * CAN_ESPIDF <br />
-a <br />
-b <br />
-* CODE_PROJET
+Ce dossier contient le code d'envoie de l'autre équipe  <br />
+<br />
+* CODE_PROJET <br />
+Ce dossier contient le code de notre projet <br />
