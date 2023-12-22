@@ -1,18 +1,17 @@
 /*
-
-CE PROGRAMME FAIT AVEC LE FRAMEWORK ESPRESSIF32 DEVAIT ENVOYER LES CHIFFRES DE 1 À 6
-EN SPI. TOUJOURS DES PROBLÈMES DANS LA CONFIGURATION DU SPI.
-
-
+Programme : main.c
+Auteur :    Marc-Étienne Gendron-Fontaine
+Brief :     Ce programme, qui est fait avec le framework Espressif32, doit envoyer
+            les chiffres 1 à 6 en SPI. Le Pi devrait être celui qui les reçoit. Le
+            ESP32-C3 est le master.
 */
 
 
 
-
+// Sectoin des include
 #include <driver/spi_common.h>
 #include "driver/spi_master.h"
 #include <string.h>
-
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
 
@@ -24,71 +23,13 @@ EN SPI. TOUJOURS DES PROBLÈMES DANS LA CONFIGURATION DU SPI.
 #define PIN_NUM_CLK  4
 #define PIN_NUM_CS   7
 
+
+
+// Prototype des fonctions
 void init_spi();
 void test();
 
-spi_device_handle_t handle;
-
-/*void setup()
-{
-  //Serial.begin(115200);
-
-    spi_device_handle_t handle;
-    esp_err_t ret;
-
-
-  spi_bus_config_t buscfg = {
-    .miso_io_num = PIN_NUM_MISO,
-    .mosi_io_num = PIN_NUM_MOSI,
-    .sclk_io_num = PIN_NUM_CLK,
-    .quadwp_io_num = -1,
-    .quadhd_io_num = -1,
-    .max_transfer_sz = 6  // Taille maximale de la transmission en octets
-  };
-
-
-    //ret = spi_bus_initialize(SPI2_HOST, &buscfg, SPI_DMA_CH_AUTO);
-    //ESP_ERROR_CHECK(ret);
-
-
-  spi_device_interface_config_t devcfg = {
-    .clock_speed_hz = 1*1000*1000,           // Clock à 1 MHz
-    .mode = 0,                               // Mode 0
-    .spics_io_num = PIN_NUM_CS,               // Broche de sélection du périphérique esclave
-    .queue_size = 7,                         // La taille de la file d'attente du pilote (peut être ajustée)
-  };
-
-
-  
-
-
-  // Initialiser le bus SPI
-  ret = spi_bus_initialize(SPI2_HOST, &buscfg, SPI_DMA_CH_AUTO);
-  assert(ret == ESP_OK);
-
-  // Ajouter le périphérique SPI au bus
-  ret = spi_bus_add_device(SPI2_HOST, &devcfg, &handle);
-  
-  if(ret == ESP_OK)
-    printf("OK");
-  else if(ret == ESP_ERR_INVALID_ARG)
-    printf("INVALIDE ARGUMENT");
-  else if(ret == ESP_ERR_INVALID_STATE)
-    printf("INVALID STATE");
-  else if(ret == ESP_ERR_NOT_FOUND)
-    printf("PAS DE CS DE LIBRE");
-  else if(ret == ESP_ERR_NO_MEM)
-    printf("PLUS DE MÉMOIRE");
-  
-  while(1)
-  {
-    printf("OK");
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
-  }
-    
-  //assert(ret == ESP_OK);
-}*/
-
+spi_device_handle_t handle; // Déclaration de ce qui sera le périphérique (le Pi)
 
 
 void app_main()
@@ -123,18 +64,23 @@ void app_main()
       else if(ret == ESP_ERR_INVALID_ARG)
         printf("INVALIDE_ARG");
       
-      //assert(ret == ESP_OK);
 
-       // Pause d'une seconde
+      // Pause d'une seconde
       vTaskDelay(1000 / portTICK_PERIOD_MS);
     }
 }
 
 
 
-
+/*
+Brief : Initialisation du bus SPI.
+Param. : Aucun
+Retourne : Rien
+*/
 void init_spi()
 {
+  
+  // Initialise l'objet pour le bus SPI
   spi_bus_config_t buscfg = {
     .miso_io_num = PIN_NUM_MISO,
     .mosi_io_num = PIN_NUM_MOSI,
@@ -144,7 +90,7 @@ void init_spi()
     .max_transfer_sz = 6  // Taille maximale de la transmission en octets
   };
 
-
+  // Initialise l'objet pour le périphérique (le Pi)
   spi_device_interface_config_t devcfg = {
     .clock_speed_hz = 2*1000*1000,           // Clock à 2 MHz
     .mode = 0,                               // Mode 0
@@ -158,9 +104,10 @@ void init_spi()
 
 
 
-    // Initialiser le bus SPI
+  // Initialiser le bus SPI
   ret = spi_bus_initialize(SPI2_HOST, &buscfg, SPI_DMA_CH_AUTO);
   
+  // Regarde s'il y a des erreurs
   if(ret == ESP_OK)
     printf("OK");
   else if(ret == ESP_ERR_INVALID_ARG)
@@ -172,13 +119,12 @@ void init_spi()
   else if(ret == ESP_ERR_NO_MEM)
     printf("PLUS DE MÉMOIRE");
   
-  
-  
-  //assert(ret == ESP_OK);
+
 
   // Ajouter le périphérique SPI au bus
   ret = spi_bus_add_device(SPI2_HOST, &devcfg, &handle);
   
+  // Regarde s'il y a des erreurs
   if(ret == ESP_OK)
     printf("OK");
   else if(ret == ESP_ERR_INVALID_ARG)
@@ -192,12 +138,14 @@ void init_spi()
 }
 
 
-
+/*
+Brief : Affiche "OK" dans le terminal. Utile pour savoir quelle
+        étape de l'initialisation passe sans problème.
+Param. : Aucun
+Retourne : Rien
+*/
 void test()
 {
   while(1)
-  {
     printf("OK");
-    //vTaskDelay(1000 / portTICK_PERIOD_MS);
-  }
 }

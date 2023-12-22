@@ -1,18 +1,22 @@
 /*
-
-CE PROGRAMME NON-FONCTIONNELLE FAIT AVEC LE FRAMEWORK ESPRESSIF32 DEVAIT RECEVOIRE
-DES DONNÉES EN SPI. IL Y A DES PROBLÈMES DANS LA CONFIGURATION DU SPI.
-
-
+Programme : main.c
+Auteur :    Marc-Étienne Gendron-Fontaine
+Brief :     Ce programme, qui est fait avec le framework Espressif32, doit lire
+            les données sur le bus SPI. Ces données proviennent du Pi.
 */
 
 
+
+// Sectoin des include
 #include <stdio.h>
 #include <string.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "driver/spi_master.h"
 
+
+
+// Configurer les broches SPI
 #define PIN_NUM_MISO 5
 #define PIN_NUM_MOSI 6
 #define PIN_NUM_CLK  4
@@ -21,10 +25,14 @@ DES DONNÉES EN SPI. IL Y A DES PROBLÈMES DANS LA CONFIGURATION DU SPI.
 
 
 
-
+// Fonction principale
 void app_main(void)
 {
+    
+    // Déclaration de ce qui sera le périphérique (le Pi)
     spi_device_handle_t spi;
+
+    // Initialise l'objet pour le bus SPI
     spi_bus_config_t bus_config = {
         .miso_io_num = PIN_NUM_MISO,
         .mosi_io_num = PIN_NUM_MOSI,
@@ -33,6 +41,8 @@ void app_main(void)
         .quadhd_io_num = -1
     };
 
+
+    // Initialise l'objet pour le périphérique (le Pi)
     spi_device_interface_config_t dev_config = {
         .mode = 0,
         .clock_speed_hz = 1000000,

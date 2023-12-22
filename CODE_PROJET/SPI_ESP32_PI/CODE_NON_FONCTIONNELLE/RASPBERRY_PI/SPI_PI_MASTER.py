@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
 
+"""
+Programme : SPI_PI_MASTER.py
+Auteur :    Marc-Étienne Gendron-Fontaine
+Date :      22 décembre 2023
+Brief :     SPI_PI_MASTER.py devait transmettre 0xAA au ESP32-C3 dans l'espoir que celui-ci les reçoive et les affiche dans un terminal.
+"""
 
-import time
-import spidev
+import time     # Pour le delay
+import spidev   # Pour le SPI
 
 
 bus = 0     # BUS SPI
@@ -26,13 +32,15 @@ spi.threewire = False
 
 
 
-
+"""
+Doit transmettre 0xAA au ESP32 toutes les 100ms. Il affiche dans le terminal "MESSAGE_ENVOYE!!!".
+Pendant ce temps, le ESP32 doit recevoir le 0xAA. Du moins, en théorie...
+"""
 try:
     while True:
         spi.writebytes([0xAA])
         print("MESSAGE_ENVOYE!!!")
         time.sleep(0.1)
-
 
 finally:
     spi.close() 

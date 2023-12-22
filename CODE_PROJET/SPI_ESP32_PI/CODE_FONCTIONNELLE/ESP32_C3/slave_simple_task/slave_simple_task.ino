@@ -1,3 +1,10 @@
+/*
+brief : Ce code est un des multiples exemples que Arduino IDE a à offrir. Il permet au ESP32-C3 de communiquer avec le Pi 3B en SPI.
+        J'ai modifié le code pour qu'il envoie les trois caractères suivant : H, L, O. Le ESP32-C3 est le SLAVE.
+*/
+
+
+
 #include <ESP32SPISlave.h>
 
 ESP32SPISlave slave;
@@ -5,7 +12,7 @@ ESP32SPISlave slave;
 static constexpr uint32_t BUFFER_SIZE {32};
 uint8_t spi_slave_tx_buf[BUFFER_SIZE];
 uint8_t spi_slave_rx_buf[BUFFER_SIZE];
-uint8_t tx_buf[BUFFER_SIZE] = {'H', 'L', 'O'};
+uint8_t tx_buf[BUFFER_SIZE] = {'H', 'L', 'O'};      // MA MODIFICATION QUE J'AI FAIT
 
 
 void set_buffer() {
@@ -13,7 +20,7 @@ void set_buffer() {
         spi_slave_tx_buf[i] = (0xFF - i) & 0xFF;
     }
     //memset(spi_slave_rx_buf, 0, BUFFER_SIZE);
-    memset(spi_slave_rx_buf, 0, BUFFER_SIZE);
+    memset(spi_slave_rx_buf, 0, BUFFER_SIZE);   // MODIFICATION QUE J'AI FAIT
 }
 
 constexpr uint8_t CORE_TASK_SPI_SLAVE {0};
@@ -28,7 +35,7 @@ void task_wait_spi(void* pvParameters) {
 
         // block until the transaction comes from master
         //slave.wait(spi_slave_rx_buf, spi_slave_tx_buf, BUFFER_SIZE);
-        slave.wait(spi_slave_rx_buf, tx_buf, BUFFER_SIZE);
+        slave.wait(spi_slave_rx_buf, tx_buf, BUFFER_SIZE);  // MODIFICATION QUE J'AI FAIT
         xTaskNotifyGive(task_handle_process_buffer);
     }
 }

@@ -1,7 +1,17 @@
 #!/usr/bin/env python3
 
+'''
+@auteur: 
+Équipe du Cégep Formule SAE Affichage 
+Date :  22 décembre 2023
+@breif:
+Code qui avait 2 TJA1050 un au ESP32 et l'autre sur le PI.
+Malheureusement, le mode Série sur le Pi ne fonctionne pas.
+Nous étions pas capable d'initialiser le mode série. Les GPIO
+ne fonctionnais pas donc on a du laisser tomber.
+'''
 
-
+# import 
 import can
 import RPi.GPIO as GPIO
 
