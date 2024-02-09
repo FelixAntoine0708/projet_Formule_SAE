@@ -1,0 +1,110 @@
+#platform "uLCD-32PT"
+    // Form1 1.1 generated 2024-02-09 09:57:30
+#platform "uLCD-32PT"
+
+
+// Program Skeleton 1.4 generated 2024-02-07 14:04:44
+
+// #MODE RUNFLASH uncomment and set Destination to Flash to run from Flash, refer 4D-AN-00055
+
+#inherit "4DGL_16bitColours.fnc"
+
+#inherit "VisualConst.inc"
+
+#inherit "NoName1Const.inc"
+
+
+func main()
+//  var hstrings ; // Handle to access uSD strings, uncomment if required
+//  var hFontx ;   // Handle to access uSD fonts, uncomment if required and change n to font number
+//  Uncomment the following if uSD images, fonts or strings used.
+
+    // Thermometer1 1.0 generated 2024-02-09 10:18:45
+
+    var state, x, y, n, DIPstate;
+
+
+
+    putstr("Mounting...\n");
+    if (!(file_Mount()))
+        while(!(file_Mount()))
+            putstr("Drive not mounted...");
+            pause(200);
+            gfx_Cls();
+            pause(200);
+        wend
+    endif
+//    gfx_TransparentColour(0x0020);    // uncomment if transparency required
+//    gfx_Transparency(ON);             // uncomment if transparency required
+
+    print("HELLO!!!!!\n\r");
+
+    //hFontn := file_LoadImageControl("NoName1.dan", "NoName1.gcn", 1); // Open handle to access uSD fonts, uncomment if required and change n to font number dropping a and c if > 9
+//  hstrings := file_Open("NoName1.txf", 'r') ; // Open handle to access uSD strings, uncomment if required
+    hndl := file_LoadImageControl("NoName1.dat", "NoName1.gci", 1);
+
+
+    gfx_Set(SCREEN_MODE,LANDSCAPE) ;
+
+    // Thermometer1 1.0 generated 2024-02-09 10:19:37
+
+    // Dipswitch1 1.0 generated 2024-02-09 11:07:46
+    img_ClearAttributes(hndl, iDipswitch1, I_TOUCH_DISABLE); // set to enable touch, only need to do this once
+    img_Show(hndl,iDipswitch1) ; // show initial state at 0
+
+     img_Show(hndl,"HELLO") ;
+
+    // Determine new position
+    //state := (y - 114) / 25 ;         // (y - top_left) / (height_width / positions)
+    // if (state > 1) state := 1 ;     // if positions > 2 and height not divisible by positions
+    img_SetWord(hndl, iDipswitch1, IMAGE_INDEX, 0) ; // where state is 0 to 1
+    img_Show(hndl,iDipswitch1) ;
+    img_SetWord(hndl, iThermometer1, IMAGE_INDEX, 50) ; // where frame is 0 to 100 (for a displayed -1 to -1)
+    img_Show(hndl,iThermometer1) ;
+
+    // Form1 1.1 generated 2024-02-09 10:55:58
+
+    touch_Set(TOUCH_ENABLE);
+
+    DIPstate := 0;
+
+    //print("HELLO!!!!!");
+    //gfx_Set(SCREEN_MODE,LANDSCAPE) ;
+
+    repeat
+
+    state := touch_Get(TOUCH_STATUS);
+
+    if(state == TOUCH_RELEASED)
+        //gfx_Cls();
+        x := touch_Get(TOUCH_GETX);
+        print("X =  ");
+        print(x);
+
+        // Statictext1 1.0 generated 2024-02-09 14:04:07
+        img_Show(hndl,x) ;
+        print("\r");
+        n := img_Touched(hndl, iDipswitch1);
+        if(n == iDipswitch1)
+
+                //y := touch_Get(TOUCH_GETY);
+                //DIPstate := (x-100)/(60/2);
+                if(DIPstate == 0)
+                    DIPstate := 1;
+                    img_SetWord(hndl, iDipswitch1, IMAGE_INDEX, DIPstate);
+                    img_SetWord(hndl, iThermometer1, IMAGE_INDEX, 10) ; // where frame is 0 to 100 (for a displayed -1 to -1)
+                    img_Show(hndl,iDipswitch1) ;
+                    img_Show(hndl,iThermometer1) ;
+                else
+                    DIPstate := 0;
+                    img_SetWord(hndl, iDipswitch1, IMAGE_INDEX, DIPstate);
+                    img_SetWord(hndl, iThermometer1, IMAGE_INDEX, 100) ; // where frame is 0 to 100 (for a displayed -1 to -1)
+                    img_Show(hndl,iDipswitch1) ;
+                    img_Show(hndl,iThermometer1) ;
+                endif
+        endif
+    endif
+
+    forever
+endfunc
+
