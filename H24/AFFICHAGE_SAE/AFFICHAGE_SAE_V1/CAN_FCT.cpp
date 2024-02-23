@@ -35,11 +35,31 @@ Brief   : Vérifie si le premier octet, de la section "data" de la trame CAN,
 Param   : rxFrame soit la trame CAN.
 Return  : Rien
 */
-void verif_trame(CanFrame rxFrame)
+bool verif_trame(CanFrame rxFrame)
 {
+  
+  int crc_de_rxFrame;
+  long crc_a_calculer;
+  unsigned int temp;
+
+  // Le CRC est calculé à partir de l'ensemble des champs transmis jusque-là c'est-à-dire le SOF, le champ d'arbitrage, le champ de commande et le champ de données MAX 83 BITS
+  // LA TRAME CAN FAIT 108 BITS (64 BITS DANS CHAMPS DE DONNÉES EST PRIS POUR ACQUIS). LES CHAMPS ACK ET FIN DE TRAME FONT 9 BITS. DONC >> 9 APRÈS AVOIR FAIT UN MASKE.
+  // LA VALEUR DU MASK EST 0x1FFFE00
+
+
+  crc_a_calculer = rxFrame;
+  crc_de_rxFrame = rxFrame;
+
+  temp = crc_de_rxFrame & MASK_CRC;
+
+
+
 
   if(!(isAlpha(rxFrame.data[0])))
+  {
     affiche_data(rxFrame);
+    return true;
+  }
   else
     Serial.printf("ERREUR!!!!!!!!!!!!!!\n");
 }

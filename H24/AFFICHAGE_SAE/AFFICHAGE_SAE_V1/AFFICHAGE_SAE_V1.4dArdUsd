@@ -1,5 +1,5 @@
 ﻿Version     0.0
-Platform    Gen4-ESP32-70CT-L
+Platform    Gen4-ESP32-50CT-L
 PlatRes     480x800
 Depends
 end
@@ -40,13 +40,13 @@ Form
 end
 Button
     Name                         Button3
-    Alias                        GO_TO_ACCUMULATEUR_G
+    Alias                        ACCUMULATEUR_F1
     ButtonColor                  RED
-    Caption                      GO_TO_ACCUMULATEUR
+    Caption                      ACCUMULATEUR
     Color                        YELLOW
     Font                         FONT1
     Index                        0
-    Left                         640
+    Left                         320
     Outlined                     No
     OutlineColor                 WHITE
     Pattern                      Fine
@@ -55,7 +55,7 @@ Button
     SelTextColor                 BLUE
     TextHeight                   3
     TextWidth                    1
-    Top                          432
+    Top                          425
     Value                        50
 end
 Thermometer
@@ -72,7 +72,7 @@ Thermometer
     Font.Size                    8
     Font.Style                   []
     Height                       285
-    Left                         32
+    Left                         40
     Scale.Color                  BLACK
     Scale.Decimals               0
     Scale.Heightmax              14
@@ -91,7 +91,7 @@ Thermometer
     Setpoint.Value               33
     Setpoint.Visible             No
     ShowCaption                  No
-    Top                          170
+    Top                          92
     Value.Bitmap                 (None)
     Value.Color                  clAqua
     Value.Shape                  Line
@@ -122,7 +122,7 @@ Gauge
     Bevel.Visible                Yes
     Color                        BLACK
     Height                       232
-    Left                         312
+    Left                         324
     Maxvalue                     100
     Minvalue                     0
     Orientation                  Vertical
@@ -138,7 +138,7 @@ Gauge
     Step                         10
     Style                        TopRight
     TickHeight                   1
-    Top                          204
+    Top                          144
     Width                        99
     OnChanged                    ''
     OnTouchMoving                ''
@@ -215,8 +215,8 @@ StaticText
     Font.Size                    20
     Font.Style                   []
     Height                       33
-    Left                         4
-    Top                          120
+    Left                         20
+    Top                          48
     Transparent                  Yes
     Width                        181
     WordWrap                     Yes
@@ -234,11 +234,51 @@ StaticText
     Font.Size                    20
     Font.Style                   []
     Height                       45
-    Left                         224
-    Top                          136
+    Left                         248
+    Top                          100
     Transparent                  Yes
     Width                        250
     WordWrap                     Yes
+end
+Button
+    Name                         Button5
+    Alias                        MOTEUR_DRIVE_COOLANT_F1
+    ButtonColor                  RED
+    Caption                      MOTEUR_DRIVE_COOLANT
+    Color                        YELLOW
+    Font                         FONT1
+    Index                        0
+    Left                         565
+    Outlined                     No
+    OutlineColor                 WHITE
+    Pattern                      Fine
+    State                        Released
+    SelTextBG                    LIME
+    SelTextColor                 BLUE
+    TextHeight                   3
+    TextWidth                    1
+    Top                          425
+    Value                        50
+end
+Button
+    Name                         Button6
+    Alias                        BATTERIE_F1
+    ButtonColor                  RED
+    Caption                      BATTERIE
+    Color                        YELLOW
+    Font                         FONT1
+    Index                        0
+    Left                         75
+    Outlined                     No
+    OutlineColor                 WHITE
+    Pattern                      Fine
+    State                        Released
+    SelTextBG                    LIME
+    SelTextColor                 BLUE
+    TextHeight                   3
+    TextWidth                    1
+    Top                          425
+    Value                        50
 end
 Form
     Name                         Form2
@@ -259,13 +299,13 @@ Form
 end
 Button
     Name                         Button1
-    Alias                        GO_TO_Batterie
+    Alias                        BATTERIE_F2
     ButtonColor                  RED
-    Caption                      GO_TO_BATTERIE
+    Caption                      BATTERIE
     Color                        YELLOW
     Font                         FONT1
     Index                        0
-    Left                         8
+    Left                         75
     Outlined                     No
     OutlineColor                 WHITE
     Pattern                      Fine
@@ -274,18 +314,18 @@ Button
     SelTextColor                 BLUE
     TextHeight                   3
     TextWidth                    1
-    Top                          436
+    Top                          425
     Value                        50
 end
 Button
     Name                         Button2
-    Alias                        GO_TO_MOTEUR_DRIVE_COOLANT
+    Alias                        MOTEUR_DRIVE_COOLANT_F2
     ButtonColor                  RED
-    Caption                      GO_TO_MOTEUR_DRIVE_COOLANT
+    Caption                      MOTEUR_DRIVE_COOLANT
     Color                        YELLOW
     Font                         FONT1
     Index                        0
-    Left                         596
+    Left                         565
     Outlined                     No
     OutlineColor                 WHITE
     Pattern                      Fine
@@ -294,7 +334,7 @@ Button
     SelTextColor                 BLUE
     TextHeight                   3
     TextWidth                    1
-    Top                          432
+    Top                          425
     Value                        50
 end
 StaticText
@@ -545,6 +585,26 @@ StaticText
     Width                        61
     WordWrap                     Yes
 end
+Button
+    Name                         Button7
+    Alias                        ACCUMULATEUR_F2
+    ButtonColor                  RED
+    Caption                      ACCUMULATEUR
+    Color                        YELLOW
+    Font                         FONT1
+    Index                        0
+    Left                         320
+    Outlined                     No
+    OutlineColor                 WHITE
+    Pattern                      Fine
+    State                        Released
+    SelTextBG                    LIME
+    SelTextColor                 BLUE
+    TextHeight                   3
+    TextWidth                    1
+    Top                          425
+    Value                        50
+end
 Form
     Name                         Form3
     Alias                        MOTEUR_DRIVE_COOLANT_PAGE
@@ -564,13 +624,13 @@ Form
 end
 Button
     Name                         Button4
-    Alias                        GO_TO_ACCUMULATEUR_D
+    Alias                        ACCUMULATEUR_F3
     ButtonColor                  RED
-    Caption                      GO_TO_ACCUMULATEUR
+    Caption                      ACCUMULATEUR
     Color                        YELLOW
     Font                         FONT1
     Index                        0
-    Left                         16
+    Left                         320
     Outlined                     No
     OutlineColor                 WHITE
     Pattern                      Fine
@@ -579,7 +639,7 @@ Button
     SelTextColor                 BLUE
     TextHeight                   3
     TextWidth                    1
-    Top                          428
+    Top                          425
     Value                        50
 end
 StaticText
@@ -783,4 +843,44 @@ StaticText
     Transparent                  Yes
     Width                        117
     WordWrap                     Yes
+end
+Button
+    Name                         Button8
+    Alias                        BATTERIE_F3
+    ButtonColor                  RED
+    Caption                      BATTERIE
+    Color                        YELLOW
+    Font                         FONT1
+    Index                        0
+    Left                         75
+    Outlined                     No
+    OutlineColor                 WHITE
+    Pattern                      Fine
+    State                        Released
+    SelTextBG                    LIME
+    SelTextColor                 BLUE
+    TextHeight                   3
+    TextWidth                    1
+    Top                          425
+    Value                        50
+end
+Button
+    Name                         Button9
+    Alias                        MOTEUR_DRIVE_COOLANT_F3
+    ButtonColor                  RED
+    Caption                      MOTEUR_DRIVE_COOLANT
+    Color                        YELLOW
+    Font                         FONT1
+    Index                        0
+    Left                         565
+    Outlined                     No
+    OutlineColor                 WHITE
+    Pattern                      Fine
+    State                        Released
+    SelTextBG                    LIME
+    SelTextColor                 BLUE
+    TextHeight                   3
+    TextWidth                    1
+    Top                          425
+    Value                        50
 end

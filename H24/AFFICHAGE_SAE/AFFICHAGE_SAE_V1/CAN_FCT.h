@@ -14,9 +14,12 @@ Encironement: Visual Studio Code V 1.86.2, Système d’exploitation : Linux x6
 //
 //#include <math.h>
 
+#define MASK_CRC 0x1FFFE00  // Pour garder le champs CRC
+
+
 
 void affiche_data(CanFrame rxFrame);
-void verif_trame(CanFrame rxFrame);
+bool verif_trame(CanFrame rxFrame)
 void coolant_temp(CanFrame rxFrame);
 void drive_temp(CanFrame rxFrame);
 void motor_temp(CanFrame rxFrame);
