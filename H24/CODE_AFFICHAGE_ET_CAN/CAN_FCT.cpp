@@ -48,11 +48,11 @@ bool verif_trame(CanFrame rxFrame)
 
 
 
-  crc_de_rxFrame = rxFrame;
+  //crc_de_rxFrame = rxFrame;
 
-  temp = crc_de_rxFrame & MASK_CRC;
+  //temp = crc_de_rxFrame & MASK_CRC;
 
-  crc_a_calculer = temp >> 9;
+  //crc_a_calculer = temp >> 9;
 
 
   if(!(isAlpha(rxFrame.data[0])))

@@ -110,7 +110,7 @@ void affiche_page_moteur_drive_coolant()
 void update_page_batterie()
 {
   
-  
+
   
   gfx.Cls();
 }
