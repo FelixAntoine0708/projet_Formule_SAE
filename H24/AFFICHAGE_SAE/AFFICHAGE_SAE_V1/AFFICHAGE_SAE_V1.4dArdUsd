@@ -38,26 +38,6 @@ Form
     OnTouchPressed               ''
     OnTouchReleased              ''
 end
-Button
-    Name                         Button3
-    Alias                        ACCUMULATEUR_F1
-    ButtonColor                  RED
-    Caption                      ACCUMULATEUR
-    Color                        YELLOW
-    Font                         FONT1
-    Index                        0
-    Left                         320
-    Outlined                     No
-    OutlineColor                 WHITE
-    Pattern                      Fine
-    State                        Released
-    SelTextBG                    LIME
-    SelTextColor                 BLUE
-    TextHeight                   3
-    TextWidth                    1
-    Top                          425
-    Value                        50
-end
 Thermometer
     Name                         Thermometer1
     Alias                        TEMP_BATTERIE
@@ -240,45 +220,104 @@ StaticText
     Width                        250
     WordWrap                     Yes
 end
-Button
-    Name                         Button5
-    Alias                        MOTEUR_DRIVE_COOLANT_F1
-    ButtonColor                  RED
-    Caption                      MOTEUR_DRIVE_COOLANT
-    Color                        YELLOW
-    Font                         FONT1
-    Index                        0
-    Left                         565
-    Outlined                     No
-    OutlineColor                 WHITE
-    Pattern                      Fine
-    State                        Released
-    SelTextBG                    LIME
-    SelTextColor                 BLUE
-    TextHeight                   3
-    TextWidth                    1
-    Top                          425
-    Value                        50
-end
-Button
-    Name                         Button6
+4Dbutton
+    Name                         4Dbutton1
     Alias                        BATTERIE_F1
-    ButtonColor                  RED
+    Height                       48
+    Left                         88
+    Matrix                       -1
+    Momentary                    Yes
+    Size                         48x48
+    Style                        Red
+    Top                          420
+    Type                         Button01
+    Width                        48
+    OnChanged                    ''
+end
+4Dbutton
+    Name                         4Dbutton2
+    Alias                        ACCUMULATEUR_F1
+    Height                       48
+    Left                         352
+    Matrix                       -1
+    Momentary                    Yes
+    Size                         48x48
+    Style                        Red
+    Top                          424
+    Type                         Button01
+    Width                        48
+    OnChanged                    ''
+end
+4Dbutton
+    Name                         4Dbutton3
+    Alias                        MOTEUR_DRIVE_COOLANT_F1
+    Height                       48
+    Left                         664
+    Matrix                       -1
+    Momentary                    Yes
+    Size                         48x48
+    Style                        Red
+    Top                          412
+    Type                         Button01
+    Width                        48
+    OnChanged                    ''
+end
+StaticText
+    Name                         Statictext14
+    Alias                        BATTERIE_BTN_TXT_FORM1
+    Alignment                    Left
+    AutoSize                     Yes
     Caption                      BATTERIE
-    Color                        YELLOW
-    Font                         FONT1
-    Index                        0
-    Left                         75
-    Outlined                     No
-    OutlineColor                 WHITE
-    Pattern                      Fine
-    State                        Released
-    SelTextBG                    LIME
-    SelTextColor                 BLUE
-    TextHeight                   3
-    TextWidth                    1
-    Top                          425
-    Value                        50
+    Color                        BLACK
+    Font.Color                   WHITE
+    Font.Effects                 []
+    Font.Name                    Tahoma
+    Font.Size                    15
+    Font.Style                   []
+    Height                       24
+    Left                         56
+    Top                          384
+    Transparent                  Yes
+    Width                        89
+    WordWrap                     Yes
+end
+StaticText
+    Name                         Statictext15
+    Alias                        ACCUMULATEUR_BTN_TXT_FORM1
+    Alignment                    Left
+    AutoSize                     Yes
+    Caption                      ACCUMULATEUR
+    Color                        BLACK
+    Font.Color                   WHITE
+    Font.Effects                 []
+    Font.Name                    Tahoma
+    Font.Size                    15
+    Font.Style                   []
+    Height                       24
+    Left                         304
+    Top                          388
+    Transparent                  Yes
+    Width                        147
+    WordWrap                     Yes
+end
+StaticText
+    Name                         Statictext16
+    Alias                        MOTEUR_DRIVE_COOLANT_BTN_TXT_FORM1
+    Alignment                    Left
+    AutoSize                     Yes
+    Caption                      MOTEUR_DRIVE_COOLANT
+    Color                        BLACK
+    Font.Color                   WHITE
+    Font.Effects                 []
+    Font.Name                    Tahoma
+    Font.Size                    15
+    Font.Style                   []
+    Height                       24
+    Left                         536
+    Top                          356
+    Transparent                  Yes
+    Width                        242
+    WordWrap                     Yes
 end
 Form
     Name                         Form2
@@ -297,46 +336,6 @@ Form
     OnTouchPressed               ''
     OnTouchReleased              ''
 end
-Button
-    Name                         Button1
-    Alias                        BATTERIE_F2
-    ButtonColor                  RED
-    Caption                      BATTERIE
-    Color                        YELLOW
-    Font                         FONT1
-    Index                        0
-    Left                         75
-    Outlined                     No
-    OutlineColor                 WHITE
-    Pattern                      Fine
-    State                        Released
-    SelTextBG                    LIME
-    SelTextColor                 BLUE
-    TextHeight                   3
-    TextWidth                    1
-    Top                          425
-    Value                        50
-end
-Button
-    Name                         Button2
-    Alias                        MOTEUR_DRIVE_COOLANT_F2
-    ButtonColor                  RED
-    Caption                      MOTEUR_DRIVE_COOLANT
-    Color                        YELLOW
-    Font                         FONT1
-    Index                        0
-    Left                         565
-    Outlined                     No
-    OutlineColor                 WHITE
-    Pattern                      Fine
-    State                        Released
-    SelTextBG                    LIME
-    SelTextColor                 BLUE
-    TextHeight                   3
-    TextWidth                    1
-    Top                          425
-    Value                        50
-end
 StaticText
     Name                         Statictext5
     Alias                        LBL_ACCUMULATEUR
@@ -350,8 +349,8 @@ StaticText
     Font.Size                    20
     Font.Style                   []
     Height                       33
-    Left                         268
-    Top                          36
+    Left                         264
+    Top                          20
     Transparent                  Yes
     Width                        200
     WordWrap                     Yes
@@ -389,7 +388,7 @@ Thermometer
     Setpoint.Value               33
     Setpoint.Visible             No
     ShowCaption                  No
-    Top                          176
+    Top                          120
     Value.Bitmap                 (None)
     Value.Color                  clAqua
     Value.Shape                  Line
@@ -420,7 +419,7 @@ Gauge
     Bevel.Visible                Yes
     Color                        BLACK
     Height                       228
-    Left                         192
+    Left                         188
     Maxvalue                     100
     Minvalue                     0
     Orientation                  Vertical
@@ -436,7 +435,7 @@ Gauge
     Step                         10
     Style                        TopRight
     TickHeight                   1
-    Top                          177
+    Top                          124
     Width                        97
     OnChanged                    ''
     OnTouchMoving                ''
@@ -457,7 +456,7 @@ StaticText
     Font.Style                   []
     Height                       33
     Left                         188
-    Top                          116
+    Top                          84
     Transparent                  Yes
     Width                        100
     WordWrap                     Yes
@@ -490,7 +489,7 @@ AngularMeter
     LabelsFont.Size              8
     LabelsFont.Style             []
     LabelsOffset                 30
-    Left                         324
+    Left                         316
     Maxvalue                     100
     Minvalue                     0
     NeedleBasewidth              8
@@ -505,7 +504,7 @@ AngularMeter
     TicksEnlarge                 10
     TicksMax                     14
     TicksMin                     5
-    Top                          204
+    Top                          152
     Width                        240
     OnChanged                    ''
 end
@@ -522,8 +521,8 @@ StaticText
     Font.Size                    20
     Font.Style                   []
     Height                       33
-    Left                         392
-    Top                          132
+    Left                         388
+    Top                          88
     Transparent                  Yes
     Width                        80
     WordWrap                     Yes
@@ -536,11 +535,11 @@ LedDigits
     Digits                       4
     Height                       69
     LeadingZero                  Yes
-    Left                         584
+    Left                         576
     OutlineColor                 BLACK
     Palette.High                 clLime
     Palette.Low                  0x005100
-    Top                          276
+    Top                          184
     Width                        184
     OnChanged                    ''
     OnTouchMoving                ''
@@ -560,8 +559,8 @@ StaticText
     Font.Size                    20
     Font.Style                   []
     Height                       33
-    Left                         612
-    Top                          140
+    Left                         604
+    Top                          88
     Transparent                  Yes
     Width                        111
     WordWrap                     Yes
@@ -579,31 +578,110 @@ StaticText
     Font.Size                    20
     Font.Style                   []
     Height                       33
-    Left                         33
-    Top                          110
+    Left                         32
+    Top                          76
     Transparent                  Yes
     Width                        61
     WordWrap                     Yes
 end
-Button
-    Name                         Button7
-    Alias                        ACCUMULATEUR_F2
-    ButtonColor                  RED
+StaticText
+    Name                         Statictext17
+    Alias                        BATTERIE_BTN_TXT_FORM2
+    Alignment                    Left
+    AutoSize                     Yes
+    Caption                      BATTERIE
+    Color                        BLACK
+    Font.Color                   WHITE
+    Font.Effects                 []
+    Font.Name                    Tahoma
+    Font.Size                    15
+    Font.Style                   []
+    Height                       24
+    Left                         52
+    Top                          384
+    Transparent                  Yes
+    Width                        89
+    WordWrap                     Yes
+end
+4Dbutton
+    Name                         4Dbutton4
+    Alias                        BATTERIE_F2
+    Height                       48
+    Left                         72
+    Matrix                       -1
+    Momentary                    Yes
+    Size                         48x48
+    Style                        Red
+    Top                          416
+    Type                         Button01
+    Width                        48
+    OnChanged                    ''
+end
+StaticText
+    Name                         Statictext18
+    Alias                        ACCUMULATEUR_BTN_TXT_FORM2
+    Alignment                    Left
+    AutoSize                     Yes
     Caption                      ACCUMULATEUR
-    Color                        YELLOW
-    Font                         FONT1
-    Index                        0
-    Left                         320
-    Outlined                     No
-    OutlineColor                 WHITE
-    Pattern                      Fine
-    State                        Released
-    SelTextBG                    LIME
-    SelTextColor                 BLUE
-    TextHeight                   3
-    TextWidth                    1
-    Top                          425
-    Value                        50
+    Color                        BLACK
+    Font.Color                   WHITE
+    Font.Effects                 []
+    Font.Name                    Tahoma
+    Font.Size                    15
+    Font.Style                   []
+    Height                       24
+    Left                         252
+    Top                          372
+    Transparent                  Yes
+    Width                        147
+    WordWrap                     Yes
+end
+4Dbutton
+    Name                         4Dbutton5
+    Alias                        ACCUMULATEUR_F2
+    Height                       48
+    Left                         304
+    Matrix                       -1
+    Momentary                    Yes
+    Size                         48x48
+    Style                        Red
+    Top                          412
+    Type                         Button01
+    Width                        48
+    OnChanged                    ''
+end
+StaticText
+    Name                         Statictext19
+    Alias                        MOTEUR_DRIVE_COOLANT_BTN_TXT_FORM2
+    Alignment                    Left
+    AutoSize                     Yes
+    Caption                      MOTEUR_DRIVE_COOLANT
+    Color                        BLACK
+    Font.Color                   WHITE
+    Font.Effects                 []
+    Font.Name                    Tahoma
+    Font.Size                    15
+    Font.Style                   []
+    Height                       24
+    Left                         508
+    Top                          364
+    Transparent                  Yes
+    Width                        242
+    WordWrap                     Yes
+end
+4Dbutton
+    Name                         4Dbutton6
+    Alias                        MOTEUR_DRIVE_COOLANT_F2
+    Height                       48
+    Left                         600
+    Matrix                       -1
+    Momentary                    Yes
+    Size                         48x48
+    Style                        Red
+    Top                          408
+    Type                         Button01
+    Width                        48
+    OnChanged                    ''
 end
 Form
     Name                         Form3
@@ -622,26 +700,6 @@ Form
     OnTouchPressed               ''
     OnTouchReleased              ''
 end
-Button
-    Name                         Button4
-    Alias                        ACCUMULATEUR_F3
-    ButtonColor                  RED
-    Caption                      ACCUMULATEUR
-    Color                        YELLOW
-    Font                         FONT1
-    Index                        0
-    Left                         320
-    Outlined                     No
-    OutlineColor                 WHITE
-    Pattern                      Fine
-    State                        Released
-    SelTextBG                    LIME
-    SelTextColor                 BLUE
-    TextHeight                   3
-    TextWidth                    1
-    Top                          425
-    Value                        50
-end
 StaticText
     Name                         Statictext10
     Alias                        LBL_MOTEUR_DRIVE_COOLANT
@@ -656,7 +714,7 @@ StaticText
     Font.Style                   []
     Height                       33
     Left                         244
-    Top                          24
+    Top                          12
     Transparent                  Yes
     Width                        329
     WordWrap                     Yes
@@ -694,7 +752,7 @@ Thermometer
     Setpoint.Value               33
     Setpoint.Visible             No
     ShowCaption                  No
-    Top                          164
+    Top                          104
     Value.Bitmap                 (None)
     Value.Color                  clAqua
     Value.Shape                  Line
@@ -716,8 +774,8 @@ StaticText
     Font.Size                    20
     Font.Style                   []
     Height                       33
-    Left                         52
-    Top                          112
+    Left                         56
+    Top                          60
     Transparent                  Yes
     Width                        106
     WordWrap                     Yes
@@ -736,7 +794,7 @@ Thermometer
     Font.Size                    8
     Font.Style                   []
     Height                       230
-    Left                         284
+    Left                         280
     Scale.Color                  BLACK
     Scale.Decimals               0
     Scale.Heightmax              14
@@ -755,7 +813,7 @@ Thermometer
     Setpoint.Value               33
     Setpoint.Visible             No
     ShowCaption                  No
-    Top                          164
+    Top                          100
     Value.Bitmap                 (None)
     Value.Color                  clAqua
     Value.Shape                  Line
@@ -778,7 +836,7 @@ StaticText
     Font.Style                   []
     Height                       33
     Left                         292
-    Top                          108
+    Top                          64
     Transparent                  Yes
     Width                        76
     WordWrap                     Yes
@@ -797,7 +855,7 @@ Thermometer
     Font.Size                    8
     Font.Style                   []
     Height                       230
-    Left                         584
+    Left                         588
     Scale.Color                  BLACK
     Scale.Decimals               0
     Scale.Heightmax              14
@@ -816,7 +874,7 @@ Thermometer
     Setpoint.Value               33
     Setpoint.Visible             No
     ShowCaption                  No
-    Top                          168
+    Top                          108
     Value.Bitmap                 (None)
     Value.Color                  clAqua
     Value.Shape                  Line
@@ -838,49 +896,108 @@ StaticText
     Font.Size                    20
     Font.Style                   []
     Height                       33
-    Left                         580
-    Top                          108
+    Left                         576
+    Top                          72
     Transparent                  Yes
     Width                        117
     WordWrap                     Yes
 end
-Button
-    Name                         Button8
-    Alias                        BATTERIE_F3
-    ButtonColor                  RED
+StaticText
+    Name                         Statictext20
+    Alias                        BATTERIE_BTN_TXT_FORM3
+    Alignment                    Left
+    AutoSize                     Yes
     Caption                      BATTERIE
-    Color                        YELLOW
-    Font                         FONT1
-    Index                        0
-    Left                         75
-    Outlined                     No
-    OutlineColor                 WHITE
-    Pattern                      Fine
-    State                        Released
-    SelTextBG                    LIME
-    SelTextColor                 BLUE
-    TextHeight                   3
-    TextWidth                    1
-    Top                          425
-    Value                        50
+    Color                        BLACK
+    Font.Color                   WHITE
+    Font.Effects                 []
+    Font.Name                    Tahoma
+    Font.Size                    15
+    Font.Style                   []
+    Height                       24
+    Left                         72
+    Top                          352
+    Transparent                  Yes
+    Width                        89
+    WordWrap                     Yes
 end
-Button
-    Name                         Button9
-    Alias                        MOTEUR_DRIVE_COOLANT_F3
-    ButtonColor                  RED
+StaticText
+    Name                         Statictext21
+    Alias                        ACCUMULATEUR_BTN_TXT_FORM3
+    Alignment                    Left
+    AutoSize                     Yes
+    Caption                      ACCUMULATEUR
+    Color                        BLACK
+    Font.Color                   WHITE
+    Font.Effects                 []
+    Font.Name                    Tahoma
+    Font.Size                    15
+    Font.Style                   []
+    Height                       24
+    Left                         272
+    Top                          356
+    Transparent                  Yes
+    Width                        147
+    WordWrap                     Yes
+end
+StaticText
+    Name                         Statictext22
+    Alias                        MOTEUR_DRIVE_COOLANT_BTN_TXT_FORM3
+    Alignment                    Left
+    AutoSize                     Yes
     Caption                      MOTEUR_DRIVE_COOLANT
-    Color                        YELLOW
-    Font                         FONT1
-    Index                        0
-    Left                         565
-    Outlined                     No
-    OutlineColor                 WHITE
-    Pattern                      Fine
-    State                        Released
-    SelTextBG                    LIME
-    SelTextColor                 BLUE
-    TextHeight                   3
-    TextWidth                    1
-    Top                          425
-    Value                        50
+    Color                        BLACK
+    Font.Color                   WHITE
+    Font.Effects                 []
+    Font.Name                    Tahoma
+    Font.Size                    15
+    Font.Style                   []
+    Height                       24
+    Left                         504
+    Top                          356
+    Transparent                  Yes
+    Width                        242
+    WordWrap                     Yes
+end
+4Dbutton
+    Name                         4Dbutton7
+    Alias                        BATTERIE_F3
+    Height                       48
+    Left                         88
+    Matrix                       -1
+    Momentary                    Yes
+    Size                         48x48
+    Style                        Red
+    Top                          412
+    Type                         Button01
+    Width                        48
+    OnChanged                    ''
+end
+4Dbutton
+    Name                         4Dbutton8
+    Alias                        ACCUMULATEUR_F3
+    Height                       48
+    Left                         328
+    Matrix                       -1
+    Momentary                    Yes
+    Size                         48x48
+    Style                        Red
+    Top                          412
+    Type                         Button01
+    Width                        48
+    OnChanged                    ''
+end
+4Dbutton
+    Name                         4Dbutton9
+    Alias                        MOTEUR_DRIVE_COOLANT_F3
+    Height                       48
+    Left                         629
+    Matrix                       -1
+    Momentary                    Yes
+    Size                         48x48
+    Style                        Red
+    Top                          419
+    Type                         Button01
+    Width                        48
+    OnChanged                    ''
 end

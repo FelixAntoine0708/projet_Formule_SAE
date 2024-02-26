@@ -33,12 +33,18 @@ void setup()
   gfx.TextColor(WHITE, BLACK); gfx.Font(2);  gfx.TextSize(1);
   gfx.Open4dGFX("AFFICHAGE_SAE_V1"); // Opens DAT and GCI files for read using filename without extension.
   gfx.touch_Set(TOUCH_ENABLE);// Global touch enabled
+  gfx.imageTouchEnable(-1, true); // Active la détection du touché des widget
 
   // FORM 1    BATTERIE_PAGE
 
   gfx.Button(1, 75, 425, RED, YELLOW, FONT1, 3, 1, "BATTERIE") ; // ?%Name?<(BATTERIE_F1) Width=69 Height=33
   gfx.Button(1, 320, 425, RED, YELLOW, FONT1, 3, 1, "ACCUMULATEUR") ; // ?%Name?<(ACCUMULATEUR_F1) Width=97 Height=33
   gfx.Button(1, 565, 425, RED, YELLOW, FONT1, 3, 1, "MOTEUR_DRIVE_COOLANT") ; // ?%Name?<(MOTEUR_DRIVE_COOLANT_F1) Width=153 Height=33
+
+
+  gfx.UserImage(iStatictext14) ;  // BATTERIE_BTN_TXT
+  gfx.UserImage(iStatictext15) ;  // ACCUMULATEUR_BTN_TXT_FORM1
+  gfx.UserImage(iStatictext16) ;  // MOTEUR_DRIVE_COOLANT_BTN_TXT_FORM1
   gfx.UserImage(iStatictext1) ;  // PAGE_NAME_BATTERIE
   gfx.UserImage(iStatictext3) ;  // LBL_TEMP_BATTERIE
   gfx.UserImage(iStatictext4) ;  // LBL_NIVEAU_CHARGE
@@ -53,6 +59,12 @@ void setup()
   gfx.Button(1, 75, 425, RED, YELLOW, FONT1, 3, 1, "BATTERIE") ; // ?%Name?<(BATTERIE_F2) Width=69 Height=33
   gfx.Button(1, 320, 425, RED, YELLOW, FONT1, 3, 1, "ACCUMULATEUR") ; // ?%Name?<(ACCUMULATEUR_F2) Width=97 Height=33
   gfx.Button(1, 565, 425, RED, YELLOW, FONT1, 3, 1, "MOTEUR_DRIVE_COOLANT") ; // ?%Name?<(MOTEUR_DRIVE_COOLANT_F2) Width=153 Height=33
+
+
+
+  gfx.UserImage(iStatictext17) ;  // BATTERIE_BTN_TXT_FORM2
+  gfx.UserImage(iStatictext18) ;  // ACCUMULATEUR_BTN_TXT_FORM2
+  gfx.UserImage(iStatictext19) ;  // MOTEUR_DRIVE_COOLANT_BTN_TXT_FORM2
   gfx.UserImage(iStatictext5) ;  // LBL_ACCUMULATEUR
   gfx.UserImage(iStatictext9) ;  // LBL_TEMP_ACCUMULATEUR
   gfx.UserImage(iStatictext6) ;  // LBL_CHARGE_ACCUMULATEUR
@@ -74,6 +86,11 @@ void setup()
   gfx.Button(1, 75, 425, RED, YELLOW, FONT1, 3, 1, "BATTERIE") ; // ?%Name?<(BATTERIE_F3) Width=69 Height=33
   gfx.Button(1, 320, 425, RED, YELLOW, FONT1, 3, 1, "ACCUMULATEUR") ; // ?%Name?<(ACCUMULATEUR_F3) Width=97 Height=33
   gfx.Button(1, 565, 425, RED, YELLOW, FONT1, 3, 1, "MOTEUR_DRIVE_COOLANT") ; // ?%Name?<(MOTEUR_DRIVE_COOLANT_F3) Width=153 Height=33
+
+
+  gfx.UserImage(iStatictext20) ;  // BATTERIE_BTN_TXT_FORM3
+  gfx.UserImage(iStatictext21) ;  // ACCUMULATEUR_BTN_TXT_FORM3
+  gfx.UserImage(iStatictext22) ;  // MOTEUR_DRIVE_COOLANT_BTN_TXT_FORM3
   gfx.UserImage(iStatictext10) ;  // LBL_MOTEUR_DRIVE_COOLANT
   gfx.UserImage(iStatictext11) ;  // LBL_TEMP_MOTEUR
   gfx.UserImage(iStatictext12) ;  // LBL_TEMP_DRIVE
@@ -103,46 +120,26 @@ void setup()
 
   Form_2();
 
+  gfx.imageTouchEnable(i4Dbutton1, true, MOMENTARY) ;        // init_4Dbutton1(BATTERIE_F1) enable touch of widget (on Form1)
+  gfx.UserImages(i4Dbutton1,0) ;                             // init_4Dbutton1(BATTERIE_F1) show initially, if required (on Form1)
 } // end Setup **do not alter, remove or duplicate this line**
 
 void loop()
 {
   // put your main code here, to run repeatedly:
-  int itouched, val ;
-  if(gfx.touch_Update())
-  {
-    itouched = gfx.imageTouched() ;
-    switch (itouched)
-    {                                                         // start touched selection **do not alter, remove or duplicate this line**
-      case Button3 :
-                Form_2();
-                break;
-      case MOTEUR_DRIVE_COOLANT_F1 :
-                Form_3();
-                break;
-      case BATTERIE_F2 :
-                Form_1();
-                break;
-      case MOTEUR_DRIVE_COOLANT_F2 :
-                Form_3();
-                break;
-      case BATTERIE_F3 :
-                Form_1();
-                break;
-      case ACCUMULATEUR_F3 :
-                Form_2();
-                break;
-      // case statements for Knobs and Sliders go here
-      default :                                               // end touched selection **do not alter, remove or duplicate this line**
+
+      // case statements for Knobs and Sliders go here                                              // end touched selection **do not alter, remove or duplicate this line**
         int button = gfx.ImageTouchedAuto();    // use default for keyboards and buttons
-        val = gfx.getImageValue(button);
+        int val = gfx.getImageValue(button);
         switch (button)
         {                                                     // start button selection **do not alter, remove or duplicate this line**
           // case, one for each button or keyboard, default should end up as -1
+          case i4Dbutton1 :                                      // process_4Dbutton1(BATTERIE_F1) process Button (on Form1)
+            // process 4dbutton, for toggle val will be 1 for down and 0 for up
+            break ;
+          //case
         }                                                     // end button selection **do not alter, remove or duplicate this line**
 
-    }
-  }
 }
 
 
