@@ -33,11 +33,16 @@ void setup()
 
   // FORM 1    BATTERIE_PAGE
 
-  gfx.Button(1, 75, 425, RED, YELLOW, FONT1, 3, 1, "BATTERIE") ; // ?%Name?<(BATTERIE_F1) Width=69 Height=33
-  gfx.Button(1, 320, 425, RED, YELLOW, FONT1, 3, 1, "ACCUMULATEUR") ; // ?%Name?<(ACCUMULATEUR_F1) Width=97 Height=33
-  gfx.Button(1, 565, 425, RED, YELLOW, FONT1, 3, 1, "MOTEUR_DRIVE_COOLANT") ; // ?%Name?<(MOTEUR_DRIVE_COOLANT_F1) Width=153 Height=33
+  //gfx.Button(1, 75, 425, RED, YELLOW, FONT1, 3, 1, "BATTERIE") ; // ?%Name?<(BATTERIE_F1) Width=69 Height=33
+  //gfx.Button(1, 320, 425, RED, YELLOW, FONT1, 3, 1, "ACCUMULATEUR") ; // ?%Name?<(ACCUMULATEUR_F1) Width=97 Height=33
+  //gfx.Button(1, 565, 425, RED, YELLOW, FONT1, 3, 1, "MOTEUR_DRIVE_COOLANT") ; // ?%Name?<(MOTEUR_DRIVE_COOLANT_F1) Width=153 Height=33
 
-
+  gfx.imageTouchEnable(i4Dbutton1, true, MOMENTARY) ;        // init_4Dbutton1(BATTERIE_F1) enable touch of widget (on Form1)
+  gfx.UserImages(i4Dbutton1,0) ;                             // init_4Dbutton1(BATTERIE_F1) show initially, if required (on Form1)
+  gfx.imageTouchEnable(i4Dbutton2, true, MOMENTARY) ;        // init_4Dbutton2(ACCUMULATEUR_F1) enable touch of widget (on Form1)
+  gfx.UserImages(i4Dbutton2,0) ;                             // init_4Dbutton2(ACCUMULATEUR_F1) show initially, if required (on Form1)
+  gfx.imageTouchEnable(i4Dbutton3, true, MOMENTARY) ;        // init_4Dbutton3(MOTEUR_DRIVE_COOLANT_F1) enable touch of widget (on Form1)
+  gfx.UserImages(i4Dbutton3,0) ;                             // init_4Dbutton3(MOTEUR_DRIVE_COOLANT_F1) show initially, if required (on Form1)
   gfx.UserImage(iStatictext14) ;  // BATTERIE_BTN_TXT
   gfx.UserImage(iStatictext15) ;  // ACCUMULATEUR_BTN_TXT_FORM1
   gfx.UserImage(iStatictext16) ;  // MOTEUR_DRIVE_COOLANT_BTN_TXT_FORM1
@@ -52,12 +57,16 @@ void setup()
 
   // FORM 2    ACCUMULATEUR_PAGE
 
-  gfx.Button(1, 75, 425, RED, YELLOW, FONT1, 3, 1, "BATTERIE") ; // ?%Name?<(BATTERIE_F2) Width=69 Height=33
-  gfx.Button(1, 320, 425, RED, YELLOW, FONT1, 3, 1, "ACCUMULATEUR") ; // ?%Name?<(ACCUMULATEUR_F2) Width=97 Height=33
-  gfx.Button(1, 565, 425, RED, YELLOW, FONT1, 3, 1, "MOTEUR_DRIVE_COOLANT") ; // ?%Name?<(MOTEUR_DRIVE_COOLANT_F2) Width=153 Height=33
+  //gfx.Button(1, 75, 425, RED, YELLOW, FONT1, 3, 1, "BATTERIE") ; // ?%Name?<(BATTERIE_F2) Width=69 Height=33
+  //gfx.Button(1, 320, 425, RED, YELLOW, FONT1, 3, 1, "ACCUMULATEUR") ; // ?%Name?<(ACCUMULATEUR_F2) Width=97 Height=33
+  //gfx.Button(1, 565, 425, RED, YELLOW, FONT1, 3, 1, "MOTEUR_DRIVE_COOLANT") ; // ?%Name?<(MOTEUR_DRIVE_COOLANT_F2) Width=153 Height=33
 
-
-
+  gfx.imageTouchEnable(i4Dbutton4, true, MOMENTARY) ;        // init_4Dbutton4(BATTERIE_F2) enable touch of widget (on Form2)
+  gfx.UserImages(i4Dbutton4,0) ;                             // init_4Dbutton4(BATTERIE_F2) show initially, if required (on Form2)
+  gfx.imageTouchEnable(i4Dbutton5, true, MOMENTARY) ;        // init_4Dbutton5(ACCUMULATEUR_F2) enable touch of widget (on Form2)
+  gfx.UserImages(i4Dbutton5,0) ;                             // init_4Dbutton5(ACCUMULATEUR_F2) show initially, if required (on Form2)
+  gfx.imageTouchEnable(i4Dbutton6, true, MOMENTARY) ;        // init_4Dbutton6(MOTEUR_DRIVE_COOLANT_F2) enable touch of widget (on Form2)
+  gfx.UserImages(i4Dbutton6,0) ;                             // init_4Dbutton6(MOTEUR_DRIVE_COOLANT_F2) show initially, if required (on Form2)
   gfx.UserImage(iStatictext17) ;  // BATTERIE_BTN_TXT_FORM2
   gfx.UserImage(iStatictext18) ;  // ACCUMULATEUR_BTN_TXT_FORM2
   gfx.UserImage(iStatictext19) ;  // MOTEUR_DRIVE_COOLANT_BTN_TXT_FORM2
@@ -79,11 +88,16 @@ void setup()
 
   // FORM 3     MOTEUR_DRIVE_COOLANT_PAGE
 
-  gfx.Button(1, 75, 425, RED, YELLOW, FONT1, 3, 1, "BATTERIE") ; // ?%Name?<(BATTERIE_F3) Width=69 Height=33
-  gfx.Button(1, 320, 425, RED, YELLOW, FONT1, 3, 1, "ACCUMULATEUR") ; // ?%Name?<(ACCUMULATEUR_F3) Width=97 Height=33
-  gfx.Button(1, 565, 425, RED, YELLOW, FONT1, 3, 1, "MOTEUR_DRIVE_COOLANT") ; // ?%Name?<(MOTEUR_DRIVE_COOLANT_F3) Width=153 Height=33
+  //gfx.Button(1, 75, 425, RED, YELLOW, FONT1, 3, 1, "BATTERIE") ; // ?%Name?<(BATTERIE_F3) Width=69 Height=33
+  //gfx.Button(1, 320, 425, RED, YELLOW, FONT1, 3, 1, "ACCUMULATEUR") ; // ?%Name?<(ACCUMULATEUR_F3) Width=97 Height=33
+  //gfx.Button(1, 565, 425, RED, YELLOW, FONT1, 3, 1, "MOTEUR_DRIVE_COOLANT") ; // ?%Name?<(MOTEUR_DRIVE_COOLANT_F3) Width=153 Height=33
 
-
+  gfx.imageTouchEnable(i4Dbutton7, true, MOMENTARY) ;        // init_4Dbutton7(BATTERIE_F3) enable touch of widget (on Form3)
+  gfx.UserImages(i4Dbutton7,0) ;                             // init_4Dbutton7(BATTERIE_F3) show initially, if required (on Form3)
+  gfx.imageTouchEnable(i4Dbutton8, true, MOMENTARY) ;        // init_4Dbutton8(ACCUMULATEUR_F3) enable touch of widget (on Form3)
+  gfx.UserImages(i4Dbutton8,0) ;                             // init_4Dbutton8(ACCUMULATEUR_F3) show initially, if required (on Form3)
+  gfx.imageTouchEnable(i4Dbutton9, true, MOMENTARY) ;        // init_4Dbutton9(MOTEUR_DRIVE_COOLANT_F3) enable touch of widget (on Form3)
+  gfx.UserImages(i4Dbutton9,0) ;                             // init_4Dbutton9(MOTEUR_DRIVE_COOLANT_F3) show initially, if required (on Form3)
   gfx.UserImage(iStatictext20) ;  // BATTERIE_BTN_TXT_FORM3
   gfx.UserImage(iStatictext21) ;  // ACCUMULATEUR_BTN_TXT_FORM3
   gfx.UserImage(iStatictext22) ;  // MOTEUR_DRIVE_COOLANT_BTN_TXT_FORM3
@@ -98,10 +112,13 @@ void setup()
 
 
 
-  // FORM 1    BATTERIE
+  /*// FORM 1    BATTERIE
   gfx.UserImages(iThermometer1,0) ;                          // init_Thermometer1(TEMP_BATTERIE) show initialy, if required
   gfx.UserImages(iGauge1,0) ;                                // init_Gauge1(CHARGE_BATTERIE) show initialy, if required
   gfx.UserImage(iLeddigits1);                                // init_Leddigits1(TENSION_BATTERIE) show all digits at 0, only do this once
+  */
+
+
 
   // FORM 2   ACCUMULATEUR
   gfx.UserImages(iThermometer2,0) ;                          // init_Thermometer2(TEMP_ACCUMULATEUR) show initialy, if required
@@ -109,15 +126,18 @@ void setup()
   gfx.UserImages(iAngularmeter1,0) ;                         // init_Angularmeter1(SANTE_ACCUMULATEUR) show initialy, if required
   gfx.UserImage(iLeddigits2);                                // init_Leddigits2 show all digits at 0, only do this once
 
-  // FORM 3       MOTOR_DRIVE_COOLANT
+  /*// FORM 3       MOTOR_DRIVE_COOLANT
   gfx.UserImages(iThermometer3,0) ;                          // init_Thermometer3(TEMP_MOTEUR) show initialy, if required
   gfx.UserImages(iThermometer4,0) ;                          // init_Thermometer4(TEMP_DRIVE) show initialy, if required
   gfx.UserImages(iThermometer5,0) ;                          // init_Thermometer5(TEMP_COOLANT) show initialy, if required
+  */
 
-  Form_2();
 
-  gfx.imageTouchEnable(i4Dbutton1, true, MOMENTARY) ;        // init_4Dbutton1(BATTERIE_F1) enable touch of widget (on Form1)
-  gfx.UserImages(i4Dbutton1,0) ;                             // init_4Dbutton1(BATTERIE_F1) show initially, if required (on Form1)
+
+  Form_2();    // Affiche la deuxiàme page
+
+
+
 } // end Setup **do not alter, remove or duplicate this line**
 
 void loop()
@@ -127,14 +147,16 @@ void loop()
       // case statements for Knobs and Sliders go here                                              // end touched selection **do not alter, remove or duplicate this line**
         int button = gfx.ImageTouchedAuto();    // use default for keyboards and buttons
         int val = gfx.getImageValue(button);
-        switch (button)
-        {                                                     // start button selection **do not alter, remove or duplicate this line**
-          // case, one for each button or keyboard, default should end up as -1
-          case i4Dbutton1 :                                      // process_4Dbutton1(BATTERIE_F1) process Button (on Form1)
-            // process 4dbutton, for toggle val will be 1 for down and 0 for up
-            break ;
-          //case
-        }                                                     // end button selection **do not alter, remove or duplicate this line**
+
+
+        // Code pour faire changere les pages en appuyant sur les BTN!!!!!!!!!
+        // Félix, ne touche pasa à mon if s.v.p
+        if(button == i4Dbutton1 || button == i4Dbutton4 || button == i4Dbutton7)
+           Form_1();
+        else if(button == i4Dbutton2 || button == i4Dbutton5 || button == i4Dbutton8)
+           Form_2();
+        else if(button == i4Dbutton3 || button == i4Dbutton6 || button == i4Dbutton9)
+           Form_3();
 
 }
 
@@ -142,9 +164,15 @@ void loop()
 void Form_1()
 {
       gfx.Cls();
-      gfx.Button(1, 75, 425, RED, YELLOW, FONT1, 3, 1, "BATTERIE") ; // ?%Name?<(BATTERIE_F1) Width=69 Height=33
-      gfx.Button(1, 320, 425, RED, YELLOW, FONT1, 3, 1, "ACCUMULATEUR") ; // ?%Name?<(ACCUMULATEUR_F1) Width=97 Height=33
-      gfx.Button(1, 565, 425, RED, YELLOW, FONT1, 3, 1, "MOTEUR_DRIVE_COOLANT") ; // ?%Name?<(MOTEUR_DRIVE_COOLANT_F1) Width=153 Height=33
+      gfx.imageTouchEnable(i4Dbutton1, true, MOMENTARY) ;        // init_4Dbutton1(BATTERIE_F1) enable touch of widget (on Form1)
+      gfx.UserImages(i4Dbutton1,0) ;                             // init_4Dbutton1(BATTERIE_F1) show initially, if required (on Form1)
+      gfx.imageTouchEnable(i4Dbutton2, true, MOMENTARY) ;        // init_4Dbutton2(ACCUMULATEUR_F1) enable touch of widget (on Form1)
+      gfx.UserImages(i4Dbutton2,0) ;                             // init_4Dbutton2(ACCUMULATEUR_F1) show initially, if required (on Form1)
+      gfx.imageTouchEnable(i4Dbutton3, true, MOMENTARY) ;        // init_4Dbutton3(MOTEUR_DRIVE_COOLANT_F1) enable touch of widget (on Form1)
+      gfx.UserImages(i4Dbutton3,0) ;                             // init_4Dbutton3(MOTEUR_DRIVE_COOLANT_F1) show initially, if required (on Form1)
+      gfx.UserImage(iStatictext14) ;  // BATTERIE_BTN_TXT
+      gfx.UserImage(iStatictext15) ;  // ACCUMULATEUR_BTN_TXT_FORM1
+      gfx.UserImage(iStatictext16) ;  // MOTEUR_DRIVE_COOLANT_BTN_TXT_FORM1
       gfx.UserImage(iStatictext1) ;  // PAGE_NAME_BATTERIE
       gfx.UserImage(iStatictext3) ;  // LBL_TEMP_BATTERIE
       gfx.UserImage(iStatictext4) ;  // LBL_NIVEAU_CHARGE
@@ -159,9 +187,15 @@ void Form_1()
 void Form_2()
 {
     gfx.Cls();
-    gfx.Button(1, 75, 425, RED, YELLOW, FONT1, 3, 1, "BATTERIE") ; // ?%Name?<(BATTERIE_F2) Width=69 Height=33
-    gfx.Button(1, 320, 425, RED, YELLOW, FONT1, 3, 1, "ACCUMULATEUR") ; // ?%Name?<(ACCUMULATEUR_F2) Width=97 Height=33
-    gfx.Button(1, 565, 425, RED, YELLOW, FONT1, 3, 1, "MOTEUR_DRIVE_COOLANT") ; // ?%Name?<(MOTEUR_DRIVE_COOLANT_F2) Width=153 Height=33
+    gfx.imageTouchEnable(i4Dbutton4, true, MOMENTARY) ;        // init_4Dbutton4(BATTERIE_F2) enable touch of widget (on Form2)
+    gfx.UserImages(i4Dbutton4,0) ;                             // init_4Dbutton4(BATTERIE_F2) show initially, if required (on Form2)
+    gfx.imageTouchEnable(i4Dbutton5, true, MOMENTARY) ;        // init_4Dbutton5(ACCUMULATEUR_F2) enable touch of widget (on Form2)
+    gfx.UserImages(i4Dbutton5,0) ;                             // init_4Dbutton5(ACCUMULATEUR_F2) show initially, if required (on Form2)
+    gfx.imageTouchEnable(i4Dbutton6, true, MOMENTARY) ;        // init_4Dbutton6(MOTEUR_DRIVE_COOLANT_F2) enable touch of widget (on Form2)
+    gfx.UserImages(i4Dbutton6,0) ;                             // init_4Dbutton6(MOTEUR_DRIVE_COOLANT_F2) show initially, if required (on Form2)
+    gfx.UserImage(iStatictext17) ;  // BATTERIE_BTN_TXT_FORM2
+    gfx.UserImage(iStatictext18) ;  // ACCUMULATEUR_BTN_TXT_FORM2
+    gfx.UserImage(iStatictext19) ;  // MOTEUR_DRIVE_COOLANT_BTN_TXT_FORM2
     gfx.UserImage(iStatictext5) ;  // LBL_ACCUMULATEUR
     gfx.UserImage(iStatictext9) ;  // LBL_TEMP_ACCUMULATEUR
     gfx.UserImage(iStatictext6) ;  // LBL_CHARGE_ACCUMULATEUR
@@ -171,6 +205,7 @@ void Form_2()
     gfx.UserImages(iGauge2, 50) ; // where frame is 0 to 100 (for a displayed 0 to 100)
     gfx.UserImages(iAngularmeter1, 50) ; // where frame is 0 to 100 (for a displayed 0 to 100)
     gfx.LedDigitsDisplay(50, iiLeddigits2, 4, 3, 46, 0) ;  // Leddigits2
+
 }
 
 
@@ -178,9 +213,15 @@ void Form_2()
 void Form_3()
 {
     gfx.Cls();
-    gfx.Button(1, 75, 425, RED, YELLOW, FONT1, 3, 1, "BATTERIE") ; // ?%Name?<(BATTERIE_F3) Width=69 Height=33
-    gfx.Button(1, 320, 425, RED, YELLOW, FONT1, 3, 1, "ACCUMULATEUR") ; // ?%Name?<(ACCUMULATEUR_F3) Width=97 Height=33
-    gfx.Button(1, 565, 425, RED, YELLOW, FONT1, 3, 1, "MOTEUR_DRIVE_COOLANT") ; // ?%Name?<(MOTEUR_DRIVE_COOLANT_F3) Width=153 Height=33
+    gfx.imageTouchEnable(i4Dbutton7, true, MOMENTARY) ;        // init_4Dbutton7(BATTERIE_F3) enable touch of widget (on Form3)
+    gfx.UserImages(i4Dbutton7,0) ;                             // init_4Dbutton7(BATTERIE_F3) show initially, if required (on Form3)
+    gfx.imageTouchEnable(i4Dbutton8, true, MOMENTARY) ;        // init_4Dbutton8(ACCUMULATEUR_F3) enable touch of widget (on Form3)
+    gfx.UserImages(i4Dbutton8,0) ;                             // init_4Dbutton8(ACCUMULATEUR_F3) show initially, if required (on Form3)
+    gfx.imageTouchEnable(i4Dbutton9, true, MOMENTARY) ;        // init_4Dbutton9(MOTEUR_DRIVE_COOLANT_F3) enable touch of widget (on Form3)
+    gfx.UserImages(i4Dbutton9,0) ;                             // init_4Dbutton9(MOTEUR_DRIVE_COOLANT_F3) show initially, if required (on Form3)
+    gfx.UserImage(iStatictext20) ;  // BATTERIE_BTN_TXT_FORM3
+    gfx.UserImage(iStatictext21) ;  // ACCUMULATEUR_BTN_TXT_FORM3
+    gfx.UserImage(iStatictext22) ;  // MOTEUR_DRIVE_COOLANT_BTN_TXT_FORM3
     gfx.UserImage(iStatictext10) ;  // LBL_MOTEUR_DRIVE_COOLANT
     gfx.UserImage(iStatictext11) ;  // LBL_TEMP_MOTEUR
     gfx.UserImage(iStatictext12) ;  // LBL_TEMP_DRIVE
@@ -188,6 +229,5 @@ void Form_3()
     gfx.UserImages(iThermometer3, 50) ; // where frame is 0 to 80 (for a displayed 20 to 100)
     gfx.UserImages(iThermometer4, 50) ; // where frame is 0 to 80 (for a displayed 20 to 100)
     gfx.UserImages(iThermometer5, 50) ; // where frame is 0 to 80 (for a displayed 20 to 100)
-
 
 }
