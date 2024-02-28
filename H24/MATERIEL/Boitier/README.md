@@ -3,4 +3,6 @@
 
 ## Ce qu'il si trouve
 
-* 
+* _**3mf**_ : Dossier qui contient des fichier 3mf pour l'impression 3D
+
+* _**STL**_ : Dossier qui contient des fichier STL pour la visualisation 3D  
