@@ -1,0 +1,12 @@
+
+
+Bonjour,
+
+
+Je suis un étudiant en génie électrique au Cégep de Sherbrooke. Mon équipier et moi faisons un projet avec l'un de vos écrans : le GEN4-ESP32-70CT.
+Après avoir installé les librairies, nous rencontrons, malheureusement, nous rencontrons un problème de compilation. Il semblerait que "gfx4desp32_gen4_ESP32_70CT.h"
+ne soit pas inclus dans la librairie "GFX4dESP32". Nous nous demandons si cela est normal.
+
+Merci d'avance,
+
+Cordialement, Marc-Étienne Gendron-Fontaine.
