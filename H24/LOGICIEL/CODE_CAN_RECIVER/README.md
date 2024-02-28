@@ -6,17 +6,16 @@ Quand il reçoit une trame CAN, il fait passer l’ID dans un Switch/case qui va
 selon le capteur. Une vérification de la trame est faite puis on affiche la partie "data" de la trame.
 
 
--> Les codes se trouvent dans le dossier "src".
+* Les codes se trouvent dans le dossier "src".
 
-  -> Le dossier "src" contient trois fichiers : "main.cpp", "CAN_FCT.h" et "ID_CAPT.h".
+* Le dossier "src" contient trois fichiers : "main.cpp", "CAN_FCT.h" et "ID_CAPT.h".
 
-    -> main.cpp : Contiens la fonction "setup" et la fonction "main".
+* main.cpp : Contiens la fonction "setup" et la fonction "main".
 
-    -> CAN_FCT.cpp : Contiens toutes les fonctions qui seront utiles au projet (lecture de la trame CAN, vérification de la trame CAN, affichage des informations, etc.)
+* CAN_FCT.cpp : Contiens toutes les fonctions qui seront utiles au projet (lecture de la trame CAN, vérification de la trame CAN, affichage des informations, etc.)
 
-    -> CAN_FCT.h : Ce fichier d'entête contient toutes les prototype de fonctions qui seront utiles au projet (lecture de la trame CAN, vérification de la trame CAN, affichage des informations, etc.)
+* CAN_FCT.h : Ce fichier d'entête contient toutes les prototype de fonctions qui seront utiles au projet (lecture de la trame CAN, vérification de la trame CAN, affichage des informations, etc.)
 
-    -> ID_CAPT.h : Contiens tous les ID (qui sont temporaires dans l'immédiat) des capteurs.
+* ID_CAPT.h : Contiens tous les ID (qui sont temporaires dans l'immédiat) des capteurs.
 
-
--> platformio.ini : Ce fichier est l'initialisation de débogueur du PlatformIO.
+* platformio.ini : Ce fichier est l'initialisation de débogueur du PlatformIO.
