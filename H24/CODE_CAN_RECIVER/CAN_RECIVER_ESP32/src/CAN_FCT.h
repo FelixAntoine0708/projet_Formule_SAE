@@ -11,9 +11,6 @@ Encironement: Visual Studio Code V 1.86.2, Système d’exploitation : Linux x6
 
 
 
-//
-//#include <math.h>
-
 
 void affiche_data(CanFrame rxFrame);
 void verif_trame(CanFrame rxFrame);
