@@ -6,24 +6,27 @@
 Programme : AFFICHAGE_SAE_V1.ino
 Auteur :    Marc-Étienne Gendron-Fontaine
 Date :      21 février 2024
-Brief :     Ce fichier contiens le code de base pour afficher des données FICTIFES!!!!! Le but
-            de ce programme est de démontrer la fonctionnalitée de l'écran gen4_ESP32_70CT. En
+Brief :     Ce fichier contient le code de base pour afficher des données FICTIFES!!!!! Le but
+            de ce programme est de démontrer la fonctionnalité de l'écran gen4_ESP32_70CT. En
             gros, la seule chose que le programme permet de faire, ces de changer de page avec
-            l'aide des bontons.
+            l'aide des boutons.
 
 Matérielle: ESP32-S3R8 (dans l'écran), écran gen4_ESP32_70CT
-Encironement: Workshop 4 V4.9.0.7, Système d’exploitation : Windows 10 V22H2.
+Encironement: Workshop 4 V4.9.0.7,
+Système d’exploitation : Windows 10 V22H2.
+
 */
 
 
 
-//#include "gfx4desp32_gen4_ESP32_70CT.h" //"gfx4desp32_gen4_ESP32_50CT.h"
-  #include "gfx4desp32_gen4_ESP32_50CT.h"
-gfx4desp32_gen4_ESP32_50CT gfx = gfx4desp32_gen4_ESP32_50CT();
+//#include "gfx4desp32_gen4_ESP32_70CT.h" //"gfx4desp32_gen4_ESP32_70CT.h"
+#include "gfx4desp32_gen4_ESP32_70CT.h"
+  //#include "gfx4desp32_gen4_ESP32_50CT.h"
+gfx4desp32_gen4_ESP32_70CT gfx = gfx4desp32_gen4_ESP32_70CT();
 
 #include "AFFICHAGE_SAE_V1Const.h"    // Note. This file will not be created if there are no generated graphics
 
-// Constante pour les position en X et Y des BTN.   !!!!!!!!! À CHANGER !!!!!!!!!
+// Constante pour les positions en X et Y des BTN.   !!!!!!!!! À CHANGER !!!!!!!!!
 #define X_BTN_BATTERIE 75
 #define X_BTN_ACCUMULATEUR 320
 #define X_BTN_MOTEUR_DRIVE_COOLANT 565
@@ -157,8 +160,10 @@ void loop()
         int val = gfx.getImageValue(button);
 
 
-        // Code pour faire changere les pages en appuyant sur les BTN!!!!!!!!!
-        // Félix, ne touche pasa à mon if s.v.p
+        /*
+            Code pour faire changer les pages en appuyant sur les BTN!!!!!!!!!
+            Félix, ne touche pas à mon if s.v.p
+        */
         if(button == i4Dbutton1 || button == i4Dbutton4 || button == i4Dbutton7)
            Form_1();
         else if(button == i4Dbutton2 || button == i4Dbutton5 || button == i4Dbutton8)
@@ -166,10 +171,16 @@ void loop()
         else if(button == i4Dbutton3 || button == i4Dbutton6 || button == i4Dbutton9)
            Form_3();
 
-        delay(1);
+        delay(10);   // Delay de 10ms
 }
 
 
+
+/*
+Brief   : Affiche la page BATTERIE.
+Param   : Rien
+Return  : Rien
+*/
 void Form_1()
 {
       gfx.Cls();
@@ -193,6 +204,12 @@ void Form_1()
 }
 
 
+
+/*
+Brief   : Affiche la page ACCUMULATEUR.
+Param   : Rien
+Return  : Rien
+*/
 void Form_2()
 {
     gfx.Cls();
@@ -218,7 +235,11 @@ void Form_2()
 }
 
 
-
+/*
+Brief   : Affiche la page MOTEUR_DRIVE_COOLANT.
+Param   : Rien
+Return  : Rien
+*/
 void Form_3()
 {
     gfx.Cls();
