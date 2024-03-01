@@ -1,0 +1,6 @@
+Added Component: Designator=j2(ATM134PBM02)
+Added Pin To Net: NetName=+12 Pin=j2-1
+Added Pin To Net: NetName=NetC8_1 Pin=j2-2
+Added Pin To Net: NetName=NetC7_1 Pin=j2-3
+Added Pin To Net: NetName=GND Pin=j2-4
+Added Member To Class: ClassName=TEMPLATE_Circuit Member=Component j2 ATM13-4P-BM02
