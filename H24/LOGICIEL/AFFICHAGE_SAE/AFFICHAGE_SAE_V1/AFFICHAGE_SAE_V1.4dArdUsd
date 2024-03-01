@@ -5,7 +5,7 @@ Depends
 end
 Options
     Arduino_uSD
-    FQBN                         esp32:esp32:gen4-ESP32-S3R8n16
+    FQBN                         esp32:esp32:gen4-ESP32-S3R8n16:LoopCore=1,DebugLevel=none,CPUFreq=240,EraseFlash=none,EventsCore=1,FlashMode=qio,FlashSize=16M,PartitionScheme=gen4esp32scheme1,PSRAM=opi,UploadMode=default,UploadSpeed=921600,CDCOnBoot=cdc,DFUOnBoot=default,MSCOnBoot=default,USBMode=default
     Speed                        9600
     Checksum                     No
     ResponseSize                 2
@@ -52,7 +52,7 @@ Thermometer
     Font.Size                    8
     Font.Style                   []
     Height                       285
-    Left                         40
+    Left                         36
     Scale.Color                  BLACK
     Scale.Decimals               0
     Scale.Heightmax              14
@@ -71,7 +71,7 @@ Thermometer
     Setpoint.Value               33
     Setpoint.Visible             No
     ShowCaption                  No
-    Top                          92
+    Top                          80
     Value.Bitmap                 (None)
     Value.Color                  clAqua
     Value.Shape                  Line
@@ -224,12 +224,12 @@ end
     Name                         4Dbutton1
     Alias                        BATTERIE_F1
     Height                       48
-    Left                         88
+    Left                         75
     Matrix                       -1
     Momentary                    Yes
     Size                         48x48
     Style                        Red
-    Top                          420
+    Top                          425
     Type                         Button01
     Width                        48
     OnChanged                    ''
@@ -607,12 +607,12 @@ end
     Name                         4Dbutton4
     Alias                        BATTERIE_F2
     Height                       48
-    Left                         72
+    Left                         75
     Matrix                       -1
     Momentary                    Yes
     Size                         48x48
     Style                        Red
-    Top                          416
+    Top                          425
     Type                         Button01
     Width                        48
     OnChanged                    ''
@@ -963,12 +963,12 @@ end
     Name                         4Dbutton7
     Alias                        BATTERIE_F3
     Height                       48
-    Left                         88
+    Left                         75
     Matrix                       -1
     Momentary                    Yes
     Size                         48x48
     Style                        Red
-    Top                          412
+    Top                          425
     Type                         Button01
     Width                        48
     OnChanged                    ''

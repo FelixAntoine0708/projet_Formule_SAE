@@ -1,4 +1,4 @@
-"Thermometer1" 0000 0000 28 5C
+"Thermometer1" 0000 0000 24 50
 "Gauge1" 1C00 005F 144 90
 "Statictext1" E800 00A5 140 1C
 "Statictext2" 0800 00A6 238 6C
@@ -6,7 +6,7 @@
 "iLeddigits1" 9C00 00A6 240 FC
 "Statictext3" 3400 00A7 14 30
 "Statictext4" 6400 00A7 F8 64
-"4Dbutton1" BC00 00A7 58 1A4
+"4Dbutton1" BC00 00A7 4B 1A4
 "4Dbutton2" E200 00A7 160 1A8
 "4Dbutton3" 0800 00A8 298 19C
 "Statictext14" 2E00 00A8 38 180
@@ -23,7 +23,7 @@
 "Statictext8" 9A00 01B7 25C 58
 "Statictext9" B800 01B7 20 4C
 "Statictext17" C800 01B7 34 180
-"4Dbutton4" DA00 01B7 48 1A0
+"4Dbutton4" DA00 01B7 4B 1A9
 "Statictext18" 0000 01B8 FC 174
 "4Dbutton5" 1C00 01B8 130 19C
 "Statictext19" 4200 01B8 1FC 16C
@@ -38,6 +38,6 @@
 "Statictext20" 1E00 0268 48 160
 "Statictext21" 3000 0268 110 164
 "Statictext22" 4C00 0268 1F8 164
-"4Dbutton7" 7A00 0268 58 19C
+"4Dbutton7" 7A00 0268 4B 1A9
 "4Dbutton8" A000 0268 148 19C
 "4Dbutton9" C600 0268 275 1A3

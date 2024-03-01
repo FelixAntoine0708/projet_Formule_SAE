@@ -52,11 +52,11 @@ void setup()
 
   // FORM 1    BATTERIE_PAGE
 
-  gfx.imageTouchEnable(i4Dbutton1, true, MOMENTARY) ;        // init_4Dbutton1(BATTERIE_F1) enable touch of widget (on Form1)
+  //gfx.imageTouchEnable(i4Dbutton1, true, MOMENTARY) ;        // init_4Dbutton1(BATTERIE_F1) enable touch of widget (on Form1)
   gfx.UserImages(i4Dbutton1,0) ;                             // init_4Dbutton1(BATTERIE_F1) show initially, if required (on Form1)
-  gfx.imageTouchEnable(i4Dbutton2, true, MOMENTARY) ;        // init_4Dbutton2(ACCUMULATEUR_F1) enable touch of widget (on Form1)
+  //gfx.imageTouchEnable(i4Dbutton2, true, MOMENTARY) ;        // init_4Dbutton2(ACCUMULATEUR_F1) enable touch of widget (on Form1)
   gfx.UserImages(i4Dbutton2,0) ;                             // init_4Dbutton2(ACCUMULATEUR_F1) show initially, if required (on Form1)
-  gfx.imageTouchEnable(i4Dbutton3, true, MOMENTARY) ;        // init_4Dbutton3(MOTEUR_DRIVE_COOLANT_F1) enable touch of widget (on Form1)
+  //gfx.imageTouchEnable(i4Dbutton3, true, MOMENTARY) ;        // init_4Dbutton3(MOTEUR_DRIVE_COOLANT_F1) enable touch of widget (on Form1)
   gfx.UserImages(i4Dbutton3,0) ;                             // init_4Dbutton3(MOTEUR_DRIVE_COOLANT_F1) show initially, if required (on Form1)
   gfx.UserImage(iStatictext14) ;  // BATTERIE_BTN_TXT
   gfx.UserImage(iStatictext15) ;  // ACCUMULATEUR_BTN_TXT_FORM1
@@ -72,11 +72,11 @@ void setup()
 
   // FORM 2    ACCUMULATEUR_PAGE
 
-  gfx.imageTouchEnable(i4Dbutton4, true, MOMENTARY) ;        // init_4Dbutton4(BATTERIE_F2) enable touch of widget (on Form2)
+  //gfx.imageTouchEnable(i4Dbutton4, true, MOMENTARY) ;        // init_4Dbutton4(BATTERIE_F2) enable touch of widget (on Form2)
   gfx.UserImages(i4Dbutton4,0) ;                             // init_4Dbutton4(BATTERIE_F2) show initially, if required (on Form2)
-  gfx.imageTouchEnable(i4Dbutton5, true, MOMENTARY) ;        // init_4Dbutton5(ACCUMULATEUR_F2) enable touch of widget (on Form2)
+  //gfx.imageTouchEnable(i4Dbutton5, true, MOMENTARY) ;        // init_4Dbutton5(ACCUMULATEUR_F2) enable touch of widget (on Form2)
   gfx.UserImages(i4Dbutton5,0) ;                             // init_4Dbutton5(ACCUMULATEUR_F2) show initially, if required (on Form2)
-  gfx.imageTouchEnable(i4Dbutton6, true, MOMENTARY) ;        // init_4Dbutton6(MOTEUR_DRIVE_COOLANT_F2) enable touch of widget (on Form2)
+  //gfx.imageTouchEnable(i4Dbutton6, true, MOMENTARY) ;        // init_4Dbutton6(MOTEUR_DRIVE_COOLANT_F2) enable touch of widget (on Form2)
   gfx.UserImages(i4Dbutton6,0) ;                             // init_4Dbutton6(MOTEUR_DRIVE_COOLANT_F2) show initially, if required (on Form2)
   gfx.UserImage(iStatictext17) ;  // BATTERIE_BTN_TXT_FORM2
   gfx.UserImage(iStatictext18) ;  // ACCUMULATEUR_BTN_TXT_FORM2
@@ -99,11 +99,11 @@ void setup()
 
   // FORM 3     MOTEUR_DRIVE_COOLANT_PAGE
 
-  gfx.imageTouchEnable(i4Dbutton7, true, MOMENTARY) ;        // init_4Dbutton7(BATTERIE_F3) enable touch of widget (on Form3)
+  //gfx.imageTouchEnable(i4Dbutton7, true, MOMENTARY) ;        // init_4Dbutton7(BATTERIE_F3) enable touch of widget (on Form3)
   gfx.UserImages(i4Dbutton7,0) ;                             // init_4Dbutton7(BATTERIE_F3) show initially, if required (on Form3)
-  gfx.imageTouchEnable(i4Dbutton8, true, MOMENTARY) ;        // init_4Dbutton8(ACCUMULATEUR_F3) enable touch of widget (on Form3)
+  //gfx.imageTouchEnable(i4Dbutton8, true, MOMENTARY) ;        // init_4Dbutton8(ACCUMULATEUR_F3) enable touch of widget (on Form3)
   gfx.UserImages(i4Dbutton8,0) ;                             // init_4Dbutton8(ACCUMULATEUR_F3) show initially, if required (on Form3)
-  gfx.imageTouchEnable(i4Dbutton9, true, MOMENTARY) ;        // init_4Dbutton9(MOTEUR_DRIVE_COOLANT_F3) enable touch of widget (on Form3)
+  //gfx.imageTouchEnable(i4Dbutton9, true, MOMENTARY) ;        // init_4Dbutton9(MOTEUR_DRIVE_COOLANT_F3) enable touch of widget (on Form3)
   gfx.UserImages(i4Dbutton9,0) ;                             // init_4Dbutton9(MOTEUR_DRIVE_COOLANT_F3) show initially, if required (on Form3)
   gfx.UserImage(iStatictext20) ;  // BATTERIE_BTN_TXT_FORM3
   gfx.UserImage(iStatictext21) ;  // ACCUMULATEUR_BTN_TXT_FORM3
@@ -141,7 +141,6 @@ void setup()
   */
 
 
-
   Form_2();    // Affiche la deuxiàme page
 
 
@@ -152,22 +151,26 @@ void loop()
 {
   // put your main code here, to run repeatedly:
 
-        int button = gfx.ImageTouchedAuto();    // use default for keyboards and buttons
-        int val = gfx.getImageValue(button);
+        if(gfx.touch_Update())
+        {
+            int button = gfx.ImageTouchedAuto();    // use default for keyboards and buttons
+            int val = gfx.getImageValue(button);
 
 
-        /*
-            Code pour faire changer les pages en appuyant sur les BTN!!!!!!!!!
-            Félix, ne touche pas à mon if s.v.p
-        */
-        if(button == i4Dbutton1 || button == i4Dbutton4 || button == i4Dbutton7)
-           Form_1();
-        else if(button == i4Dbutton2 || button == i4Dbutton5 || button == i4Dbutton8)
-           Form_2();
-        else if(button == i4Dbutton3 || button == i4Dbutton6 || button == i4Dbutton9)
-           Form_3();
 
-        delay(10);   // Delay de 10ms
+              /*
+                  Code pour faire changer les pages en appuyant sur les BTN!!!!!!!!!
+                  Félix, ne touche pas à mon if s.v.p
+              */
+              if(button == i4Dbutton1 || button == i4Dbutton4 || button == i4Dbutton7)
+                  Form_1();
+              else if(button == i4Dbutton2 || button == i4Dbutton5 || button == i4Dbutton8)
+                 Form_2();
+              else if(button == i4Dbutton3 || button == i4Dbutton6 || button == i4Dbutton9)
+                 Form_3();
+
+        }
+
 }
 
 
@@ -209,6 +212,9 @@ Return  : Rien
 void Form_2()
 {
     gfx.Cls();
+
+
+
     gfx.imageTouchEnable(i4Dbutton4, true, MOMENTARY) ;        // init_4Dbutton4(BATTERIE_F2) enable touch of widget (on Form2)
     gfx.UserImages(i4Dbutton4,0) ;                             // init_4Dbutton4(BATTERIE_F2) show initially, if required (on Form2)
     gfx.imageTouchEnable(i4Dbutton5, true, MOMENTARY) ;        // init_4Dbutton5(ACCUMULATEUR_F2) enable touch of widget (on Form2)
