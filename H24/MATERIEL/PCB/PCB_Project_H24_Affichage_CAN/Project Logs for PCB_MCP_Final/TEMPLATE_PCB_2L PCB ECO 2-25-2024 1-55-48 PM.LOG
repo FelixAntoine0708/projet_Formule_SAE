@@ -1,0 +1,10 @@
+Added Component: Designator=J2(ATM134PBM02)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "ATM13-4P-BM02"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = "https://www.arrow.com/en/products/atm13-4p-bm02/amphenol?region=nac"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "https://www.amphenol-industrial.de/en/amph/download/getMime/YXRtMTMtNHAtYm0wMi1jZHIucGRm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Geometry.Height"; Value = "33.4mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Amphenol"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "ATM13-4P-BM02"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "654-ATM13-4P-BM02"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Amphenol-SINE-Systems/ATM13-4P-BM02?qs=0lSvoLzn4L8TNire0wHiew%3D%3D"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=TEMPLATE_Circuit Member=Component J2 ATM13-4P-BM02

@@ -1,0 +1,42 @@
+Altium Designer Pick and Place Locations
+C:\Users\Utilisateur\AppData\Local\Temp\Releases\Snapshot\1\Sources\REV 1.00 (2024-03-01)\04 - ASSEMBLY\PCB_MCP_Final_PCB PNP XY REV 1.00.csv
+
+========================================================================================================================
+File Design Information:
+
+Date:       01/03/24
+Time:       10:55
+Revision:   Not in VersionControl
+Variant:    No variations
+Units used: mil
+
+"Designator","Description","Package","Layer","Center-X(mil)","Center-Y(mil)","Rotation","Assembly Note","Assembly Type","Polarized","Manufacturer #1","Part Number #1","HelpURL"
+"P1","Through Hole Header, Pitch 2.54 mm, 2 x 3 Position, Height 8.58 mm, Tail Length 2.54 mm, -55 to 125 degC, RoHS, Bulk","","TopLayer","1000,000","574,803","270","","","","","",""
+"U1","IC TRANSCEIVER HALF 1/1 8SO","","TopLayer","1763,780","594,488","0","","","","","",""
+"D1","DIODE SCHOTTKY 40V 1A SOD123F","425AD","TopLayer","2362,205","1477,559","90","","","","","",""
+"SER1","SER - SERIAL CARTRIDGE MICRO","","BottomLayer","-22125,630","-17293,543","180","","NONE","","","",""
+"REV1","REV - REVISION CARTRIDGE MINI","","BottomLayer","-22125,630","-17293,543","180","","NONE","","","",""
+"U2","Stand-Alone CAN Controller With SPI Interface, 18-Pin SOIC, Extended Temperature","","TopLayer","913,386","1194,094","180","","","","","",""
+"U3","SIMPLE SWITCHER® Power Converter High Efficiency 1A Step-Down Voltage Regulator, 8-pin Narrow SOIC","","TopLayer","2254,921","1224,213","0","","","","","",""
+"J2","","","TopLayer","3268,701","1239,764","270","","","","","",""
+"J3","CONN HEADER VERT 3POS 2.54MM","90120-0763","TopLayer","618,110","1657,480","90","","","","","",""
+"Y1","Resistance Weld Crystal, 8 MHz, +/- 30 ppm, -20 to 70 degC, 2-Pin SMD, RoHS, Tape and Reel","","TopLayer","1385,827","1196,850","270","","","","","",""
+"J1","","","TopLayer","234,252","1185,039","270","","","","","",""
+"C3","Conductive Polymer Aluminum Solid Capacitors (OS-CON) 68uF ±20% 50V RADIAL SMT 10x12.6mm","","TopLayer","2051,181","1744,094","270","","","","","",""
+"L1","","","TopLayer","1791,339","1177,165","270","","","","","",""
+"C5","Capacitor; Ceramic; Cap; 22.0pF; Tol 5%; SMT; Vol-Rtg 50V; C0G; Tape and Reel","C0805C-DN","TopLayer","1224,409","1350,394","90","","","","","",""
+"C4","Capacitor; Ceramic; Cap; 22.0pF; Tol 5%; SMT; Vol-Rtg 50V; C0G; Tape and Reel","C0805C-DN","TopLayer","1224,409","1037,402","270","","","","","",""
+"C10","CAP CER 0.022UF 50V X7R 0805","C0805C-DN","TopLayer","763,779","889,764","0","","","","","",""
+"C6","CAP CER 0.022UF 50V X7R 0805","C0805C-DN","TopLayer","1547,244","586,614","90","","","","","",""
+"D2","LED GREEN CLEAR 0805 SMD","SML-210","TopLayer","2996,063","299,213","0","","","","","",""
+"R6","Chip Resistor, 1 KOhm, +/- 1%, 125 mW, -55 to 155 degC, 0805 (2012 Metric), RoHS, Tape and Reel","","TopLayer","496,063","1696,850","270","","","","","",""
+"R1","","","TopLayer","3165,354","299,213","0","","","","","",""
+"R4","","","TopLayer","2272,485","897,320","270","","","","","",""
+"C9","CAP ALUM 100UF 20% 50V SMD","","TopLayer","519,685","555,118","90","","","","","",""
+"C1","CAP ALUM 100UF 20% 50V SMD","","TopLayer","2641,732","1704,724","270","","","","","",""
+"C8","CAP CER 100PF 50V C0G/NPO 0805","","TopLayer","2771,653","1121,961","270","","","","","",""
+"C7","CAP CER 100PF 50V C0G/NPO 0805","","TopLayer","2771,653","779,442","270","","","","","",""
+"C2","Chip Capacitor, 10 nF, +/- 10%, 50 V, -55 to 125 degC, 0603 (1608 Metric), RoHS, Tape and Reel","","TopLayer","2062,992","1326,772","90","","","","","",""
+"R2","Chip Resistor, 10 KOhm, +/- 1%, 0.125 W, -55 to 155 degC, 0805 (2012 Metric), RoHS, Tape and Reel","","TopLayer","618,110","1008,663","270","","","","","",""
+"R5","","","TopLayer","2474,410","814,875","180","","","","","",""
+"R3","","","TopLayer","2474,410","982,283","180","","","","","",""

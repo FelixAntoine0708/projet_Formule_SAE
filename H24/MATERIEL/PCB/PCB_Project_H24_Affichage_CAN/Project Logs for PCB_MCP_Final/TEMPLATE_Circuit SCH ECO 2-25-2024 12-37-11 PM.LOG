@@ -1,0 +1,4 @@
+Change Component Footprint: Designator=REV1 Old Footprint=REV_REVISION_CARTRIDGE_MINI New Footprint=REV_REVISION_CARTRIDGE_MINI
+Change Component Footprint: Designator=SER1 Old Footprint=SER_SERIAL_CARTRIDGE_MICRO New Footprint=SER_SERIAL_CARTRIDGE_MICRO
+Change Component Comment: Designator=REV1 Old Comment=REV_REVISION_CARTRIDGE_MINI New Comment=Revision Cartridge Mini
+Change Component Comment: Designator=SER1 Old Comment=SER_SERIAL_CARTRIDGE_MICRO New Comment=Serial Cartridge MICRO

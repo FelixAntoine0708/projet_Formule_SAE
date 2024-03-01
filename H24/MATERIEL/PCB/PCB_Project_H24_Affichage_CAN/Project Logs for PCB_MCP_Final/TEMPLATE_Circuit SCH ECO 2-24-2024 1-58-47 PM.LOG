@@ -1,0 +1,24 @@
+Remove Pin=J1-5 From Net=Enable
+Remove Pin=J1-7 From Net=GPIO_3
+Remove Pin=J1-8 From Net=GPIO_4
+Remove Pin=J1-9 From Net=INT
+Remove Pin=J1-12 From Net=CS
+Remove Pin=J1-13 From Net=MOSI
+Remove Pin=J1-14 From Net=CLOCK
+Remove Pin=J1-15 From Net=MISO
+Remove Pin=P1-1 From Net=RX MCP2515
+Remove Pin=P1-2 From Net=TX MCP2515
+Remove Pin=P1-3 From Net=RX TJA1050
+Remove Pin=P1-4 From Net=TX TJA1050
+Remove Pin=P1-5 From Net=GPIO_4
+Remove Pin=P1-6 From Net=GPIO_3
+Remove Pin=U1-1 From Net=TX TJA1050
+Remove Pin=U1-4 From Net=RX TJA1050
+Remove Pin=U1-8 From Net=Enable
+Remove Pin=U2-1 From Net=TX MCP2515
+Remove Pin=U2-2 From Net=RX MCP2515
+Remove Pin=U2-12 From Net=INT
+Remove Pin=U2-13 From Net=CLOCK
+Remove Pin=U2-14 From Net=MOSI
+Remove Pin=U2-15 From Net=MISO
+Remove Pin=U2-16 From Net=CS
