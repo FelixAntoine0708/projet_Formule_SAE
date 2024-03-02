@@ -2,7 +2,7 @@
 
 ## Ce qu'il contient
 
-* AFFICHAGE_SAE : Contiens le code de l'affichage SAE
+* AFFICHAGE_SAE : Contiens des codes d'affichage SAE (Plusieurs choix pour client)
 
 * CODE_CAN_RECIVER : Contiens le code pour qu'un ESP32-S3 puisse recevoir des trames CAN.
 

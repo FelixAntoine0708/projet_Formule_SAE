@@ -1,11 +1,18 @@
-Ici se trouve le dossier "AFFICHAGE_SAE_V1" qui contient le code de la version 1 de l'affichage SAE.
+# AFFICHAGE_SAE
 
-* Le dossier "AFFICHAGE_SAE_V1" contient les fichiers suivant : AFFICHAGE_SAE_V1.ino et AFFICHAGE_SAE_V1.4Dino
+## Ce qu'il contient
 
-* AFFICHAGE_SAE_V1.ino : Contiens le code de l'affichage (setup et main).
+* AFFICHAGE_SAE_V1_MA_Gendron-Fontaine : Premier Affichage MA
 
-* AFFICHAGE_SAE_V1.4Dino : Contiens le code de l'affichage (setup et main). Probablement le code qu'utilise 4D Workshop.
+* Code_Affichage_SAE_V1_FA_Guimont : Premier Affichage FA
 
 * INSTRUCTION_POUR_FAIRE_AFFICHAGE.odt : Début des instructions pour faire/coder l'affichage.
 
-* E-MAIL_4D_SYSTEM.txt : Juste une copie du Courriel de 4D System avec les liens de la librairie pour le 70CT.
+> [!TIP]  
+> Dans les fichier de code il contient:
+> * `4dArdUsd`:  Ficher d'extension graphique en Arduino
+> * `4Dino` : Fichier de code de 4D system
+> * `dat` : Fichier qui contient la position des widget sur l'écran en plain text
+> * `gci` : Fichier qui contient la position des widget sur l'écran
+> * `ino` : Fichier de code d'Arduino
+> * `h` : Fichier qui contient les widgets sur l'écran uniquement 
