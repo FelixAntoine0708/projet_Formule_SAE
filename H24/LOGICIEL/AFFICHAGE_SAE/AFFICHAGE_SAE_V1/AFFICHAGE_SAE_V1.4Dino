@@ -183,6 +183,7 @@ Return  : Rien
 void Form_1()
 {
       gfx.Cls();
+      //gfx.imageTouchEnable(-1, true); // Active la détection du touché des widget
       gfx.imageTouchEnable(i4Dbutton1, true, MOMENTARY) ;        // init_4Dbutton1(BATTERIE_F1) enable touch of widget (on Form1)
       gfx.UserImages(i4Dbutton1,0) ;                             // init_4Dbutton1(BATTERIE_F1) show initially, if required (on Form1)
       gfx.imageTouchEnable(i4Dbutton2, true, MOMENTARY) ;        // init_4Dbutton2(ACCUMULATEUR_F1) enable touch of widget (on Form1)
@@ -214,7 +215,7 @@ void Form_2()
     gfx.Cls();
 
 
-
+    //gfx.imageTouchEnable(-1, true); // Active la détection du touché des widget
     gfx.imageTouchEnable(i4Dbutton4, true, MOMENTARY) ;        // init_4Dbutton4(BATTERIE_F2) enable touch of widget (on Form2)
     gfx.UserImages(i4Dbutton4,0) ;                             // init_4Dbutton4(BATTERIE_F2) show initially, if required (on Form2)
     gfx.imageTouchEnable(i4Dbutton5, true, MOMENTARY) ;        // init_4Dbutton5(ACCUMULATEUR_F2) enable touch of widget (on Form2)
@@ -245,6 +246,7 @@ Return  : Rien
 void Form_3()
 {
     gfx.Cls();
+    //gfx.imageTouchEnable(-1, true); // Active la détection du touché des widget
     gfx.imageTouchEnable(i4Dbutton7, true, MOMENTARY) ;        // init_4Dbutton7(BATTERIE_F3) enable touch of widget (on Form3)
     gfx.UserImages(i4Dbutton7,0) ;                             // init_4Dbutton7(BATTERIE_F3) show initially, if required (on Form3)
     gfx.imageTouchEnable(i4Dbutton8, true, MOMENTARY) ;        // init_4Dbutton8(ACCUMULATEUR_F3) enable touch of widget (on Form3)
