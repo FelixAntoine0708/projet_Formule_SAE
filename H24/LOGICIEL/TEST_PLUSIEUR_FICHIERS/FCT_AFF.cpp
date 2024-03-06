@@ -1,4 +1,16 @@
+/*
+Programme : FCT_AFF.cpp
+Auteur :    Marc-�tienne Gendron-Fontaine
+Date :      5 mars 2024
+Brief :     Ce fichier contient le code de base pour afficher des donn�es FICTIFES!!!!! Le but
+            de ce programme est de d�montrer la fonctionnalit� de l'�cran gen4_ESP32_70CT. En
+            gros, la seule chose que le programme permet de faire, ces de changer de page avec
+            l'aide des boutons.
 
+Mat�rielle: ESP32-S3R8 (dans l'�cran), �cran gen4_ESP32_70CT
+Encironement: Workshop 4 V4.9.0.7,
+Syst�me d�exploitation�: Windows 10 V22H2.
+*/
 
 
 #include "CONST_AFF.h"
@@ -6,6 +18,13 @@
 
 //gfx4desp32_gen4_ESP32_70CT gfx = gfx4desp32_gen4_ESP32_70CT();
 
+
+
+/*
+Brief   : Affiche le premier octet de la section "data" de la trame CAN.
+Param   : rxFrame soit la trame CAN.
+Return  : Rien
+*/
 void init_btn(gfx4desp32_gen4_ESP32_70CT gfx)
 {
 	gfx.RectangleFilled(0, 415, 800, 500, YELLOW);
@@ -17,7 +36,11 @@ void init_btn(gfx4desp32_gen4_ESP32_70CT gfx)
 }
 
 
-
+/*
+Brief   : Affiche le premier octet de la section "data" de la trame CAN.
+Param   : rxFrame soit la trame CAN.
+Return  : Rien
+*/
 void Batterie(gfx4desp32_gen4_ESP32_70CT gfx)
 {
     gfx.MoveTo(150, 150);
@@ -27,6 +50,12 @@ void Batterie(gfx4desp32_gen4_ESP32_70CT gfx)
 }
 
 
+
+/*
+Brief   : Affiche le premier octet de la section "data" de la trame CAN.
+Param   : rxFrame soit la trame CAN.
+Return  : Rien
+*/
 void Accumulateur(gfx4desp32_gen4_ESP32_70CT gfx)
 {
     gfx.MoveTo(150, 150);
@@ -35,7 +64,11 @@ void Accumulateur(gfx4desp32_gen4_ESP32_70CT gfx)
     gfx.print(ACCUMULATEUR);
 }
 
-
+/*
+Brief   : Affiche le premier octet de la section "data" de la trame CAN.
+Param   : rxFrame soit la trame CAN.
+Return  : Rien
+*/
 void Mott(gfx4desp32_gen4_ESP32_70CT gfx)
 {
     gfx.MoveTo(150, 150);
@@ -46,6 +79,12 @@ void Mott(gfx4desp32_gen4_ESP32_70CT gfx)
 }
 
 
+
+/*
+Brief   : Affiche le premier octet de la section "data" de la trame CAN.
+Param   : rxFrame soit la trame CAN.
+Return  : Rien
+*/
 void touch_btn(gfx4desp32_gen4_ESP32_70CT gfx)
 {
 	int pos_x, pos_y;
@@ -72,7 +111,11 @@ void touch_btn(gfx4desp32_gen4_ESP32_70CT gfx)
 }
 
 
-
+/*
+Brief   : Affiche le premier octet de la section "data" de la trame CAN.
+Param   : rxFrame soit la trame CAN.
+Return  : Rien
+*/
 void hello_1(gfx4desp32_gen4_ESP32_70CT gfx)
 {
 	gfx.MoveTo(150, 150);
@@ -82,7 +125,11 @@ void hello_1(gfx4desp32_gen4_ESP32_70CT gfx)
 }
 
 
-
+/*
+Brief   : Affiche le premier octet de la section "data" de la trame CAN.
+Param   : rxFrame soit la trame CAN.
+Return  : Rien
+*/
 void hello_2(gfx4desp32_gen4_ESP32_70CT gfx)
 {
 	gfx.MoveTo(150, 150);
