@@ -10,4 +10,4 @@
 
 * CODE_AFFICHAGE_ET_CAN : Contiens toutes les fonctions pour fusionner le code de l'affichage et le code du CAN.
 
-* TEST_PLUSIEUR_FICHIERS : Contiens un code test pour voir s'il est possible de séparer les fonctions d'affichages dans plusieurs fichiers (EX. les mettre dans FCT_AFF.cpp et FCT_AFF.h).
+* TEST_PLUSIEUR_FICHIERS : Contiens un code test pour voir s'il est possible de séparer les fonctions d'affichages dans plusieurs fichiers (EX. les mettre dans FCT_AFF.cpp et FCT_AFF.h). SPOILER : 4D Workshop n'aime pas cela...
