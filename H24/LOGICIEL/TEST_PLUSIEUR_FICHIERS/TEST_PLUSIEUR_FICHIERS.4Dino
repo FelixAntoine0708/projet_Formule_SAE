@@ -2,7 +2,7 @@
 Programme : TEST_PLUSIEUR_FICHIERS.4Dino
 Auteur :    Marc-�tienne Gendron-Fontaine
 Date :      5 mars 2024
-Brief :     Ce programme test la possibilitée de séparrer les fonctions utiles pour l'affichage,
+Brief :     Ce programme teste la possibilité de séparer les fonctions utiles pour l'affichage
             (par exemple, le message de débogage hello_1 qui print sur l'écran HELLO_1!!!!!).
 
 Mat�rielle: ESP32-S3R8 (dans l'�cran), écran gen4_ESP32_70CT

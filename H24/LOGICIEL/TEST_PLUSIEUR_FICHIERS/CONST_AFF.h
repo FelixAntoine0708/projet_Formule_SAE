@@ -14,17 +14,19 @@ Système d'exploitation : Windows 10 V22H2.
 
 
 
-#define X_BTN_BATTERIE 75                   // Distance en X du bouton BATTERIE au bord de l'écran (DANS CE CAS-CI, C’est LE BORD GAUCHE)
-#define X_BTN_ACCUMULATEUR 320              // Distance en X du bouton ACCUMULATEUR au bord de l'écran (DANS CE CAS-CI, C’est LE BORD GAUCHE)
-#define X_BTN_MOTEUR_DRIVE_COOLANT 565      // Distance en X du bouton MOTEUR_DRIVE_COOLANT au bord de l'écran (DANS CE CAS-CI, C’est LE BORD GAUCHE)
+#define X_BTN_BATTERIE 75                   // Distance en X du bouton BATTERIE au bord de l'écran (DANS CE CAS-CI, c’est LE BORD GAUCHE)
+#define X_BTN_ACCUMULATEUR 320              // Distance en X du bouton ACCUMULATEUR au bord de l'écran (DANS CE CAS-CI, c’est LE BORD GAUCHE)
+#define X_BTN_MOTEUR_DRIVE_COOLANT 565      // Distance en X du bouton MOTEUR_DRIVE_COOLANT au bord de l'écran (DANS CE CAS-CI, c’est LE BORD GAUCHE)
 #define Y_BTN 425                           // Distance en Y des boutons à partir du haut de l'écran
 #define LONG_BTN_X 150                      // Longueur des boutons
 #define HAUT_BTN 50                         // Hauteur des boutons
 
-// ID DES BOUTTONS
+// ID DES BOUTONS
 #define BTN_1 0     // ID pour le bouton BATTERIE
 #define BTN_2 1     // ID pour le bouton ACCUMULATEUR
 #define BTN_3 2     // ID pour le bouton MOTEUR_DRIVE_COOLANT
+
+// ID EN RÉSERVE
 #define BTN_4 3
 #define BTN_5 4
 #define BTN_6 5

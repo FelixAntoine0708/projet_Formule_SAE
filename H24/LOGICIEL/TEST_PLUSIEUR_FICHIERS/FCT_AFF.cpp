@@ -19,7 +19,7 @@ Syst�me d�exploitation�: Windows 10 V22H2.
 
 
 /*
-Brief   : Initialise les boutons avec un arrière plan jaune.
+Brief   : Initialise les boutons avec un arrière-plan jaune.
 Param   : gfx soit l'objet pour l'affichage.
 Return  : Rien
 */
@@ -79,7 +79,7 @@ void Mott(gfx4desp32_gen4_ESP32_70CT gfx)
 
 
 /*
-Brief   : Regarde quels boutons a été presser.
+Brief   : Regarde quel bouton a été pressé.
 Param   : gfx soit l'objet pour l'affichage.
 Return  : Rien
 */
@@ -87,9 +87,12 @@ void touch_btn(gfx4desp32_gen4_ESP32_70CT gfx)
 {
 	int pos_x, pos_y;   // Les position en X et Y.
 
-    // Si on touche l'écran, on prend les position X et Y.
-    // On regarde ensuite si si la position en Y est plus grande
-    // que Y_BTN. Si oui, on regarde quel bouton à été pressé.
+    
+    /*
+        Si on touche l'écran, on prend les positions X et Y.
+        On regarde ensuite si si la position en Y est plus grande
+        que Y_BTN. Si oui, on regarde quel bouton a été pressé.
+    */
     if(gfx.touch_Update())
     {
         pos_x = gfx.touch_GetLastX();
@@ -118,10 +121,10 @@ Return  : Rien
 */
 void hello_1(gfx4desp32_gen4_ESP32_70CT gfx)
 {
-	gfx.MoveTo(150, 150);       // Met le curseur aux position (X,Y) 150, 150
+	gfx.MoveTo(150, 150);       // Met le curseur aux positions (X,Y) 150, 150
     gfx.print(EFFACE);          // Efface la ligne
-    gfx.MoveTo(150, 150);       // Met le curseur aux position (X,Y) 150, 150
-	gfx.print("HELLO_1!!!!!");  // Écrit le message
+    gfx.MoveTo(150, 150);       // Met le curseur aux positions (X,Y) 150, 150
+	gfx.print("HELLO_1!!!!!");  // Écris le message
 }
 
 
@@ -132,8 +135,8 @@ Return  : Rien
 */
 void hello_2(gfx4desp32_gen4_ESP32_70CT gfx)
 {
-	gfx.MoveTo(150, 150);       // Met le curseur aux position (X,Y) 150, 150
+	gfx.MoveTo(150, 150);       // Met le curseur aux positions (X,Y) 150, 150
     gfx.print(EFFACE);          // Efface la ligne
-    gfx.MoveTo(150, 150);       // Met le curseur aux position (X,Y) 150, 150
-	gfx.print("HELLO_2!!!!!");  // Écrit le message
+    gfx.MoveTo(150, 150);       // Met le curseur aux positions (X,Y) 150, 150
+	gfx.print("HELLO_2!!!!!");  // Écris le message
 }
