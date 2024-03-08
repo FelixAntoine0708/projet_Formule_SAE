@@ -2,14 +2,34 @@
 // NB! This is a file generated from the .4Dino file, changes will be lost
 //     the next time the .4Dino file is built
 //
-#include "gfx4desp32_gen4_ESP32_70CT.h"
+/*
+Programme : TEST_PLUSIEUR_FICHIERS.4Dino
+Auteur :    Marc-�tienne Gendron-Fontaine
+Date :      5 mars 2024
+Brief :     Ce programme teste la possibilité de séparer les fonctions utiles pour l'affichage
+            (par exemple, le message de débogage hello_1 qui print sur l'écran HELLO_1!!!!!).
 
+Mat�rielle: ESP32-S3R8 (dans l'�cran), écran gen4_ESP32_70CT
+Encironement: Workshop 4 V4.9.0.7,
+Syst�me d�exploitation�: Windows 10 V22H2.
+*/
+
+
+
+
+#include "gfx4desp32_gen4_ESP32_70CT.h"
+//#include "gfx4desp32_gen4_ESP32_70CT.h"
+
+//gfx4desp32_gen4_ESP32_70CT gfx = gfx4desp32_gen4_ESP32_70CT();
 gfx4desp32_gen4_ESP32_70CT gfx = gfx4desp32_gen4_ESP32_70CT();
+
 
 #include "TEST_PLUSIEUR_FICHIERSConst.h"    // Note. This file will not be created if there are no generated graphics
 
 #include "CONST_AFF.h"
 #include "FCT_AFF.h"
+
+
 
 void setup()
 {
@@ -28,6 +48,9 @@ void setup()
   //init_btn(gfx);
   //hello_2(gfx);
 } // end Setup **do not alter, remove or duplicate this line**
+
+
+
 
 void loop()
 {
