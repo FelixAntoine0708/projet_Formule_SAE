@@ -26,7 +26,7 @@ Système d'exploitation : Windows 10 V22H2.
 #define BTN_2 1     // ID pour le bouton ACCUMULATEUR
 #define BTN_3 2     // ID pour le bouton MOTEUR_DRIVE_COOLANT
 
-// ID EN RÉSERVE
+// ID BOUTONS EN RÉSERVE
 #define BTN_4 3
 #define BTN_5 4
 #define BTN_6 5
@@ -46,10 +46,10 @@ Système d'exploitation : Windows 10 V22H2.
 
 
 // NOM DES MESURES
-#define TEMP "TEMPÉRATURE"
-#define NIV_CHARGE "NIVEAU DE CHARGE"
-#define VOLT "TENSION"
-#define SANTE "SANTÉE"
+#define TEMP "TEMPÉRATURE : "
+#define NIV_CHARGE "CHARGE : "
+#define VOLT "TENSION : "
+#define SANTE "SANTÉE : "
 
 
 // CONSTANTES DES BANDES
@@ -59,8 +59,3 @@ Système d'exploitation : Windows 10 V22H2.
 #define HAUT_R 75
 
 
-// PAGE BATTERIE
-#define POSX_BAR_TEMP 150
-#define POSY_BAR_TEMP 50
-#define POSX_NOM_TEMP 100
-#define POSY_NOM_TEMP 25

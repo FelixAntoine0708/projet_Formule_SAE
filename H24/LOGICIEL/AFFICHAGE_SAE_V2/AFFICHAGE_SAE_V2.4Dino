@@ -5,12 +5,14 @@ gfx4desp32_%%displaynm%% gfx = gfx4desp32_%%displaynm%%();
 #include "AFFICHAGE_SAE_V2Const.h"    // Note. This file will not be created if there are no generated graphics
 
 #include "CONST_AFF.h"
-
+#include "CONST_AFF_BAT.h"
 
 void init_btn();
+void clear();
 void nom_batterie();
 void nom_accumulateur();
 void nom_mott();
+void donne_batterie();
 void Batterie();
 void Accumulateur();
 void Mott();
@@ -27,7 +29,7 @@ void setup()
   gfx.BacklightOn(true);
   gfx.Orientation(%%orientation%%);
   gfx.SmoothScrollSpeed(5);
-  gfx.TextColor(WHITE, BLACK); gfx.Font(2);  gfx.TextSize(1);
+  gfx.TextColor(WHITE, BLACK); gfx.Font(3);  gfx.TextSize(2);
   gfx.Open4dGFX("AFFICHAGE_SAE_V2"); // Opens DAT and GCI files for read using filename without extension.
   gfx.touch_Set(TOUCH_ENABLE);                // Global touch enabled
 
@@ -35,17 +37,20 @@ void setup()
   Accumulateur();
 
 
-  gfx.RectangleFilled(500, 150, 550, 250, RED);
-  gfx.RectangleFilled(500, 250, 550, 300, YELLOW);
-  gfx.RectangleFilled(500, 300, 550, 350, GREEN);
 } // end Setup **do not alter, remove or duplicate this line**
 
 void loop()
 {
+   bool touch = false;
 
-   touch_btn();
+   while(gfx.touch_Update())
+      touch = true;
 
-
+   if(touch)
+   {
+      touch_btn();
+      delay(500);
+   }
 
 
 
@@ -88,6 +93,13 @@ void init_btn()
 }
 
 
+void clear()
+{
+   gfx.RectangleFilled(0, 0, 800, 415, BLACK);
+   delay(50);
+
+}
+
 
 void nom_batterie()
 {
@@ -117,21 +129,58 @@ void nom_mott()
 }
 
 
+void donne_batterie()
+{
+   // NOM TEMPÉRATURE
+   gfx.MoveTo(POSX_NOM_TEMP, POSY_NOM_DON);
+   gfx.print(TEMP);
+   gfx.print(55);
+   gfx.print(" C");
+
+   // BAR TEMPÉRATURE
+   gfx.RectangleFilled(POSX_BAR_TEMP, POSY_BAR, POSX_BAR_TEMP + LARGEUR, POSY_BAR + HAUT_R, RED);
+   gfx.RectangleFilled(POSX_BAR_TEMP, POSY_1_J_TEMP, POSX_BAR_TEMP + LARGEUR, POSY_2_J_TEMP, YELLOW);
+   gfx.RectangleFilled(POSX_BAR_TEMP, POSY_1_V_TEMP, POSX_BAR_TEMP + LARGEUR, POSY_2_V_TEMP, GREEN);
+
+   // BAR CHARGE
+   gfx.RectangleFilled(POSX_BAR_CHAR, POSY_1_V_CHAR, LARGE_BAR_CHAR, POSY_2_V_CHAR, GREEN);
+   gfx.RectangleFilled(POSX_BAR_CHAR, POSY_1_J_CHAR, LARGE_BAR_CHAR, POSY_2_J_CHAR, YELLOW);
+   gfx.RectangleFilled(POSX_BAR_CHAR, POSY_1_R_CHAR, LARGE_BAR_CHAR, POSY_2_R_CHAR, RED);
+
+   // NOM CHARGE
+   gfx.MoveTo(POSX_NOM_CHAR, POSY_NOM_DON);
+   gfx.print(NIV_CHARGE);
+   gfx.print(85);
+   gfx.print("%");
+
+   // SECTION TENSION
+   gfx.MoveTo(POSX_NOM_TENS, POSY_NOM_TENS);
+   gfx.print(VOLT);
+   gfx.print(12);
+   gfx.print("V");
+}
+
+
 
 void Batterie()
 {
+
+    clear();
     nom_batterie();
+    donne_batterie();
 }
 
 
 void Accumulateur()
 {
+   clear();
    nom_accumulateur();
 }
 
 
 void Mott()
 {
+   clear();
    nom_mott();
 
 }
@@ -142,8 +191,8 @@ void touch_btn()
   int pos_x, pos_y;
 
 
-    if(gfx.touch_Update())
-    {
+    //if(gfx.touch_Update())
+    //{
         pos_x = gfx.touch_GetLastX();
         pos_y = gfx.touch_GetLastY();
 
@@ -158,7 +207,7 @@ void touch_btn()
                 Mott();
         }
 
-    }
+    //}
 
 }
 
