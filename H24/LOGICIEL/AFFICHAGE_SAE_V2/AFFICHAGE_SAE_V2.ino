@@ -10,19 +10,26 @@ gfx4desp32_gen4_ESP32_70CT gfx = gfx4desp32_gen4_ESP32_70CT();
 
 #include "CONST_AFF.h"
 #include "CONST_AFF_BAT.h"
+#include "CONST_AFF_MDC.h"
 
+
+// PROTOTYPE DES FCT
 void init_btn();
 void clear();
 void nom_batterie();
 void nom_accumulateur();
 void nom_mott();
 void donne_batterie();
+void donne_mdc();
 void Batterie();
 void Accumulateur();
 void Mott();
 void touch_btn();
 void hello_1();
 void hello_2();
+
+
+
 
 
 void setup()
@@ -45,18 +52,9 @@ void setup()
 
 void loop()
 {
-   bool touch = false;
-
-   while(gfx.touch_Update())
-      touch = true;
-
-   if(touch)
-   {
-      touch_btn();
-      delay(500);
-   }
 
 
+   touch_btn();
 
 
 
@@ -65,7 +63,7 @@ void loop()
 
 
   // put your main code here, to run repeatedly:
-  int itouched, val ;
+  /*int itouched, val ;
   if(gfx.touch_Update())
   {
     itouched = gfx.imageTouched() ;
@@ -80,7 +78,7 @@ void loop()
           // case, one for each button or keyboard, default should end up as -1
         }                                                     // end button selection **do not alter, remove or duplicate this line**
     }
-  }
+  }*/
 }
 
 
@@ -100,7 +98,6 @@ void init_btn()
 void clear()
 {
    gfx.RectangleFilled(0, 0, 800, 415, BLACK);
-   delay(50);
 
 }
 
@@ -165,10 +162,33 @@ void donne_batterie()
 }
 
 
+void donne_mdc()
+{
+   // SECTION MOTTEUR
+   gfx.MoveTo(POSX_NOM_MOT, POSY_NOM_DON);
+   gfx.print(NOM_TEMP_MOT);
+   gfx.print(60);
+   gfx.print(" C");
+
+
+   // SECTION DRIVE
+   gfx.MoveTo(POSX_NOM_DRIV, POSY_NOM_DON);
+   gfx.print(NOM_TEMP_DRIV);
+   gfx.print(50);
+   gfx.print(" C");
+
+
+   // SECTION COOLANT
+   gfx.MoveTo(POXX_NOM_COOL, POSY_NOM_DON);
+   gfx.print(NOM_TEMP_COOL);
+   gfx.print(45);
+   gfx.print(" C");
+}
+
+
 
 void Batterie()
 {
-
     clear();
     nom_batterie();
     donne_batterie();
@@ -186,32 +206,22 @@ void Mott()
 {
    clear();
    nom_mott();
-
+   donne_mdc();
 }
 
 
 void touch_btn()
 {
-  int pos_x, pos_y;
+  int btnXtouch;
 
+  btnXtouch = gfx.CheckButtons();
 
-    //if(gfx.touch_Update())
-    //{
-        pos_x = gfx.touch_GetLastX();
-        pos_y = gfx.touch_GetLastY();
-
-        if(pos_y >= Y_BTN)
-        {
-
-            if(pos_x >= X_BTN_BATTERIE && pos_x <= (X_BTN_BATTERIE + LONG_BTN_X))
-                Batterie();
-            else if(pos_x >= X_BTN_ACCUMULATEUR && pos_x <= (X_BTN_ACCUMULATEUR + LONG_BTN_X))
-                Accumulateur();
-            else if(pos_x >= X_BTN_MOTEUR_DRIVE_COOLANT && pos_x <= X_BTN_MOTEUR_DRIVE_COOLANT + LONG_BTN_X)
-                Mott();
-        }
-
-    //}
+  if(btnXtouch == BTN_1)
+    Batterie();
+  else if(btnXtouch == BTN_2)
+    Accumulateur();
+  else if(btnXtouch == BTN_3)
+    Mott();
 
 }
 
