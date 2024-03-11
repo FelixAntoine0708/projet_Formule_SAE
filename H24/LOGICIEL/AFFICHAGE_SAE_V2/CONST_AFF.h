@@ -41,8 +41,8 @@ Système d'exploitation : Windows 10 V22H2.
 #define MOTEUR_DRIVE_COOLANT "MOTEUR_DRIVE_COOLANT"
 #define EFFACE "                          "
 
-#define POSX_NOM_PAGE 325
-#define POSY_NOM_PAGE 0
+#define POSX_NOM_PAGE 325   // Position en X du titre de la page
+#define POSY_NOM_PAGE 0     // Position en Y du titre de la page
 
 
 // NOM DES MESURES
@@ -53,9 +53,9 @@ Système d'exploitation : Windows 10 V22H2.
 
 
 // CONSTANTES DES BANDES
-#define LARGEUR 50
-#define HAUT_V 75
-#define HAUT_J 75
-#define HAUT_R 75
+#define LARGEUR 50  // Largeur des bandes
+#define HAUT_V 75   // Hauteur de la bande verte
+#define HAUT_J 75   // Hauteur de la bande jaune
+#define HAUT_R 75   // Hauteur de la bande rouge
 
 

@@ -128,13 +128,13 @@ void nom_mott()
 
 void donne_batterie()
 {
-   // NOM TEMPÉRATURE
+   // NOM TEMPï¿½RATURE
    gfx.MoveTo(POSX_NOM_TEMP, POSY_NOM_DON);
    gfx.print(TEMP);
    gfx.print(55);
    gfx.print(" C");
 
-   // BAR TEMPÉRATURE
+   // BAR TEMPï¿½RATURE
    gfx.RectangleFilled(POSX_BAR_TEMP, POSY_BAR, POSX_BAR_TEMP + LARGEUR, POSY_BAR + HAUT_R, RED);
    gfx.RectangleFilled(POSX_BAR_TEMP, POSY_1_J_TEMP, POSX_BAR_TEMP + LARGEUR, POSY_2_J_TEMP, YELLOW);
    gfx.RectangleFilled(POSX_BAR_TEMP, POSY_1_V_TEMP, POSX_BAR_TEMP + LARGEUR, POSY_2_V_TEMP, GREEN);
@@ -175,7 +175,7 @@ void donne_mdc()
 
 
    // SECTION COOLANT
-   gfx.MoveTo(POXX_NOM_COOL, POSY_NOM_DON);
+   gfx.MoveTo(POSX_NOM_COOL, POSY_NOM_DON);
    gfx.print(NOM_TEMP_COOL);
    gfx.print(45);
    gfx.print(" C");

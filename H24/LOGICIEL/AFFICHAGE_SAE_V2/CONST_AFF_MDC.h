@@ -1,9 +1,8 @@
 /*
-Programme : CONST_AFF.h
+Programme : CONST_AFF_MDC.h
 Auteur :    Marc-Étienne Gendron-Fontaine
 Date :      5 mars 2024
-Brief :     Ce fichier contient les constantes qui pourraient être utilisées pour les fonctions
-            d'affichage. Il y a des constantes temporaires pour le débug.
+Brief :     Ce fichier contiens toutes les constantes pour la page "MOTEUR_DRIVE_COOLANT"
 
 Matérielle: ESP32-S3R8 (dans l'écran), écran gen4_ESP32_70CT
 Encironement: Workshop 4 V4.9.0.7,
@@ -14,16 +13,16 @@ Système d'exploitation : Windows 10 V22H2.
 #include "CONST_AFF.h"
 
 
-#define POSY_NOM_DON 125
-#define POSY_BAR 150
+#define POSY_NOM_DON 125    // Position en Y des noms des données
+#define POSY_BAR 150        // Position en Y des bandes
 
 
 // ------------ MOTEUR -------------
 
-#define POSX_NOM_MOT 25
+#define POSX_NOM_MOT 25     // Position en X du nom de la donnée "TEMP_MOTT"
 
 
-#define NOM_TEMP_MOT "TEMP_MOTT : "
+#define NOM_TEMP_MOT "TEMP_MOTT : "     // Nom de la donnée "TEMPÉRATURE MOTTEUR"
 
 
 
@@ -32,10 +31,10 @@ Système d'exploitation : Windows 10 V22H2.
 
 // ------------- DRIVE ---------------------
 
-#define POSX_NOM_DRIV 300
+#define POSX_NOM_DRIV 300   // Position en X du nom de la donnée "TEMP_DRIV"
 
 
-#define NOM_TEMP_DRIV "TEMP_DRIVE : "
+#define NOM_TEMP_DRIV "TEMP_DRIVE : "   // Nom de la donnée "TEMPÉRATURE DRIVE"
 
 
 
@@ -43,7 +42,7 @@ Système d'exploitation : Windows 10 V22H2.
 
 // ------------- COOLANT -------------------
 
-#define POXX_NOM_COOL 600
+#define POSX_NOM_COOL 600   // Position en X du nom de la donnée "TEMPÉRATURE COOLANT"
 
 
-#define NOM_TEMP_COOL "TEMP_COOL : "
+#define NOM_TEMP_COOL "TEMP_COOL : "    // Nom de la donnée "TEMPÉRATURE COOLANT"
