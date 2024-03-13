@@ -1,74 +1,30 @@
 /*
-Programme : CAN_FCT.cpp
+Programme : CAN_FCT_MODIFF.cpp
 Auteur :    Marc-Étienne Gendron-Fontaine
-Date :      12 février 2024
-Brief :     Ce fichier contient toutes les fonctions qui seront utiles au projet
+Date :      13 mars 2024
+Brief :     Ce fichier contient toutes les fonctions modifiées qui seront utiles au projet
             (lecture de la trame CAN, vérification de la trame CAN, affichage des informations, etc.)
+            Les fonctions ont été modifiées pour les adapter à l'affichage utilisé. "verif_trame"
+            et "affiche_data" ne sont pas utilisés pour l'instant.
 
 Matérielle: ESP32-S3 (x2), TJA1050 (x2)
-Encironement: Visual Studio Code V 1.86.2, Système d’exploitation : Linux x64 5.15.0-94-generic.
+Encironement: Visual Studio Code V 1.86.2,
+Système d’exploitation : Linux x64 5.15.0-94-generic.
 */
 
 
 
-//#include <Arduino.h>
+
 #include <ESP32-TWAI-CAN.hpp>
 #include "ID_CAPT.h"
 #include "CAN_FCT.h"
-#include <String>
 
-/*
-Brief   : Affiche le premier octet de la section "data" de la trame CAN.
-Param   : rxFrame soit la trame CAN.
-Return  : Rien
-*/
-void affiche_data(CanFrame rxFrame)
-{
-    Serial.printf("%d \n", rxFrame.data[0]);
-}
-
-
-/*
-Brief   : Vérifie si le premier octet, de la section "data" de la trame CAN,
-          est bien un nombre. Si oui, on l'affiche. Sinon, on affiche un 
-          message d'erreur.
-Param   : rxFrame soit la trame CAN.
-Return  : Rien
-*/
-bool verif_trame(CanFrame rxFrame)
-{
-  
-  unsigned int crc_de_rxFrame;
-  unsigned int crc_a_calculer;
-  unsigned int temp;
-
-  // Le CRC est calculé à partir de l'ensemble des champs transmis jusque-là c'est-à-dire le SOF, le champ d'arbitrage, le champ de commande et le champ de données MAX 83 BITS
-  // LA TRAME CAN FAIT 108 BITS (64 BITS DANS CHAMPS DE DONNÉES EST PRIS POUR ACQUIS). LES CHAMPS ACK ET FIN DE TRAME FONT 9 BITS. DONC >> 9 APRÈS AVOIR FAIT UN MASKE.
-  // LA VALEUR DU MASK EST 0x1FFFE00
-
-
-
-  //crc_de_rxFrame = rxFrame;
-
-  //temp = crc_de_rxFrame & MASK_CRC;
-
-  //crc_a_calculer = temp >> 9;
-
-
-  if(!(isAlpha(rxFrame.data[0])))
-  {
-    affiche_data(rxFrame);
-    return true;
-  }
-  else
-    Serial.printf("ERREUR!!!!!!!!!!!!!!\n");
-}
 
 
 /*
 Brief   : Affiche la Température du liquide de refroidissement.
 Param   : rxFrame soit la trame CAN.
-Return  : Rien
+Return  : msg soit la Température du liquide de refroidissement.
 */
 String coolant_temp(CanFrame rxFrame)
 {
@@ -77,15 +33,12 @@ String coolant_temp(CanFrame rxFrame)
   msg += String(rxFrame.data[0]);
   
   return msg;
-  
-  //Serial.printf("Température du liquide de refroidissement : ");
-  //verif_trame(rxFrame);
 }
 
 /*
 Brief   : Affiche la Température interne de l’onduleur.
 Param   : rxFrame soit la trame CAN.
-Return  : Rien
+Return  : msg soit la Température interne de l’onduleur.
 */
 String drive_temp(CanFrame rxFrame)
 {
@@ -94,9 +47,6 @@ String drive_temp(CanFrame rxFrame)
   msg += String(rxFrame.data[0]);
   
   return msg;
-  
-  //Serial.printf("Température interne de l’onduleur : ");
-  //verif_trame(rxFrame);
 }
 
 
@@ -104,7 +54,7 @@ String drive_temp(CanFrame rxFrame)
 /*
 Brief   : Affiche la Température interne du moteur.
 Param   : rxFrame soit la trame CAN.
-Return  : Rien
+Return  : msg soit la Température interne du moteur.
 */
 String motor_temp(CanFrame rxFrame)
 {
@@ -113,88 +63,69 @@ String motor_temp(CanFrame rxFrame)
   msg += String(rxFrame.data[0]);
   
   return msg;
-  
-  //Serial.printf("Température interne du moteur : ");
-  //verif_trame(rxFrame);
 }
 
 /*
 Brief   : Affiche la Température interne de l’accumulateur.
 Param   : rxFrame soit la trame CAN.
-Return  : Rien
+Return  : msg soit la Température interne de l’accumulateur.
 */
 String hv_temp(CanFrame rxFrame)
 {
   String msg = "Température interne de l’accumulateur : ";
   
-  
   msg += String(rxFrame.data[0]);
   
   return msg;
-  
-  //Serial.printf("Température interne de l’accumulateur : ");
-  //verif_trame(rxFrame);
 }
 
 /*
 Brief   : Affiche le Niveau de charge de l’accumulateur.
 Param   : rxFrame soit la trame CAN.
-Return  : Rien
+Return  : msg soit le Niveau de charge de l’accumulateur.
 */
 String hv_soc(CanFrame rxFrame)
 {
   String msg = "Niveau de charge de l’accumulateur : ";
-  
-  
+
   msg += String(rxFrame.data[0]);
   
   return msg;
-  
-  //Serial.printf("Niveau de charge de l’accumulateur : ");
-  //verif_trame(rxFrame);
 }
 
 
 /*
 Brief   : Affiche le Niveau de santé de l’accumulateur.
 Param   : rxFrame soit la trame CAN.
-Return  : Rien
+Return  : msg soit le Niveau de santé de l’accumulateur.
 */
 String hv_soh(CanFrame rxFrame)
 {
   String msg = "Niveau de santé de l’accumulateur : ";
   
-  
   msg += String(rxFrame.data[0]);
   
   return msg;
-  
-  //Serial.printf("Niveau de santé de l’accumulateur : ");
-  //verif_trame(rxFrame);
 }
 
 /*
 Brief   : Affiche la Tension totale de l’accumulateur.
 Param   : rxFrame soit la trame CAN.
-Return  : Rien
+Return  : msg soit la Tension totale de l’accumulateur.
 */
 String hv_voltage(CanFrame rxFrame)
 {
   String msg = "Tension totale de l’accumulateur : ";
-  
-  
+
   msg += String(rxFrame.data[0]);
   
   return msg;
-  
-  //Serial.printf("Tension totale de l’accumulateur : ");
-  //verif_trame(rxFrame);
 }
 
 /*
 Brief   : Affiche le Niveau de charge de la batterie 12V.
 Param   : rxFrame soit la trame CAN.
-Return  : Rien
+Return  : msg soit le Niveau de charge de la batterie 12V.
 */
 String lv_soc(CanFrame rxFrame)
 {
@@ -203,16 +134,13 @@ String lv_soc(CanFrame rxFrame)
   msg += String(rxFrame.data[0]);
   
   return msg;
-  
-  //Serial.printf("Niveau de charge de la batterie 12V : ");
-  //verif_trame(rxFrame);
 }
 
 
 /*
 Brief   : Affiche la Tension de la batterie 12V.
 Param   : rxFrame soit la trame CAN.
-Return  : Rien
+Return  : msg soit la Tension de la batterie 12V.
 */
 String lv_voltage(CanFrame rxFrame)
 {
@@ -221,16 +149,12 @@ String lv_voltage(CanFrame rxFrame)
   msg += String(rxFrame.data[0]);
   
   return msg;
-  
-  
-  //Serial.printf("Tension de la batterie 12V : ");
-  //verif_trame(rxFrame);
 }
 
 /*
 Brief   : Affiche la Température de la batterie 12V.
 Param   : rxFrame soit la trame CAN.
-Return  : Rien
+Return  : msg soit la Température de la batterie 12V.
 */
 String lv_temp(CanFrame rxFrame)
 {
@@ -239,9 +163,6 @@ String lv_temp(CanFrame rxFrame)
   msg += String(rxFrame.data[0]);
   
   return msg;
-  
-  //Serial.printf("Température de la batterie 12V : ");
-  //verif_trame(rxFrame);
 }
 
 
@@ -251,14 +172,14 @@ Brief   : Lis le port série à chaque seconde. Si une trame CAN
           est reçue, on regarde l'ID et on appelle la fonction
           d'affichage correspondante.
 Param   : rxFrame soit la trame CAN.
-Return  : Rien
+Return  : msg soit le message renvoyer par la bonne fonction.
 */
 String read_CAN(CanFrame rxFrame)
 {
-    String msg = "";
+    String msg = "";    // Pour garder le message retourné par la fct
 	
 	
-	// Si on reçoit une transmission, on regarde l’ID puis,
+	  // Si on reçoit une transmission, on regarde l’ID puis,
     // on affiche le bon message.
     if(ESP32Can.readFrame(rxFrame, 1000))
     {

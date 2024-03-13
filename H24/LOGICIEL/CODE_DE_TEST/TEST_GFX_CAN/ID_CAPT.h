@@ -4,8 +4,9 @@ Auteur :    Marc-Étienne Gendron-Fontaine
 Date :      12 février 2024
 Brief :     Ce fichier d'entête contient tous les ID des capteurs sous forme de constante.
 
-Matérielle: ESP32-S3 (x2), TJA1050 (x2)
-Encironement: Visual Studio Code V 1.86.2, Système d’exploitation : Linux x64 5.15.0-94-generic.
+Mat�rielle: ESP32-S3 (x2), TJA1050 (x2)
+Encironement: Workshop 4 V4.9.0.7,
+Syst�me d�exploitation�: Windows 10 V22H2.
 */
 
 
