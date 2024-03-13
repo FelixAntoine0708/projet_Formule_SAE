@@ -2,6 +2,21 @@
 // NB! This is a file generated from the .4Dino file, changes will be lost
 //     the next time the .4Dino file is built
 //
+/*
+Programme : AFFICHAGE_SAE_V2.4Dino
+Auteur :    Marc-Étienne Gendron-Fontaine
+Date :      7 mars 2024
+Brief :     Ce fichier contient la deuxième version de ce que pourrait être l'affichage. Les données sont fictives.
+
+Matérielle: ESP32-S3R8 (dans l'écran), écran gen4_ESP32_70CT
+Encironement: Workshop 4 V4.9.0.7,
+Système d'exploitation: Windows 10 V22H2.
+
+*/
+
+
+
+
 #include "gfx4desp32_gen4_ESP32_70CT.h"
 
 gfx4desp32_gen4_ESP32_70CT gfx = gfx4desp32_gen4_ESP32_70CT();
@@ -132,13 +147,13 @@ void nom_mott()
 
 void donne_batterie()
 {
-   // NOM TEMP�RATURE
+   // NOM TEMP�RATURE
    gfx.MoveTo(POSX_NOM_TEMP, POSY_NOM_DON);
    gfx.print(TEMP);
    gfx.print(55);
    gfx.print(" C");
 
-   // BAR TEMP�RATURE
+   // BAR TEMP�RATURE
    gfx.RectangleFilled(POSX_BAR_TEMP, POSY_BAR, POSX_BAR_TEMP + LARGEUR, POSY_BAR + HAUT_R, RED);
    gfx.RectangleFilled(POSX_BAR_TEMP, POSY_1_J_TEMP, POSX_BAR_TEMP + LARGEUR, POSY_2_J_TEMP, YELLOW);
    gfx.RectangleFilled(POSX_BAR_TEMP, POSY_1_V_TEMP, POSX_BAR_TEMP + LARGEUR, POSY_2_V_TEMP, GREEN);
@@ -170,6 +185,10 @@ void donne_mdc()
    gfx.print(60);
    gfx.print(" C");
 
+   // MAR MOTTEUR
+   gfx.RectangleFilled(POSX_TEMP_MOT, POSY_1_R_MOT, LARG_BAR_MOT, POSY_2_R_MOT, RED);
+   gfx.RectangleFilled(POSX_TEMP_MOT, POSY_1_J_MOT, LARG_BAR_MOT, POSY_2_J_MOT, YELLOW);
+   gfx.RectangleFilled(POSX_TEMP_MOT, POSY_1_V_MOT, LARG_BAR_MOT, POSY_2_V_MOT, GREEN);
 
    // SECTION DRIVE
    gfx.MoveTo(POSX_NOM_DRIV, POSY_NOM_DON);
@@ -177,12 +196,21 @@ void donne_mdc()
    gfx.print(50);
    gfx.print(" C");
 
+   // BAR DRIVE
+   gfx.RectangleFilled(POSX_TEMP_DRIV, POSY_1_R_DRIV, LARG_BAR_DRIV, POSY_2_R_DRIV, RED);
+   gfx.RectangleFilled(POSX_TEMP_DRIV, POSY_1_J_DRIV, LARG_BAR_DRIV, POSY_2_J_DRIV, YELLOW);
+   gfx.RectangleFilled(POSX_TEMP_DRIV, POSY_1_V_DRIV, LARG_BAR_DRIV, POSY_2_V_DRIV, GREEN);
 
    // SECTION COOLANT
-   gfx.MoveTo(POXX_NOM_COOL, POSY_NOM_DON);
+   gfx.MoveTo(POSX_NOM_COOL, POSY_NOM_DON);
    gfx.print(NOM_TEMP_COOL);
    gfx.print(45);
    gfx.print(" C");
+
+    // BAR COOL
+   gfx.RectangleFilled(POSX_TEMP_COOL, POSY_1_R_COOL, LARG_BAR_COOL, POSY_2_R_COOL, RED);
+   gfx.RectangleFilled(POSX_TEMP_COOL, POSY_1_J_COOL, LARG_BAR_COOL, POSY_2_J_COOL, YELLOW);
+   gfx.RectangleFilled(POSX_TEMP_COOL, POSY_1_V_COOL, LARG_BAR_COOL, POSY_2_V_COOL, GREEN);
 }
 
 

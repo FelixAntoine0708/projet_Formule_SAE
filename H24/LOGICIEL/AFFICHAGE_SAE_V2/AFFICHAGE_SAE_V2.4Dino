@@ -181,6 +181,10 @@ void donne_mdc()
    gfx.print(60);
    gfx.print(" C");
 
+   // MAR MOTTEUR
+   gfx.RectangleFilled(POSX_TEMP_MOT, POSY_1_R_MOT, LARG_BAR_MOT, POSY_2_R_MOT, RED);
+   gfx.RectangleFilled(POSX_TEMP_MOT, POSY_1_J_MOT, LARG_BAR_MOT, POSY_2_J_MOT, YELLOW);
+   gfx.RectangleFilled(POSX_TEMP_MOT, POSY_1_V_MOT, LARG_BAR_MOT, POSY_2_V_MOT, GREEN);
 
    // SECTION DRIVE
    gfx.MoveTo(POSX_NOM_DRIV, POSY_NOM_DON);
@@ -188,12 +192,21 @@ void donne_mdc()
    gfx.print(50);
    gfx.print(" C");
 
+   // BAR DRIVE
+   gfx.RectangleFilled(POSX_TEMP_DRIV, POSY_1_R_DRIV, LARG_BAR_DRIV, POSY_2_R_DRIV, RED);
+   gfx.RectangleFilled(POSX_TEMP_DRIV, POSY_1_J_DRIV, LARG_BAR_DRIV, POSY_2_J_DRIV, YELLOW);
+   gfx.RectangleFilled(POSX_TEMP_DRIV, POSY_1_V_DRIV, LARG_BAR_DRIV, POSY_2_V_DRIV, GREEN);
 
    // SECTION COOLANT
    gfx.MoveTo(POSX_NOM_COOL, POSY_NOM_DON);
    gfx.print(NOM_TEMP_COOL);
    gfx.print(45);
    gfx.print(" C");
+
+    // BAR COOL
+   gfx.RectangleFilled(POSX_TEMP_COOL, POSY_1_R_COOL, LARG_BAR_COOL, POSY_2_R_COOL, RED);
+   gfx.RectangleFilled(POSX_TEMP_COOL, POSY_1_J_COOL, LARG_BAR_COOL, POSY_2_J_COOL, YELLOW);
+   gfx.RectangleFilled(POSX_TEMP_COOL, POSY_1_V_COOL, LARG_BAR_COOL, POSY_2_V_COOL, GREEN);
 }
 
 
