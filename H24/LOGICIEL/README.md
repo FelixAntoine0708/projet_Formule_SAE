@@ -9,3 +9,5 @@
 * CODE_AFFICHAGE_ET_CAN : Contiens toutes les fonctions pour fusionner le code de l'affichage et le code du CAN.
 
 * AFFICHAGE_SAE_V2 : Contiens le code d'une deuxième version de l'affichage SAE.
+
+* CODE_DE_TEST : Contiens les codes servant à faire des tests.
