@@ -16,7 +16,7 @@ Système d'exploitation : Windows 10 V22H2.
 // ---------------------------PAGE BATTERIE-----------------------------
 
 #define POSY_NOM_DON 125    // Position en Y des nom des données
-#define POSY_BAR 150        // Position en Y des bandes
+
 
 
 // ------------ TEMPÉRATURE ----------------------------------------
@@ -27,11 +27,6 @@ Système d'exploitation : Windows 10 V22H2.
 
 #define POSX_BAR_TEMP 100   // Position en X de la bande "TEMPÉRATURE"
 
-
-//#define POSY_1_J_TEMP POSY_BAR + HAUT_R
-//#define POSY_2_J_TEMP POSY_BAR + HAUT_R + HAUT_J
-//#define POSY_1_V_TEMP POSY_BAR + HAUT_R + HAUT_J
-//#define POSY_2_V_TEMP POSY_BAR + HAUT_R + HAUT_J + HAUT_V
 
 #define POSY_1_J_TEMP POSY_BAR + HAUT_R         // Position de Y_1 de la bande jaune "TEMPÉRATURE"
 #define POSY_2_J_TEMP POSY_1_J_TEMP + HAUT_J    // Position de Y_2 de la bande jaune "TEMPÉRATURE"

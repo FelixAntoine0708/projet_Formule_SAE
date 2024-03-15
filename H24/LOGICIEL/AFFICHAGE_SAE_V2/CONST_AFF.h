@@ -55,9 +55,9 @@ Système d'exploitation : Windows 10 V22H2.
 
 
 // CONSTANTES DES BANDES
-#define LARGEUR 50  // Largeur des bandes
-#define HAUT_V 75   // Hauteur de la bande verte
-#define HAUT_J 75   // Hauteur de la bande jaune
-#define HAUT_R 75   // Hauteur de la bande rouge
-
+#define LARGEUR 50      // Largeur des bandes
+#define HAUT_V 75       // Hauteur de la bande verte
+#define HAUT_J 75       // Hauteur de la bande jaune
+#define HAUT_R 75       // Hauteur de la bande rouge
+#define POSY_BAR 150    // Position en Y des bandes
 

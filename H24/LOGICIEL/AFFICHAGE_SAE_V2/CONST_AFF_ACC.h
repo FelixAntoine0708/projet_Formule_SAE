@@ -17,7 +17,7 @@ Système d'exploitation : Windows 10 V22H2.
 // ----------- PAGE ACCUMULATEUR ----------------------------
 
 #define POSY_NOM_DON_ACC 125    // Position en Y des nom des données
-#define POSY_BAR 150        // Position en Y des bandes
+
 
 
 // ------------ TEMPÉRATURE ----------------------------------------

@@ -14,7 +14,7 @@ Système d'exploitation : Windows 10 V22H2.
 
 
 #define POSY_NOM_DON 125    // Position en Y des noms des données
-#define POSY_BAR 150        // Position en Y des bandes
+
 
 
 // ------------ MOTEUR -------------
