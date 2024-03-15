@@ -26,15 +26,19 @@ gfx4desp32_gen4_ESP32_70CT gfx = gfx4desp32_gen4_ESP32_70CT();
 #include "CONST_AFF.h"
 #include "CONST_AFF_BAT.h"
 #include "CONST_AFF_MDC.h"
+#include "CONST_AFF_ACC.h"
+
 
 
 // PROTOTYPE DES FCT
 void init_btn();
+void init_light();
 void clear();
 void nom_batterie();
 void nom_accumulateur();
 void nom_mott();
 void donne_batterie();
+void donne_acc();
 void donne_mdc();
 void Batterie();
 void Accumulateur();
@@ -60,6 +64,7 @@ void setup()
   gfx.touch_Set(TOUCH_ENABLE);                // Global touch enabled
 
   init_btn();
+  init_light();
   Accumulateur();
 
 
@@ -110,10 +115,18 @@ void init_btn()
 }
 
 
+void init_light()
+{
+  gfx.Buttonx(BTN_4, 700, 0, 100, 100, WHITE, "LIGHT", 2, BLACK);
+
+}
+
+
+
 void clear()
 {
    gfx.RectangleFilled(0, 0, 800, 415, BLACK);
-
+   init_light();
 }
 
 
@@ -177,6 +190,45 @@ void donne_batterie()
 }
 
 
+void donne_acc()
+{
+  // NOM TEMPERATURE
+  gfx.MoveTo(POSX_NOM_TEMP_ACC, POSY_NOM_DON_ACC);
+  gfx.print(TEMP);
+  gfx.print(1000);
+  gfx.print(" C");
+
+  // BAR TEMPERATURE
+  gfx.RectangleFilled(POSX_BAR_TEMP_ACC, POSY_1_R_TEMP_ACC, LARG_BAR_TEMP_ACC, POSY_2_R_TEMP_ACC, RED);
+  gfx.RectangleFilled(POSX_BAR_TEMP_ACC, POSY_1_J_TEMP_ACC, LARG_BAR_TEMP_ACC, POSY_2_J_TEMP_ACC, YELLOW);
+  gfx.RectangleFilled(POSX_BAR_TEMP_ACC, POSY_1_V_TEMP_ACC, LARG_BAR_TEMP_ACC, POSY_2_V_TEMP_ACC, GREEN);
+
+  // NOM CHARGE
+  gfx.MoveTo(POSX_NOM_CHAR_ACC, POSY_NOM_DON_ACC);
+  gfx.print(NIV_CHARGE);
+  gfx.print(95);
+  gfx.print("%");
+
+  // BAR CHARGE
+  gfx.RectangleFilled(POSX_BAR_CHAR_ACC, POSY_1_V_CHAR_ACC, LARGE_BAR_CHAR_ACC, POSY_2_V_CHAR_ACC, GREEN);
+  gfx.RectangleFilled(POSX_BAR_CHAR_ACC, POSY_1_J_CHAR_ACC, LARGE_BAR_CHAR_ACC, POSY_2_J_CHAR_ACC, YELLOW);
+  gfx.RectangleFilled(POSX_BAR_CHAR_ACC, POSY_1_R_CHAR_ACC, LARGE_BAR_CHAR_ACC, POSY_2_R_CHAR_ACC, RED);
+
+  // SECTION SANTE
+  gfx.MoveTo(POSX_NOM_SANTE_ACC, POSY_NOM_SANTE_ACC);
+  gfx.print(SANTE);
+  gfx.print("BONNE");
+
+
+  // SECTION TENSION
+  gfx.MoveTo(POSX_NOM_TENS_ACC, POSY_NOM_TENS_ACC);
+  gfx.print(VOLT);
+  gfx.print(12);
+  gfx.print("V");
+
+}
+
+
 void donne_mdc()
 {
    // SECTION MOTTEUR
@@ -227,6 +279,7 @@ void Accumulateur()
 {
    clear();
    nom_accumulateur();
+   donne_acc();
 }
 
 
@@ -242,6 +295,11 @@ void touch_btn()
 {
   int btnXtouch;
 
+  if(gfx.touch_GetX()>=0 && gfx.touch_GetX()<=700)
+     //while(gfx.touch_Update());
+     gfx.BacklightOn(true);
+
+
   btnXtouch = gfx.CheckButtons();
 
   if(btnXtouch == BTN_1)
@@ -250,7 +308,8 @@ void touch_btn()
     Accumulateur();
   else if(btnXtouch == BTN_3)
     Mott();
-
+  else if(btnXtouch == BTN_4)
+     gfx.BacklightOn(false);
 }
 
 

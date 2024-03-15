@@ -25,9 +25,11 @@ Système d'exploitation : Windows 10 V22H2.
 #define BTN_1 0     // ID pour le bouton BATTERIE
 #define BTN_2 1     // ID pour le bouton ACCUMULATEUR
 #define BTN_3 2     // ID pour le bouton MOTEUR_DRIVE_COOLANT
+#define BTN_4 3		// ID pour le bouton LIGHT
+
 
 // ID BOUTONS EN RÉSERVE
-#define BTN_4 3
+
 #define BTN_5 4
 #define BTN_6 5
 #define BTN_7 6

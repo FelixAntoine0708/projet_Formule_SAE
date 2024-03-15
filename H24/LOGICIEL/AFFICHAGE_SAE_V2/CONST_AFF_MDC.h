@@ -29,8 +29,10 @@ Système d'exploitation : Windows 10 V22H2.
 
 #define POSY_1_R_MOT POSY_BAR
 #define POSY_2_R_MOT POSY_1_R_MOT + HAUT_R
+
 #define POSY_1_J_MOT POSY_2_R_MOT
 #define POSY_2_J_MOT POSY_1_J_MOT + HAUT_J
+
 #define POSY_1_V_MOT POSY_2_J_MOT
 #define POSY_2_V_MOT POSY_1_V_MOT + HAUT_V
 
@@ -47,8 +49,10 @@ Système d'exploitation : Windows 10 V22H2.
 
 #define POSY_1_R_DRIV POSY_BAR
 #define POSY_2_R_DRIV POSY_1_R_DRIV + HAUT_R
+
 #define POSY_1_J_DRIV POSY_2_R_DRIV
 #define POSY_2_J_DRIV POSY_1_J_DRIV + HAUT_J
+
 #define POSY_1_V_DRIV POSY_2_J_DRIV
 #define POSY_2_V_DRIV POSY_1_V_DRIV + HAUT_V
 
@@ -64,7 +68,9 @@ Système d'exploitation : Windows 10 V22H2.
 
 #define POSY_1_R_COOL POSY_BAR
 #define POSY_2_R_COOL POSY_1_R_COOL + HAUT_R
+
 #define POSY_1_J_COOL POSY_2_R_COOL
 #define POSY_2_J_COOL POSY_1_J_COOL + HAUT_J
+
 #define POSY_1_V_COOL POSY_2_J_COOL
 #define POSY_2_V_COOL POSY_1_V_COOL + HAUT_V
