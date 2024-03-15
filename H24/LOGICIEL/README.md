@@ -4,10 +4,12 @@
 
 * AFFICHAGE_SAE : Contiens des codes d'affichage SAE (Plusieurs choix pour client)
 
-* CODE_CAN_RECIVER : Contiens le code pour qu'un ESP32-S3 puisse recevoir des trames CAN.
+* CODE_AFFICHAGE_ET_CAN_DÉSUET_ : Contiens toutes les fonctions pour fusionner le code de l'affichage et le code du CAN. (DÉSUET)
 
-* CODE_AFFICHAGE_ET_CAN : Contiens toutes les fonctions pour fusionner le code de l'affichage et le code du CAN.
+* CODE_DE_TEST : Contiens les codes servant à faire des tests de toutes sortes (Affichage et CAN).
 
-* AFFICHAGE_SAE_V2 : Contiens le code d'une deuxième version de l'affichage SAE.
+* LIBRAIRIE : Contiens la librairie (en zip) GFX4dESP32 pour l'écran ESP32-70CT.
 
-* CODE_DE_TEST : Contiens les codes servant à faire des tests.
+* PDF_Logiciel : Contiens un user guide pour le Workshop4 et le manuel de la librairie GFX4dESP32.
+
+* CAN : Contiens le code (le plus à jour) du CAN.

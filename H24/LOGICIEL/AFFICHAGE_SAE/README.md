@@ -2,9 +2,11 @@
 
 ## Ce qu'il contient
 
-* AFFICHAGE_SAE_V1_MA_Gendron-Fontaine : Premier Affichage MA
+* AFFICHAGE_SAE_V1_ME_Gendron-Fontaine : Premier Affichage ME (DÉSUET)
 
 * Code_Affichage_SAE_V1_FA_Guimont : Premier Affichage FA
+
+* AFFICHAGE_SAE_V2_M_E_G_F : Contiens le code d'une deuxième version de l'affichage SAE de M-E.
 
 * INSTRUCTION_POUR_FAIRE_AFFICHAGE.odt : Début des instructions pour faire/coder l'affichage.
 
