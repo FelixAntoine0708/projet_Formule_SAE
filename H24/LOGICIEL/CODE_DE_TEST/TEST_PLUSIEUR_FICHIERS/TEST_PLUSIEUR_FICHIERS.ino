@@ -31,6 +31,10 @@ gfx4desp32_gen4_ESP32_70CT gfx = gfx4desp32_gen4_ESP32_70CT();
 
 
 
+void imp();
+
+
+
 void setup()
 {
   gfx.begin();
@@ -43,10 +47,14 @@ void setup()
   gfx.Open4dGFX("TEST_PLUSIEUR_FICHIERS"); // Opens DAT and GCI files for read using filename without extension.
   gfx.touch_Set(TOUCH_ENABLE);                // Global touch enabled
 
-  hello_1(gfx);
-  while(1);
-  //init_btn(gfx);
+
+
+  imp();
+
   //hello_2(gfx);
+
+  //while(1);
+
 } // end Setup **do not alter, remove or duplicate this line**
 
 
@@ -56,12 +64,19 @@ void loop()
 {
 
 
-  touch_btn(gfx);
+
+  //hello_1(gfx);
+  delay(1000);
+  imp();
+  delay(1000);
+  gfx.print("!!!!!!!!!!!!!!!!!!!!!!!!!");
+  //delay(1000);
+
 
 
 
   // put your main code here, to run repeatedly:
-  int itouched, val ;
+  /*int itouched, val ;
   if(gfx.touch_Update())
   {
     itouched = gfx.imageTouched() ;
@@ -76,6 +91,15 @@ void loop()
           // case, one for each button or keyboard, default should end up as -1
         }                                                     // end button selection **do not alter, remove or duplicate this line**
     }
-  }
+  } */
 }
 
+
+
+void imp()
+{
+  gfx.MoveTo(150, 150);       // Met le curseur aux positions (X,Y) 150, 150
+  gfx.print(EFFACE);          // Efface la ligne
+  gfx.MoveTo(150, 150);       // Met le curseur aux positions (X,Y) 150, 150
+  gfx.print("IMP_TEST!!!!!");  // Écris le message
+}

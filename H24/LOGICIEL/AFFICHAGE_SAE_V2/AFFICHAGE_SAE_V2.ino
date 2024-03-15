@@ -296,7 +296,6 @@ void touch_btn()
   int btnXtouch;
 
   if(gfx.touch_GetX()>=0 && gfx.touch_GetX()<=700)
-     //while(gfx.touch_Update());
      gfx.BacklightOn(true);
 
 
