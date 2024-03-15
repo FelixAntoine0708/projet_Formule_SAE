@@ -157,9 +157,7 @@ void clear()
 
 
 /*
-Brief   : Vérifie si le premier octet, de la section "data" de la trame CAN,
-          est bien un nombre. Si oui, on l'affiche. Sinon, on affiche un 
-          message d'erreur.
+Brief   : Affiche le nom de la page Batterie
 Param   : Rien
 Return  : Rien
 */
@@ -174,10 +172,8 @@ void nom_batterie()
 
 
 /*
-Brief   : Vérifie si le premier octet, de la section "data" de la trame CAN,
-          est bien un nombre. Si oui, on l'affiche. Sinon, on affiche un 
-          message d'erreur.
-Param   : rxFrame soit la trame CAN.
+Brief   : Affiche le nom de la page Accumulateur
+Param   : Rien
 Return  : Rien
 */
 void nom_accumulateur()
@@ -190,10 +186,8 @@ void nom_accumulateur()
 
 
 /*
-Brief   : Vérifie si le premier octet, de la section "data" de la trame CAN,
-          est bien un nombre. Si oui, on l'affiche. Sinon, on affiche un 
-          message d'erreur.
-Param   : rxFrame soit la trame CAN.
+Brief   : Affiche le nom de la page MOTEUR_DRIVE_COOLANT
+Param   : Rien
 Return  : Rien
 */
 void nom_mott()
@@ -207,21 +201,19 @@ void nom_mott()
 
 
 /*
-Brief   : Vérifie si le premier octet, de la section "data" de la trame CAN,
-          est bien un nombre. Si oui, on l'affiche. Sinon, on affiche un 
-          message d'erreur.
-Param   : rxFrame soit la trame CAN.
+Brief   : Affiche les données de la page batterie
+Param   : Rien
 Return  : Rien
 */
 void donne_batterie()
 {
-   // NOM TEMP�RATURE
+   // NOM TEMPERATURE
    gfx.MoveTo(POSX_NOM_TEMP_BAT, POSY_NOM_DON_BAT);
    gfx.print(TEMP);
    gfx.print(55);
    gfx.print(" C");
 
-   // BAR TEMP�RATURE
+   // BAR TEMPERATURE
    gfx.RectangleFilled(POSX_BAR_TEMP_BAT, POSY_1_R_TEMP_BAT, LARG_BAR_TEMP_BAT, POSY_2_R_TEMP_BAT, RED);
    gfx.RectangleFilled(POSX_BAR_TEMP_BAT, POSY_1_J_TEMP_BAT, LARG_BAR_TEMP_BAT, POSY_2_J_TEMP_BAT, YELLOW);
    gfx.RectangleFilled(POSX_BAR_TEMP_BAT, POSY_1_V_TEMP_BAT, LARG_BAR_TEMP_BAT, POSY_2_V_TEMP_BAT, GREEN);
@@ -247,10 +239,8 @@ void donne_batterie()
 
 
 /*
-Brief   : Vérifie si le premier octet, de la section "data" de la trame CAN,
-          est bien un nombre. Si oui, on l'affiche. Sinon, on affiche un 
-          message d'erreur.
-Param   : rxFrame soit la trame CAN.
+Brief   : Affiche les données de la page Accumulateur
+Param   : Rien
 Return  : Rien
 */
 void donne_acc()
@@ -294,10 +284,8 @@ void donne_acc()
 
 
 /*
-Brief   : Vérifie si le premier octet, de la section "data" de la trame CAN,
-          est bien un nombre. Si oui, on l'affiche. Sinon, on affiche un 
-          message d'erreur.
-Param   : rxFrame soit la trame CAN.
+Brief   : Affiche les données de la page MOTEUR_DRIVE_COOLANT
+Param   : Rien
 Return  : Rien
 */
 void donne_mdc()
@@ -338,10 +326,8 @@ void donne_mdc()
 
 
 /*
-Brief   : Vérifie si le premier octet, de la section "data" de la trame CAN,
-          est bien un nombre. Si oui, on l'affiche. Sinon, on affiche un 
-          message d'erreur.
-Param   : rxFrame soit la trame CAN.
+Brief   : Affiche la page Batterie
+Param   : Rien
 Return  : Rien
 */
 void Batterie()
@@ -353,10 +339,8 @@ void Batterie()
 
 
 /*
-Brief   : Vérifie si le premier octet, de la section "data" de la trame CAN,
-          est bien un nombre. Si oui, on l'affiche. Sinon, on affiche un 
-          message d'erreur.
-Param   : rxFrame soit la trame CAN.
+Brief   : Affiche la page Accumulateur
+Param   : Rien
 Return  : Rien
 */
 void Accumulateur()
@@ -368,10 +352,8 @@ void Accumulateur()
 
 
 /*
-Brief   : Vérifie si le premier octet, de la section "data" de la trame CAN,
-          est bien un nombre. Si oui, on l'affiche. Sinon, on affiche un 
-          message d'erreur.
-Param   : rxFrame soit la trame CAN.
+Brief   : Affiche la page MOTEUR_DRIVE_COOLANT
+Param   : Rien
 Return  : Rien
 */
 void Mott()
@@ -383,22 +365,23 @@ void Mott()
 
 
 /*
-Brief   : Vérifie si le premier octet, de la section "data" de la trame CAN,
-          est bien un nombre. Si oui, on l'affiche. Sinon, on affiche un 
-          message d'erreur.
-Param   : rxFrame soit la trame CAN.
+Brief   : Regarde quel BTN à été pressés et affiche la page en conséquance.
+Param   : Rien
 Return  : Rien
 */
 void touch_btn()
 {
-  int btnXtouch;
+  int btnXtouch;	// Pour garder le ID du BTN
 
+	// Si on touche l'écran, on allume la back light
   if(gfx.touch_GetX()<=700)
      gfx.BacklightOn(true);
 
-
+	// Prend le ID du BTN pressé
   btnXtouch = gfx.CheckButtons();
 
+	// Affiche la bonne page selon le BTN pressé ou,
+	// étein la back light.
   if(btnXtouch == BTN_1)
     Batterie();
   else if(btnXtouch == BTN_2)
@@ -410,11 +393,12 @@ void touch_btn()
 }
 
 
+// -------------------------------- MESSAGE POUR LE DEBUG ------------------------------------
+
+
 /*
-Brief   : Vérifie si le premier octet, de la section "data" de la trame CAN,
-          est bien un nombre. Si oui, on l'affiche. Sinon, on affiche un 
-          message d'erreur.
-Param   : rxFrame soit la trame CAN.
+Brief   : Affiche HELLO_1 sur l'écran
+Param   : Rien
 Return  : Rien
 */
 void hello_1()
@@ -427,10 +411,8 @@ void hello_1()
 
 
 /*
-Brief   : Vérifie si le premier octet, de la section "data" de la trame CAN,
-          est bien un nombre. Si oui, on l'affiche. Sinon, on affiche un 
-          message d'erreur.
-Param   : rxFrame soit la trame CAN.
+Brief   : Affiche HELLO_2 sur l'écran
+Param   : Rien
 Return  : Rien
 */
 void hello_2()
