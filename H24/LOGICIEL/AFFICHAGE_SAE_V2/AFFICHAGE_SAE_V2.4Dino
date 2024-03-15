@@ -59,9 +59,9 @@ void setup()
   gfx.Open4dGFX("AFFICHAGE_SAE_V2"); // Opens DAT and GCI files for read using filename without extension.
   gfx.touch_Set(TOUCH_ENABLE);                // Global touch enabled
 
-  init_btn();
-  init_light();
-  Accumulateur();
+  init_btn();		// Initialise les BTN
+  init_light();		// Initialise le BTN LIGHT
+  Accumulateur();	// Affiche la page Accumulateur
 
 
 } // end Setup **do not alter, remove or duplicate this line**
@@ -69,14 +69,14 @@ void setup()
 void loop()
 {
 
-
+	// Regarde si un BTN est pressés
    touch_btn();
 
 
 
 
 
-
+	// !!!!!!!!!!!!!!!!!!!!!!!NE PAS ENLEVER LE CODE JUSTE EN DESSOUS!!!!!!!!!!!!!!!!!!!!
 
   // put your main code here, to run repeatedly:
   /*int itouched, val ;
@@ -99,11 +99,29 @@ void loop()
 
 
 
-
+/*
+Brief   : Initialise les BTN pour changer de page.
+Param   : Rien
+Return  : Rien
+*/
 void init_btn()
 {
-  gfx.RectangleFilled(0, 415, 800, 500, YELLOW);
+  gfx.RectangleFilled(0, 415, 800, 500, YELLOW);	// Fait une bande JAUNE
 
+
+	/*
+		Crée les BTN avec les paramètre suivant (en ordre) :
+		
+		ID du BTN
+		Position en X de l'extrémité gauche du BTN
+		Position en Y du côté suppérieur du BTN
+		La largeur du BTN
+		La hauteur du BTN
+		La couleur de fond
+		Le texte à l'intérieur
+		La police de caractère
+		La couleur du text
+	*/
   gfx.Buttonx(BTN_1, X_BTN_BATTERIE, Y_BTN, LONG_BTN_X, HAUT_BTN, WHITE, BATTERIE, 2, BLACK);
   gfx.Buttonx(BTN_2, X_BTN_ACCUMULATEUR, Y_BTN, LONG_BTN_X, HAUT_BTN, WHITE, ACCUMULATEUR, 2, BLACK);
   gfx.Buttonx(BTN_3, X_BTN_MOTEUR_DRIVE_COOLANT, Y_BTN, LONG_BTN_X, HAUT_BTN, WHITE, MOTEUR_DRIVE_COOLANT, 2, BLACK);
@@ -111,21 +129,40 @@ void init_btn()
 }
 
 
+
+/*
+Brief   : Initialise le BTN LIGHT servant à éteindre la back light.
+Param   : Rien
+Return  : Rien
+*/
 void init_light()
 {
+  // Un BTN de 100x100 pour éteindre la back light
   gfx.Buttonx(BTN_4, 700, 0, 100, 100, WHITE, "LIGHT", 2, BLACK);
-
 }
 
 
-
+/*
+Brief   : Efface la partie au dessus des BTN
+Param   : Rien
+Return  : Rien
+*/
 void clear()
 {
-   gfx.RectangleFilled(0, 0, 800, 415, BLACK);
-   init_light();
+   gfx.RectangleFilled(0, 0, 800, 415, BLACK);	// Dessine un rectangle noir pour "effacer" l'écran
+   
+   init_light();	// Remet le BTN LIGHT
 }
 
 
+
+/*
+Brief   : Vérifie si le premier octet, de la section "data" de la trame CAN,
+          est bien un nombre. Si oui, on l'affiche. Sinon, on affiche un 
+          message d'erreur.
+Param   : Rien
+Return  : Rien
+*/
 void nom_batterie()
 {
     gfx.MoveTo(POSX_NOM_PAGE, POSY_NOM_PAGE);
@@ -135,6 +172,14 @@ void nom_batterie()
 }
 
 
+
+/*
+Brief   : Vérifie si le premier octet, de la section "data" de la trame CAN,
+          est bien un nombre. Si oui, on l'affiche. Sinon, on affiche un 
+          message d'erreur.
+Param   : rxFrame soit la trame CAN.
+Return  : Rien
+*/
 void nom_accumulateur()
 {
     gfx.MoveTo(POSX_NOM_PAGE, POSY_NOM_PAGE);
@@ -144,7 +189,13 @@ void nom_accumulateur()
 }
 
 
-
+/*
+Brief   : Vérifie si le premier octet, de la section "data" de la trame CAN,
+          est bien un nombre. Si oui, on l'affiche. Sinon, on affiche un 
+          message d'erreur.
+Param   : rxFrame soit la trame CAN.
+Return  : Rien
+*/
 void nom_mott()
 {
     gfx.MoveTo(POSX_NOM_PAGE, POSY_NOM_PAGE);
@@ -154,38 +205,54 @@ void nom_mott()
 }
 
 
+
+/*
+Brief   : Vérifie si le premier octet, de la section "data" de la trame CAN,
+          est bien un nombre. Si oui, on l'affiche. Sinon, on affiche un 
+          message d'erreur.
+Param   : rxFrame soit la trame CAN.
+Return  : Rien
+*/
 void donne_batterie()
 {
    // NOM TEMP�RATURE
-   gfx.MoveTo(POSX_NOM_TEMP, POSY_NOM_DON);
+   gfx.MoveTo(POSX_NOM_TEMP_BAT, POSY_NOM_DON_BAT);
    gfx.print(TEMP);
    gfx.print(55);
    gfx.print(" C");
 
    // BAR TEMP�RATURE
-   gfx.RectangleFilled(POSX_BAR_TEMP, POSY_BAR, POSX_BAR_TEMP + LARGEUR, POSY_BAR + HAUT_R, RED);
-   gfx.RectangleFilled(POSX_BAR_TEMP, POSY_1_J_TEMP, POSX_BAR_TEMP + LARGEUR, POSY_2_J_TEMP, YELLOW);
-   gfx.RectangleFilled(POSX_BAR_TEMP, POSY_1_V_TEMP, POSX_BAR_TEMP + LARGEUR, POSY_2_V_TEMP, GREEN);
+   gfx.RectangleFilled(POSX_BAR_TEMP_BAT, POSY_1_R_TEMP_BAT, LARG_BAR_TEMP_BAT, POSY_2_R_TEMP_BAT, RED);
+   gfx.RectangleFilled(POSX_BAR_TEMP_BAT, POSY_1_J_TEMP_BAT, LARG_BAR_TEMP_BAT, POSY_2_J_TEMP_BAT, YELLOW);
+   gfx.RectangleFilled(POSX_BAR_TEMP_BAT, POSY_1_V_TEMP_BAT, LARG_BAR_TEMP_BAT, POSY_2_V_TEMP_BAT, GREEN);
 
    // BAR CHARGE
-   gfx.RectangleFilled(POSX_BAR_CHAR, POSY_1_V_CHAR, LARGE_BAR_CHAR, POSY_2_V_CHAR, GREEN);
-   gfx.RectangleFilled(POSX_BAR_CHAR, POSY_1_J_CHAR, LARGE_BAR_CHAR, POSY_2_J_CHAR, YELLOW);
-   gfx.RectangleFilled(POSX_BAR_CHAR, POSY_1_R_CHAR, LARGE_BAR_CHAR, POSY_2_R_CHAR, RED);
+   gfx.RectangleFilled(POSX_BAR_CHAR_BAT, POSY_1_V_CHAR_BAT, LARGE_BAR_CHAR_BAT, POSY_2_V_CHAR_BAT, GREEN);
+   gfx.RectangleFilled(POSX_BAR_CHAR_BAT, POSY_1_J_CHAR_BAT, LARGE_BAR_CHAR_BAT, POSY_2_J_CHAR_BAT, YELLOW);
+   gfx.RectangleFilled(POSX_BAR_CHAR_BAT, POSY_1_R_CHAR_BAT, LARGE_BAR_CHAR_BAT, POSY_2_R_CHAR_BAT, RED);
 
    // NOM CHARGE
-   gfx.MoveTo(POSX_NOM_CHAR, POSY_NOM_DON);
+   gfx.MoveTo(POSX_NOM_CHAR_BAT, POSY_NOM_DON_BAT);
    gfx.print(NIV_CHARGE);
    gfx.print(85);
    gfx.print("%");
 
    // SECTION TENSION
-   gfx.MoveTo(POSX_NOM_TENS, POSY_NOM_TENS);
+   gfx.MoveTo(POSX_NOM_TENS_BAT, POSY_NOM_TENS_BAT);
    gfx.print(VOLT);
    gfx.print(12);
    gfx.print("V");
 }
 
 
+
+/*
+Brief   : Vérifie si le premier octet, de la section "data" de la trame CAN,
+          est bien un nombre. Si oui, on l'affiche. Sinon, on affiche un 
+          message d'erreur.
+Param   : rxFrame soit la trame CAN.
+Return  : Rien
+*/
 void donne_acc()
 {
   // NOM TEMPERATURE
@@ -225,10 +292,18 @@ void donne_acc()
 }
 
 
+
+/*
+Brief   : Vérifie si le premier octet, de la section "data" de la trame CAN,
+          est bien un nombre. Si oui, on l'affiche. Sinon, on affiche un 
+          message d'erreur.
+Param   : rxFrame soit la trame CAN.
+Return  : Rien
+*/
 void donne_mdc()
 {
    // SECTION MOTTEUR
-   gfx.MoveTo(POSX_NOM_MOT, POSY_NOM_DON);
+   gfx.MoveTo(POSX_NOM_MOT, POSY_NOM_DON_MDC);
    gfx.print(NOM_TEMP_MOT);
    gfx.print(60);
    gfx.print(" C");
@@ -239,7 +314,7 @@ void donne_mdc()
    gfx.RectangleFilled(POSX_TEMP_MOT, POSY_1_V_MOT, LARG_BAR_MOT, POSY_2_V_MOT, GREEN);
 
    // SECTION DRIVE
-   gfx.MoveTo(POSX_NOM_DRIV, POSY_NOM_DON);
+   gfx.MoveTo(POSX_NOM_DRIV, POSY_NOM_DON_MDC);
    gfx.print(NOM_TEMP_DRIV);
    gfx.print(50);
    gfx.print(" C");
@@ -250,7 +325,7 @@ void donne_mdc()
    gfx.RectangleFilled(POSX_TEMP_DRIV, POSY_1_V_DRIV, LARG_BAR_DRIV, POSY_2_V_DRIV, GREEN);
 
    // SECTION COOLANT
-   gfx.MoveTo(POSX_NOM_COOL, POSY_NOM_DON);
+   gfx.MoveTo(POSX_NOM_COOL, POSY_NOM_DON_MDC);
    gfx.print(NOM_TEMP_COOL);
    gfx.print(45);
    gfx.print(" C");
@@ -262,7 +337,13 @@ void donne_mdc()
 }
 
 
-
+/*
+Brief   : Vérifie si le premier octet, de la section "data" de la trame CAN,
+          est bien un nombre. Si oui, on l'affiche. Sinon, on affiche un 
+          message d'erreur.
+Param   : rxFrame soit la trame CAN.
+Return  : Rien
+*/
 void Batterie()
 {
     clear();
@@ -271,6 +352,13 @@ void Batterie()
 }
 
 
+/*
+Brief   : Vérifie si le premier octet, de la section "data" de la trame CAN,
+          est bien un nombre. Si oui, on l'affiche. Sinon, on affiche un 
+          message d'erreur.
+Param   : rxFrame soit la trame CAN.
+Return  : Rien
+*/
 void Accumulateur()
 {
    clear();
@@ -279,6 +367,13 @@ void Accumulateur()
 }
 
 
+/*
+Brief   : Vérifie si le premier octet, de la section "data" de la trame CAN,
+          est bien un nombre. Si oui, on l'affiche. Sinon, on affiche un 
+          message d'erreur.
+Param   : rxFrame soit la trame CAN.
+Return  : Rien
+*/
 void Mott()
 {
    clear();
@@ -287,11 +382,18 @@ void Mott()
 }
 
 
+/*
+Brief   : Vérifie si le premier octet, de la section "data" de la trame CAN,
+          est bien un nombre. Si oui, on l'affiche. Sinon, on affiche un 
+          message d'erreur.
+Param   : rxFrame soit la trame CAN.
+Return  : Rien
+*/
 void touch_btn()
 {
   int btnXtouch;
 
-  if(gfx.touch_GetX()>=0 && gfx.touch_GetX()<=700)
+  if(gfx.touch_GetX()<=700)
      gfx.BacklightOn(true);
 
 
@@ -308,7 +410,13 @@ void touch_btn()
 }
 
 
-
+/*
+Brief   : Vérifie si le premier octet, de la section "data" de la trame CAN,
+          est bien un nombre. Si oui, on l'affiche. Sinon, on affiche un 
+          message d'erreur.
+Param   : rxFrame soit la trame CAN.
+Return  : Rien
+*/
 void hello_1()
 {
     gfx.MoveTo(150, 150);
@@ -318,7 +426,13 @@ void hello_1()
 }
 
 
-
+/*
+Brief   : Vérifie si le premier octet, de la section "data" de la trame CAN,
+          est bien un nombre. Si oui, on l'affiche. Sinon, on affiche un 
+          message d'erreur.
+Param   : rxFrame soit la trame CAN.
+Return  : Rien
+*/
 void hello_2()
 {
     gfx.MoveTo(150, 150);

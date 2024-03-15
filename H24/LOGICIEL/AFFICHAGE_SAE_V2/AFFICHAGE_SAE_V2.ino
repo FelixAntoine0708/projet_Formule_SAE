@@ -161,29 +161,29 @@ void nom_mott()
 void donne_batterie()
 {
    // NOM TEMP�RATURE
-   gfx.MoveTo(POSX_NOM_TEMP, POSY_NOM_DON);
+   gfx.MoveTo(POSX_NOM_TEMP_BAT, POSY_NOM_DON_BAT);
    gfx.print(TEMP);
    gfx.print(55);
    gfx.print(" C");
 
    // BAR TEMP�RATURE
-   gfx.RectangleFilled(POSX_BAR_TEMP, POSY_BAR, POSX_BAR_TEMP + LARGEUR, POSY_BAR + HAUT_R, RED);
-   gfx.RectangleFilled(POSX_BAR_TEMP, POSY_1_J_TEMP, POSX_BAR_TEMP + LARGEUR, POSY_2_J_TEMP, YELLOW);
-   gfx.RectangleFilled(POSX_BAR_TEMP, POSY_1_V_TEMP, POSX_BAR_TEMP + LARGEUR, POSY_2_V_TEMP, GREEN);
+   gfx.RectangleFilled(POSX_BAR_TEMP_BAT, POSY_1_R_TEMP_BAT, LARG_BAR_TEMP_BAT, POSY_2_R_TEMP_BAT, RED);
+   gfx.RectangleFilled(POSX_BAR_TEMP_BAT, POSY_1_J_TEMP_BAT, LARG_BAR_TEMP_BAT, POSY_2_J_TEMP_BAT, YELLOW);
+   gfx.RectangleFilled(POSX_BAR_TEMP_BAT, POSY_1_V_TEMP_BAT, LARG_BAR_TEMP_BAT, POSY_2_V_TEMP_BAT, GREEN);
 
    // BAR CHARGE
-   gfx.RectangleFilled(POSX_BAR_CHAR, POSY_1_V_CHAR, LARGE_BAR_CHAR, POSY_2_V_CHAR, GREEN);
-   gfx.RectangleFilled(POSX_BAR_CHAR, POSY_1_J_CHAR, LARGE_BAR_CHAR, POSY_2_J_CHAR, YELLOW);
-   gfx.RectangleFilled(POSX_BAR_CHAR, POSY_1_R_CHAR, LARGE_BAR_CHAR, POSY_2_R_CHAR, RED);
+   gfx.RectangleFilled(POSX_BAR_CHAR_BAT, POSY_1_V_CHAR_BAT, LARGE_BAR_CHAR_BAT, POSY_2_V_CHAR_BAT, GREEN);
+   gfx.RectangleFilled(POSX_BAR_CHAR_BAT, POSY_1_J_CHAR_BAT, LARGE_BAR_CHAR_BAT, POSY_2_J_CHAR_BAT, YELLOW);
+   gfx.RectangleFilled(POSX_BAR_CHAR_BAT, POSY_1_R_CHAR_BAT, LARGE_BAR_CHAR_BAT, POSY_2_R_CHAR_BAT, RED);
 
    // NOM CHARGE
-   gfx.MoveTo(POSX_NOM_CHAR, POSY_NOM_DON);
+   gfx.MoveTo(POSX_NOM_CHAR_BAT, POSY_NOM_DON_BAT);
    gfx.print(NIV_CHARGE);
    gfx.print(85);
    gfx.print("%");
 
    // SECTION TENSION
-   gfx.MoveTo(POSX_NOM_TENS, POSY_NOM_TENS);
+   gfx.MoveTo(POSX_NOM_TENS_BAT, POSY_NOM_TENS_BAT);
    gfx.print(VOLT);
    gfx.print(12);
    gfx.print("V");
@@ -232,7 +232,7 @@ void donne_acc()
 void donne_mdc()
 {
    // SECTION MOTTEUR
-   gfx.MoveTo(POSX_NOM_MOT, POSY_NOM_DON);
+   gfx.MoveTo(POSX_NOM_MOT, POSY_NOM_DON_MDC);
    gfx.print(NOM_TEMP_MOT);
    gfx.print(60);
    gfx.print(" C");
@@ -243,7 +243,7 @@ void donne_mdc()
    gfx.RectangleFilled(POSX_TEMP_MOT, POSY_1_V_MOT, LARG_BAR_MOT, POSY_2_V_MOT, GREEN);
 
    // SECTION DRIVE
-   gfx.MoveTo(POSX_NOM_DRIV, POSY_NOM_DON);
+   gfx.MoveTo(POSX_NOM_DRIV, POSY_NOM_DON_MDC);
    gfx.print(NOM_TEMP_DRIV);
    gfx.print(50);
    gfx.print(" C");
@@ -254,7 +254,7 @@ void donne_mdc()
    gfx.RectangleFilled(POSX_TEMP_DRIV, POSY_1_V_DRIV, LARG_BAR_DRIV, POSY_2_V_DRIV, GREEN);
 
    // SECTION COOLANT
-   gfx.MoveTo(POSX_NOM_COOL, POSY_NOM_DON);
+   gfx.MoveTo(POSX_NOM_COOL, POSY_NOM_DON_MDC);
    gfx.print(NOM_TEMP_COOL);
    gfx.print(45);
    gfx.print(" C");
@@ -295,7 +295,7 @@ void touch_btn()
 {
   int btnXtouch;
 
-  if(gfx.touch_GetX()>=0 && gfx.touch_GetX()<=700)
+  if(gfx.touch_GetX()<=700)
      gfx.BacklightOn(true);
 
 
