@@ -59,9 +59,9 @@ void setup()
   gfx.Open4dGFX("AFFICHAGE_SAE_V2"); // Opens DAT and GCI files for read using filename without extension.
   gfx.touch_Set(TOUCH_ENABLE);                // Global touch enabled
 
-  init_btn();		// Initialise les BTN
-  init_light();		// Initialise le BTN LIGHT
-  Accumulateur();	// Affiche la page Accumulateur
+  init_btn();        // Initialise les BTN
+  init_light();        // Initialise le BTN LIGHT
+  Accumulateur();    // Affiche la page Accumulateur
 
 
 } // end Setup **do not alter, remove or duplicate this line**
@@ -69,14 +69,14 @@ void setup()
 void loop()
 {
 
-	// Regarde si un BTN est pressés
+    // Regarde si un BTN est pressés
    touch_btn();
 
 
 
 
 
-	// !!!!!!!!!!!!!!!!!!!!!!!NE PAS ENLEVER LE CODE JUSTE EN DESSOUS!!!!!!!!!!!!!!!!!!!!
+    // !!!!!!!!!!!!!!!!!!!!!!!NE PAS ENLEVER LE CODE JUSTE EN DESSOUS!!!!!!!!!!!!!!!!!!!!
 
   // put your main code here, to run repeatedly:
   /*int itouched, val ;
@@ -106,22 +106,22 @@ Return  : Rien
 */
 void init_btn()
 {
-  gfx.RectangleFilled(0, 415, 800, 500, YELLOW);	// Fait une bande JAUNE
+  gfx.RectangleFilled(0, 415, 800, 500, YELLOW);    // Fait une bande JAUNE
 
 
-	/*
-		Crée les BTN avec les paramètre suivant (en ordre) :
-		
-		ID du BTN
-		Position en X de l'extrémité gauche du BTN
-		Position en Y du côté suppérieur du BTN
-		La largeur du BTN
-		La hauteur du BTN
-		La couleur de fond
-		Le texte à l'intérieur
-		La police de caractère
-		La couleur du text
-	*/
+    /*
+        Crée les BTN avec les paramètre suivant (en ordre) :
+
+        ID du BTN
+        Position en X de l'extrémité gauche du BTN
+        Position en Y du côté suppérieur du BTN
+        La largeur du BTN
+        La hauteur du BTN
+        La couleur de fond
+        Le texte à l'intérieur
+        La police de caractère
+        La couleur du text
+    */
   gfx.Buttonx(BTN_1, X_BTN_BATTERIE, Y_BTN, LONG_BTN_X, HAUT_BTN, WHITE, BATTERIE, 2, BLACK);
   gfx.Buttonx(BTN_2, X_BTN_ACCUMULATEUR, Y_BTN, LONG_BTN_X, HAUT_BTN, WHITE, ACCUMULATEUR, 2, BLACK);
   gfx.Buttonx(BTN_3, X_BTN_MOTEUR_DRIVE_COOLANT, Y_BTN, LONG_BTN_X, HAUT_BTN, WHITE, MOTEUR_DRIVE_COOLANT, 2, BLACK);
@@ -149,9 +149,9 @@ Return  : Rien
 */
 void clear()
 {
-   gfx.RectangleFilled(0, 0, 800, 415, BLACK);	// Dessine un rectangle noir pour "effacer" l'écran
-   
-   init_light();	// Remet le BTN LIGHT
+   gfx.RectangleFilled(0, 0, 800, 415, BLACK);    // Dessine un rectangle noir pour "effacer" l'écran
+
+   init_light();    // Remet le BTN LIGHT
 }
 
 
@@ -335,6 +335,9 @@ void Batterie()
     clear();
     nom_batterie();
     donne_batterie();
+    gfx.ButtonActive(BTN_1, false);
+    gfx.ButtonActive(BTN_2, true);
+    gfx.ButtonActive(BTN_3, true);
 }
 
 
@@ -348,6 +351,9 @@ void Accumulateur()
    clear();
    nom_accumulateur();
    donne_acc();
+   gfx.ButtonActive(BTN_1, true);
+   gfx.ButtonActive(BTN_2, false);
+   gfx.ButtonActive(BTN_3, true);
 }
 
 
@@ -361,6 +367,9 @@ void Mott()
    clear();
    nom_mott();
    donne_mdc();
+   gfx.ButtonActive(BTN_1, true);
+   gfx.ButtonActive(BTN_2, true);
+   gfx.ButtonActive(BTN_3, false);
 }
 
 
@@ -371,17 +380,17 @@ Return  : Rien
 */
 void touch_btn()
 {
-  int btnXtouch;	// Pour garder le ID du BTN
+  int btnXtouch;    // Pour garder le ID du BTN
 
-	// Si on touche l'écran, on allume la back light
+    // Si on touche l'écran, on allume la back light
   if(gfx.touch_GetX()<=700)
      gfx.BacklightOn(true);
 
-	// Prend le ID du BTN pressé
+    // Prend le ID du BTN pressé
   btnXtouch = gfx.CheckButtons();
 
-	// Affiche la bonne page selon le BTN pressé ou,
-	// étein la back light.
+    // Affiche la bonne page selon le BTN pressé ou,
+    // étein la back light.
   if(btnXtouch == BTN_1)
     Batterie();
   else if(btnXtouch == BTN_2)

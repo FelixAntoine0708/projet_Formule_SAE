@@ -63,9 +63,9 @@ void setup()
   gfx.Open4dGFX("AFFICHAGE_SAE_V2"); // Opens DAT and GCI files for read using filename without extension.
   gfx.touch_Set(TOUCH_ENABLE);                // Global touch enabled
 
-  init_btn();
-  init_light();
-  Accumulateur();
+  init_btn();        // Initialise les BTN
+  init_light();        // Initialise le BTN LIGHT
+  Accumulateur();    // Affiche la page Accumulateur
 
 
 } // end Setup **do not alter, remove or duplicate this line**
@@ -73,14 +73,14 @@ void setup()
 void loop()
 {
 
-
+    // Regarde si un BTN est pressés
    touch_btn();
 
 
 
 
 
-
+    // !!!!!!!!!!!!!!!!!!!!!!!NE PAS ENLEVER LE CODE JUSTE EN DESSOUS!!!!!!!!!!!!!!!!!!!!
 
   // put your main code here, to run repeatedly:
   /*int itouched, val ;
@@ -103,11 +103,29 @@ void loop()
 
 
 
-
+/*
+Brief   : Initialise les BTN pour changer de page.
+Param   : Rien
+Return  : Rien
+*/
 void init_btn()
 {
-  gfx.RectangleFilled(0, 415, 800, 500, YELLOW);
+  gfx.RectangleFilled(0, 415, 800, 500, YELLOW);    // Fait une bande JAUNE
 
+
+    /*
+        Crée les BTN avec les paramètre suivant (en ordre) :
+
+        ID du BTN
+        Position en X de l'extrémité gauche du BTN
+        Position en Y du côté suppérieur du BTN
+        La largeur du BTN
+        La hauteur du BTN
+        La couleur de fond
+        Le texte à l'intérieur
+        La police de caractère
+        La couleur du text
+    */
   gfx.Buttonx(BTN_1, X_BTN_BATTERIE, Y_BTN, LONG_BTN_X, HAUT_BTN, WHITE, BATTERIE, 2, BLACK);
   gfx.Buttonx(BTN_2, X_BTN_ACCUMULATEUR, Y_BTN, LONG_BTN_X, HAUT_BTN, WHITE, ACCUMULATEUR, 2, BLACK);
   gfx.Buttonx(BTN_3, X_BTN_MOTEUR_DRIVE_COOLANT, Y_BTN, LONG_BTN_X, HAUT_BTN, WHITE, MOTEUR_DRIVE_COOLANT, 2, BLACK);
@@ -115,21 +133,38 @@ void init_btn()
 }
 
 
+
+/*
+Brief   : Initialise le BTN LIGHT servant à éteindre la back light.
+Param   : Rien
+Return  : Rien
+*/
 void init_light()
 {
+  // Un BTN de 100x100 pour éteindre la back light
   gfx.Buttonx(BTN_4, 700, 0, 100, 100, WHITE, "LIGHT", 2, BLACK);
-
 }
 
 
-
+/*
+Brief   : Efface la partie au dessus des BTN
+Param   : Rien
+Return  : Rien
+*/
 void clear()
 {
-   gfx.RectangleFilled(0, 0, 800, 415, BLACK);
-   init_light();
+   gfx.RectangleFilled(0, 0, 800, 415, BLACK);    // Dessine un rectangle noir pour "effacer" l'écran
+
+   init_light();    // Remet le BTN LIGHT
 }
 
 
+
+/*
+Brief   : Affiche le nom de la page Batterie
+Param   : Rien
+Return  : Rien
+*/
 void nom_batterie()
 {
     gfx.MoveTo(POSX_NOM_PAGE, POSY_NOM_PAGE);
@@ -139,6 +174,12 @@ void nom_batterie()
 }
 
 
+
+/*
+Brief   : Affiche le nom de la page Accumulateur
+Param   : Rien
+Return  : Rien
+*/
 void nom_accumulateur()
 {
     gfx.MoveTo(POSX_NOM_PAGE, POSY_NOM_PAGE);
@@ -148,7 +189,11 @@ void nom_accumulateur()
 }
 
 
-
+/*
+Brief   : Affiche le nom de la page MOTEUR_DRIVE_COOLANT
+Param   : Rien
+Return  : Rien
+*/
 void nom_mott()
 {
     gfx.MoveTo(POSX_NOM_PAGE, POSY_NOM_PAGE);
@@ -158,15 +203,21 @@ void nom_mott()
 }
 
 
+
+/*
+Brief   : Affiche les données de la page batterie
+Param   : Rien
+Return  : Rien
+*/
 void donne_batterie()
 {
-   // NOM TEMP�RATURE
+   // NOM TEMPERATURE
    gfx.MoveTo(POSX_NOM_TEMP_BAT, POSY_NOM_DON_BAT);
    gfx.print(TEMP);
    gfx.print(55);
    gfx.print(" C");
 
-   // BAR TEMP�RATURE
+   // BAR TEMPERATURE
    gfx.RectangleFilled(POSX_BAR_TEMP_BAT, POSY_1_R_TEMP_BAT, LARG_BAR_TEMP_BAT, POSY_2_R_TEMP_BAT, RED);
    gfx.RectangleFilled(POSX_BAR_TEMP_BAT, POSY_1_J_TEMP_BAT, LARG_BAR_TEMP_BAT, POSY_2_J_TEMP_BAT, YELLOW);
    gfx.RectangleFilled(POSX_BAR_TEMP_BAT, POSY_1_V_TEMP_BAT, LARG_BAR_TEMP_BAT, POSY_2_V_TEMP_BAT, GREEN);
@@ -190,6 +241,12 @@ void donne_batterie()
 }
 
 
+
+/*
+Brief   : Affiche les données de la page Accumulateur
+Param   : Rien
+Return  : Rien
+*/
 void donne_acc()
 {
   // NOM TEMPERATURE
@@ -229,6 +286,12 @@ void donne_acc()
 }
 
 
+
+/*
+Brief   : Affiche les données de la page MOTEUR_DRIVE_COOLANT
+Param   : Rien
+Return  : Rien
+*/
 void donne_mdc()
 {
    // SECTION MOTTEUR
@@ -266,41 +329,72 @@ void donne_mdc()
 }
 
 
-
+/*
+Brief   : Affiche la page Batterie
+Param   : Rien
+Return  : Rien
+*/
 void Batterie()
 {
     clear();
     nom_batterie();
     donne_batterie();
+    gfx.ButtonActive(BTN_1, false);
+    gfx.ButtonActive(BTN_2, true);
+    gfx.ButtonActive(BTN_3, true);
 }
 
 
+/*
+Brief   : Affiche la page Accumulateur
+Param   : Rien
+Return  : Rien
+*/
 void Accumulateur()
 {
    clear();
    nom_accumulateur();
    donne_acc();
+   gfx.ButtonActive(BTN_1, true);
+   gfx.ButtonActive(BTN_2, false);
+   gfx.ButtonActive(BTN_3, true);
 }
 
 
+/*
+Brief   : Affiche la page MOTEUR_DRIVE_COOLANT
+Param   : Rien
+Return  : Rien
+*/
 void Mott()
 {
    clear();
    nom_mott();
    donne_mdc();
+   gfx.ButtonActive(BTN_1, true);
+   gfx.ButtonActive(BTN_2, true);
+   gfx.ButtonActive(BTN_3, false);
 }
 
 
+/*
+Brief   : Regarde quel BTN à été pressés et affiche la page en conséquance.
+Param   : Rien
+Return  : Rien
+*/
 void touch_btn()
 {
-  int btnXtouch;
+  int btnXtouch;    // Pour garder le ID du BTN
 
+    // Si on touche l'écran, on allume la back light
   if(gfx.touch_GetX()<=700)
      gfx.BacklightOn(true);
 
-
+    // Prend le ID du BTN pressé
   btnXtouch = gfx.CheckButtons();
 
+    // Affiche la bonne page selon le BTN pressé ou,
+    // étein la back light.
   if(btnXtouch == BTN_1)
     Batterie();
   else if(btnXtouch == BTN_2)
@@ -312,7 +406,14 @@ void touch_btn()
 }
 
 
+// -------------------------------- MESSAGE POUR LE DEBUG ------------------------------------
 
+
+/*
+Brief   : Affiche HELLO_1 sur l'écran
+Param   : Rien
+Return  : Rien
+*/
 void hello_1()
 {
     gfx.MoveTo(150, 150);
@@ -322,7 +423,11 @@ void hello_1()
 }
 
 
-
+/*
+Brief   : Affiche HELLO_2 sur l'écran
+Param   : Rien
+Return  : Rien
+*/
 void hello_2()
 {
     gfx.MoveTo(150, 150);

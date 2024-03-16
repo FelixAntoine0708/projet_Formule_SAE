@@ -3,17 +3,17 @@
 //     the next time the .4Dino file is built
 //
 /*
-Programme : AFFICHAGE_SAE_V1.ino
-Auteur :    Marc-Étienne Gendron-Fontaine
-Date :      21 février 2024
-Brief :     Ce fichier contient le code de base pour afficher des données FICTIFES!!!!! Le but
-            de ce programme est de démontrer la fonctionnalité de l'écran gen4_ESP32_70CT. En
+Programme : AFFICHAGE_SAE_V1.4Dino
+Auteur :    Marc-ï¿½tienne Gendron-Fontaine
+Date :      21 fï¿½vrier 2024
+Brief :     Ce fichier contient le code de base pour afficher des donnï¿½es FICTIFES!!!!! Le but
+            de ce programme est de dï¿½montrer la fonctionnalitï¿½ de l'ï¿½cran gen4_ESP32_70CT. En
             gros, la seule chose que le programme permet de faire, ces de changer de page avec
             l'aide des boutons.
 
-Matérielle: ESP32-S3R8 (dans l'écran), écran gen4_ESP32_70CT
+Matï¿½rielle: ESP32-S3R8 (dans l'ï¿½cran), ï¿½cran gen4_ESP32_70CT
 Encironement: Workshop 4 V4.9.0.7,
-Système d’exploitation : Windows 10 V22H2.
+Systï¿½me dï¿½exploitationï¿½: Windows 10 V22H2.
 
 */
 
@@ -26,7 +26,7 @@ gfx4desp32_gen4_ESP32_70CT gfx = gfx4desp32_gen4_ESP32_70CT();
 
 #include "AFFICHAGE_SAE_V1Const.h"    // Note. This file will not be created if there are no generated graphics
 
-// Constante pour les positions en X et Y des BTN.   !!!!!!!!! À CHANGER !!!!!!!!!
+// Constante pour les positions en X et Y des BTN.   !!!!!!!!! ï¿½ CHANGER !!!!!!!!!
 #define X_BTN_BATTERIE 75
 #define X_BTN_ACCUMULATEUR 320
 #define X_BTN_MOTEUR_DRIVE_COOLANT 565
@@ -52,7 +52,7 @@ void setup()
   gfx.TextColor(WHITE, BLACK); gfx.Font(2);  gfx.TextSize(1);
   gfx.Open4dGFX("AFFICHAGE_SAE_V1"); // Opens DAT and GCI files for read using filename without extension.
   gfx.touch_Set(TOUCH_ENABLE);// Global touch enabled
-  gfx.imageTouchEnable(-1, true); // Active la détection du touché des widget
+  gfx.imageTouchEnable(-1, true); // Active la dï¿½tection du touchï¿½ des widget
 
   // FORM 1    BATTERIE_PAGE
 
@@ -145,7 +145,7 @@ void setup()
   */
 
 
-  Form_2();    // Affiche la deuxiàme page
+  Form_2();    // Affiche la deuxiï¿½me page
 
 
 
@@ -164,7 +164,7 @@ void loop()
 
               /*
                   Code pour faire changer les pages en appuyant sur les BTN!!!!!!!!!
-                  Félix, ne touche pas à mon if s.v.p
+                  Fï¿½lix, ne touche pas ï¿½ mon if s.v.p
               */
               if(button == i4Dbutton1 || button == i4Dbutton4 || button == i4Dbutton7)
                   Form_1();
@@ -187,7 +187,7 @@ Return  : Rien
 void Form_1()
 {
       gfx.Cls();
-      //gfx.imageTouchEnable(-1, true); // Active la détection du touché des widget
+      //gfx.imageTouchEnable(-1, true); // Active la dï¿½tection du touchï¿½ des widget
       gfx.imageTouchEnable(i4Dbutton1, true, MOMENTARY) ;        // init_4Dbutton1(BATTERIE_F1) enable touch of widget (on Form1)
       gfx.UserImages(i4Dbutton1,0) ;                             // init_4Dbutton1(BATTERIE_F1) show initially, if required (on Form1)
       gfx.imageTouchEnable(i4Dbutton2, true, MOMENTARY) ;        // init_4Dbutton2(ACCUMULATEUR_F1) enable touch of widget (on Form1)
@@ -219,7 +219,7 @@ void Form_2()
     gfx.Cls();
 
 
-    //gfx.imageTouchEnable(-1, true); // Active la détection du touché des widget
+    //gfx.imageTouchEnable(-1, true); // Active la dï¿½tection du touchï¿½ des widget
     gfx.imageTouchEnable(i4Dbutton4, true, MOMENTARY) ;        // init_4Dbutton4(BATTERIE_F2) enable touch of widget (on Form2)
     gfx.UserImages(i4Dbutton4,0) ;                             // init_4Dbutton4(BATTERIE_F2) show initially, if required (on Form2)
     gfx.imageTouchEnable(i4Dbutton5, true, MOMENTARY) ;        // init_4Dbutton5(ACCUMULATEUR_F2) enable touch of widget (on Form2)
@@ -250,7 +250,7 @@ Return  : Rien
 void Form_3()
 {
     gfx.Cls();
-    //gfx.imageTouchEnable(-1, true); // Active la détection du touché des widget
+    //gfx.imageTouchEnable(-1, true); // Active la dï¿½tection du touchï¿½ des widget
     gfx.imageTouchEnable(i4Dbutton7, true, MOMENTARY) ;        // init_4Dbutton7(BATTERIE_F3) enable touch of widget (on Form3)
     gfx.UserImages(i4Dbutton7,0) ;                             // init_4Dbutton7(BATTERIE_F3) show initially, if required (on Form3)
     gfx.imageTouchEnable(i4Dbutton8, true, MOMENTARY) ;        // init_4Dbutton8(ACCUMULATEUR_F3) enable touch of widget (on Form3)
