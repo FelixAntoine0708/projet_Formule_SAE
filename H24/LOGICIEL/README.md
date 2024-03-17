@@ -12,4 +12,4 @@
 
 * PDF_Logiciel : Contiens un user guide pour le Workshop4 et le manuel de la librairie GFX4dESP32.
 
-* CAN : Contiens le code du CAN. (À UTILISER)
+* CAN : Contiens le code du CAN. (À JOUR)
