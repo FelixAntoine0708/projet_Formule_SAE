@@ -1,9 +1,10 @@
 /*
 Programme : Code_project.4Dino
 Auteur :    F�lix-Antoine Guimont
-Modifi� :	Marc-�tienne Gendron-Fontaine
-Date :      7 mars 2024
+Modifi� :	  Marc-�tienne Gendron-Fontaine
+Date :      22 mars 2024
 Brief :     Ce fichier contient la deuxi�me version de ce que pourrait �tre l'affichage. Les donn�es sont fictives.
+            Ce code a été modifié et commenté par Marc-Étienne Gendron-Fontaine. Il est plus lisible maintenant!
 
 Mat�rielle: ESP32-S3R8 (dans l'�cran), �cran gen4_ESP32_70CT
 Encironement: Workshop 4 V4.9.0.7,
@@ -56,21 +57,6 @@ void loop()
 
   touch();
 
-  // put your main code here, to run repeatedly:
-  /*int itouched, val ;
-  gfx.touch_Update();
-  state = gfx.touch_GetPen();
-  if(state == TOUCH_PRESSED){
-    if(gfx.imageTouched() == iWinbutton1)
-     showHV();
-    else if(gfx.imageTouched() == iWinbutton2)
-     showLV();
-    else if(gfx.imageTouched() == iWinbutton3)
-     showTemp();
-    else if(gfx.imageTouched() == iWinbutton4)
-     showTemp();
-    
-  } */
 
 
 // NE PAS EFFACER AVANT LA FIN (SINON PEUT CAUSER DES PROBLEME DE MARDE)
@@ -99,7 +85,7 @@ void loop()
 
 
 /*
-Brief   : Regarde quel bouton à été pressé et affiche la page en consécanse.
+Brief   : Regarde quel bouton a été pressé et affiche la page en conséquence.
 Param   : Rien
 Return  : Rien
 */
@@ -107,8 +93,8 @@ void touch()
 {
   /*
   Si l'écran détecte un événement (touch_Update), on regarde si le
-  dernier status (touch_GetPen) est une pression sur l'écran. On regarde,
-  ensuite, quel bouton a été pressé et on affiche la page en conséquance.
+  dernier statut (touch_GetPen) est une pression sur l'écran. On regarde,
+  ensuite, quel bouton a été pressé et on affiche la page en conséquence.
   */
   if(gfx.touch_Update())
   {
@@ -154,8 +140,8 @@ void showTemp(){
   gfx.UserImages(iWinbutton4,0);  // TEMP BTN
 
   // BTN SETUP
-  gfx.imageTouchEnable(iWinbutton1, true);    // BTN HV ACTIVÉ
-  gfx.imageTouchEnable(iWinbutton2, true);    // BTN LA ACTIVÉ
+  gfx.imageTouchEnable(iWinbutton1, true);    // BTN HV ACTIF
+  gfx.imageTouchEnable(iWinbutton2, true);    // BTN LV ACTIF
   gfx.imageTouchEnable(iWinbutton4, false);   // BTN TEMP NON-ACTIF
   gfx.imageTouchEnable(iWinbutton3, false);   // BTN TEMP NON-ACTIF
 
@@ -170,33 +156,32 @@ Param   : Rien
 Return  : Rien
 */
 void showLV(){
-  gfx.Cls();
   
-  // 
+  gfx.Cls();  // Efface l'écran
   
+  // WIDGET
+  gfx.UserImages(iAngularmeter4,0);                     // LV TEMP
+  gfx.UserImages(iMeter1,0);                            // SOC LV
+  gfx.LedDigitsDisplay(0, iiLeddigits1, 4, 2, 40, 0);   // VOLT LV
+  gfx.UserImage(iLeddigits1);                           // VOLT LV
 
 
-  gfx.imageTouchEnable(iWinbutton1, true) ; // init_Winbutton1 enable touch of widget (on Form1)
-  gfx.UserImages(iWinbutton1,0) ;// HV BTN
+  // TXT LABEL
+  gfx.UserImage(iStatictext4);  // TEMP_LV_TXT
+  gfx.UserImage(iStatictext5);  // SOC_LV_TXT
+  gfx.UserImage(iStatictext8);  // VOLT_LV_TXT
+  gfx.UserImage(iStatictext7);  // Text Title
 
-  gfx.UserImage(iStatictext4) ;  // Statictext4
-  gfx.UserImage(iStatictext5) ;  // Statictext5
-  gfx.UserImage(iStatictext8) ;  // Statictext8
+  // BTN AFF
+  gfx.UserImages(iWinbutton2,0);  // LV BTN
+  gfx.UserImages(iWinbutton4,0);  // TEMP BTN
+  gfx.UserImages(iWinbutton1,0);  // HV BTN
 
-  gfx.UserImages(iAngularmeter4,0) ; // init_Angularmeter4 show initialy, if required
-  gfx.UserImages(iMeter1,0) ; // init_Meter1 show initialy, if required
-  gfx.LedDigitsDisplay(0, iiLeddigits1, 4, 2, 40, 0) ;  // Leddigits1
-  gfx.UserImage(iLeddigits1); // init_Leddigits1 show all digits at 0, only do this once
-
-  gfx.UserImage(iStatictext7) ;  // Text Title
-
-  gfx.imageTouchEnable(iWinbutton2, false) ;
-  gfx.imageTouchEnable(iWinbutton6, false) ;
-  gfx.UserImages(iWinbutton2,0) ;
-
-  gfx.imageTouchEnable(iWinbutton4, true); // init_Winbutton4 enable touch of widget (on Form2)
-  gfx.UserImages(iWinbutton4,0); // init_Winbutton4 show initially, if required (on Form2)
-
+  // BTN SETUP
+  gfx.imageTouchEnable(iWinbutton2, false);   // BTN LV NON-ACTIF
+  gfx.imageTouchEnable(iWinbutton6, false);   // BTN LV NON-ACTIF
+  gfx.imageTouchEnable(iWinbutton4, true);    // BTN TEMP ACTIF
+  gfx.imageTouchEnable(iWinbutton1, true);    // BTN HV ACTIF
 
 }
 
@@ -209,26 +194,33 @@ Param   : Rien
 Return  : Rien
 */
 void showHV(){
-  gfx.Cls();
-  gfx.imageTouchEnable(iWinbutton3, true);// init_Winbutton3 enable touch of widget (on Form3)
-  gfx.UserImages(iWinbutton3,0);// init_Winbutton3 show initially, if required (on Form3)
-  gfx.imageTouchEnable(iWinbutton2, true);
-  gfx.UserImages(iWinbutton2,0);// LV BTN
+  
+  gfx.Cls();  // Efface l'écran
 
-  gfx.UserImage(iStatictext9);  // Statictext9
-  gfx.UserImage(iStatictext11);  // Statictext11
-  gfx.UserImage(iStatictext13);  // Statictext13
-  gfx.UserImage(iStatictext12);  // Statictext12
+  // WIDGET
+  gfx.UserImages(iAngularmeter5,0);                     // TEMP HV
+  gfx.UserImages(iTank1,0);                             // SOH HV
+  gfx.UserImages(iMeter2,0);                            // SOC HV
+  gfx.LedDigitsDisplay(0, iiLeddigits2, 3, 1, 40, 0);   // VOLT HV
+  gfx.UserImage(iLeddigits2);                           // VOLT HV
 
-  gfx.LedDigitsDisplay(0, iiLeddigits2, 3, 1, 40, 0);  // Leddigits2
-  gfx.UserImage(iLeddigits2);// init_Leddigits2 show all digits at 0, only do this once
-  gfx.UserImages(iAngularmeter5,0);
-  gfx.UserImages(iTank1,0);
-  gfx.UserImages(iMeter2,0);
 
-  gfx.UserImage(iStatictext10);  // Text Title
+  // TXT LABEL
+  gfx.UserImage(iStatictext10);   // Text Title
+  gfx.UserImage(iStatictext9);    // VOLT_HV_TXT
+  gfx.UserImage(iStatictext11);   // TEMP_HV_TXT
+  gfx.UserImage(iStatictext13);   // SOH_HV_TXT
+  gfx.UserImage(iStatictext12);   // SOC_HV_TXT
 
-  gfx.imageTouchEnable(iWinbutton1, false) ;
-  gfx.imageTouchEnable(iWinbutton5, false) ;
-  gfx.UserImages(iWinbutton1,0) ;
+  // BTN AFF
+  gfx.UserImages(iWinbutton3,0);  // TEMP BTN
+  gfx.UserImages(iWinbutton2,0);  // LV BTN
+  gfx.UserImages(iWinbutton1,0);  // HV BTN
+
+  // BTN SETUP
+  gfx.imageTouchEnable(iWinbutton3, true);    // TEMP BTN ACTIF
+  gfx.imageTouchEnable(iWinbutton2, true);    // LV BTN ACTIF
+  gfx.imageTouchEnable(iWinbutton1, false);   // HV BTN NON-ACTIF
+  gfx.imageTouchEnable(iWinbutton5, false);   // HV BTN NON-ACTIF
+
 }
