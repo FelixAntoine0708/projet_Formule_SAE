@@ -107,7 +107,7 @@ void showTemp(){
   gfx.imageTouchEnable(iWinbutton1, true) ; // init_Winbutton1 enable touch of widget (on Form1)
   gfx.UserImages(iWinbutton1,0) ;// HV BTN
 
-  gfx.imageTouchEnable(iWinbutton2, true) ;
+  gfx.imageTouchEnable(iWinbutton2, false) ;
   gfx.UserImages(iWinbutton2,0) ;// LV BTN
 
   gfx.UserImages(iAngularmeter1, 0) ; // Coolant Temp

@@ -64,10 +64,10 @@ void setup()
 
 void loop()
 {
-  read_CAN(rxFrame);
+  //read_CAN(rxFrame);
 
-  //delay(1000);
-  //send_CAN(COOLANT_TEMP);
+  delay(1000);
+  send_CAN(COOLANT_TEMP);
 }
 
 
