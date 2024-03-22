@@ -1,13 +1,13 @@
 /*
 Programme : Code_project.4Dino
-Auteur :    Félix-Antoine Guimont
-Modifié :	Marc-Étienne Gendron-Fontaine
+Auteur :    Fï¿½lix-Antoine Guimont
+Modifiï¿½ :	Marc-ï¿½tienne Gendron-Fontaine
 Date :      7 mars 2024
-Brief :     Ce fichier contient la deuxième version de ce que pourrait être l'affichage. Les données sont fictives.
+Brief :     Ce fichier contient la deuxiï¿½me version de ce que pourrait ï¿½tre l'affichage. Les donnï¿½es sont fictives.
 
-Matérielle: ESP32-S3R8 (dans l'écran), écran gen4_ESP32_70CT
+Matï¿½rielle: ESP32-S3R8 (dans l'ï¿½cran), ï¿½cran gen4_ESP32_70CT
 Encironement: Workshop 4 V4.9.0.7,
-Système d'exploitation: Windows 10 V22H2.
+Systï¿½me d'exploitation: Windows 10 V22H2.
 
 */
 
@@ -85,28 +85,22 @@ void loop()
 
 	//int state;
 
-   touch();
+  touch();
 
   // put your main code here, to run repeatedly:
   /*int itouched, val ;
   gfx.touch_Update();
   state = gfx.touch_GetPen();
   if(state == TOUCH_PRESSED){
-    if(gfx.imageTouched() == iWinbutton1){
+    if(gfx.imageTouched() == iWinbutton1)
      showHV();
-    }
-
-    if(gfx.imageTouched() == iWinbutton2){
+    else if(gfx.imageTouched() == iWinbutton2)
      showLV();
-    }
-
-    if(gfx.imageTouched() == iWinbutton3){
+    else if(gfx.imageTouched() == iWinbutton3)
      showTemp();
-    }
-
-    if(gfx.imageTouched() == iWinbutton4){
+    else if(gfx.imageTouched() == iWinbutton4)
      showTemp();
-    }
+    
   } */
 
 
@@ -136,13 +130,15 @@ void loop()
 
 
 /*
-Brief   : Efface la partie au dessus des BTN
+Brief   : Regarde quel bouton Ã  Ã©tÃ© pressÃ© et affiche la page en consÃ©canse.
 Param   : Rien
 Return  : Rien
 */
-
 void touch()
 {
+  /*
+  Si l'Ã©cran est "touchÃ©" (touch_Update) 
+  */
   if(gfx.touch_Update())
   {
     if(gfx.touch_GetPen() == TOUCH_PRESSED)
@@ -165,7 +161,6 @@ Brief   : Efface la partie au dessus des BTN
 Param   : Rien
 Return  : Rien
 */
-
 void showTemp(){
   gfx.Cls();
   gfx.imageTouchEnable(iWinbutton1, true) ; // init_Winbutton1 enable touch of widget (on Form1)
@@ -191,12 +186,13 @@ void showTemp(){
 }
 
 
+
+
 /*
 Brief   : Efface la partie au dessus des BTN
 Param   : Rien
 Return  : Rien
 */
-
 void showLV(){
   gfx.Cls();
   gfx.imageTouchEnable(iWinbutton4, true); // init_Winbutton4 enable touch of widget (on Form2)
@@ -221,12 +217,13 @@ void showLV(){
 }
 
 
+
+
 /*
 Brief   : Efface la partie au dessus des BTN
 Param   : Rien
 Return  : Rien
 */
-
 void showHV(){
   gfx.Cls();
   gfx.imageTouchEnable(iWinbutton3, true);// init_Winbutton3 enable touch of widget (on Form3)
