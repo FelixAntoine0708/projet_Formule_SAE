@@ -20,6 +20,8 @@ gfx4desp32_%%displaynm%% gfx = gfx4desp32_%%displaynm%%();
 
 #include "Code_projectConst.h"    // Note. This file will not be created if there are no generated graphics
 
+
+
 // Prototype de fonction
 
 void showTemp();
@@ -42,39 +44,6 @@ void setup()
   gfx.TextColor(WHITE, BLACK); gfx.Font(2);  gfx.TextSize(1);
   gfx.Open4dGFX("Code_project"); // Opens DAT and GCI files for read using filename without extension.
   gfx.touch_Set(TOUCH_ENABLE);                // Global touch enabled
-
-  /*gfx.UserImages(iAngularmeter1,0) ; // init_Angularmeter1 show initialy, if required
-  gfx.UserImages(iAngularmeter2,0) ; // init_Angularmeter2 show initialy, if required
-  gfx.UserImages(iAngularmeter3,0) ; // init_Angularmeter3 show initialy, if required
-  gfx.UserImages(iAngularmeter4,0) ; // init_Angularmeter4 show initialy, if required
-  gfx.UserImages(iAngularmeter5,0) ; // init_Angularmeter5 show initialy, if required
-
-
-
-  gfx.imageTouchEnable(iWinbutton1, true) ; // init_Winbutton1 enable touch of widget (on Form1)
-  gfx.UserImages(iWinbutton1,0) ;// init_Winbutton1 show initially, if required (on Form1)
-  gfx.imageTouchEnable(iWinbutton2, true) ;// init_Winbutton2 enable touch of widget (on Form1)
-  gfx.UserImages(iWinbutton2,0) ;// init_Winbutton2 show initially, if required (on Form1)
-  gfx.imageTouchEnable(iWinbutton4, true); // init_Winbutton4 enable touch of widget (on Form2)
-  gfx.UserImages(iWinbutton4,0); // init_Winbutton4 show initially, if required (on Form2)
-  gfx.imageTouchEnable(iWinbutton3, true) ;// init_Winbutton3 enable touch of widget (on Form3)
-  gfx.UserImages(iWinbutton3,0) ;// init_Winbutton3 show initially, if required (on Form3)
-
-  gfx.UserImages(iTank1,0) ; // init_Tank1 show initialy, if required
-
-  gfx.UserImages(iMeter1,0) ; // init_Meter1 show initialy, if required
-  gfx.UserImages(iMeter2,0) ; // init_Meter1 show initialy, if required
-
-  gfx.LedDigitsDisplay(0, iiLeddigits1, 4, 2, 40, 0) ;  // Leddigits1
-  gfx.UserImage(iLeddigits1); // init_Leddigits1 show all digits at 0, only do this once
-  gfx.LedDigitsDisplay(0, iiLeddigits2, 3, 1, 40, 0) ;  // Leddigits2
-  gfx.UserImage(iLeddigits2);// init_Leddigits2 show all digits at 0, only do this once
-
-
-  gfx.UserImages(iMeter2,0) ;// init_Meter2 show initialy, if required
-
-  gfx.Cls();*/
-
 
 
   showTemp();
@@ -137,7 +106,9 @@ Return  : Rien
 void touch()
 {
   /*
-  Si l'écran est "touché" (touch_Update) 
+  Si l'écran détecte un événement (touch_Update), on regarde si le
+  dernier status (touch_GetPen) est une pression sur l'écran. On regarde,
+  ensuite, quel bouton a été pressé et on affiche la page en conséquance.
   */
   if(gfx.touch_Update())
   {
@@ -157,46 +128,54 @@ void touch()
 
 
 /*
-Brief   : Efface la partie au dessus des BTN
+Brief   : Affiche la page Température
 Param   : Rien
 Return  : Rien
 */
 void showTemp(){
-  gfx.Cls();
-  gfx.imageTouchEnable(iWinbutton1, true) ; // init_Winbutton1 enable touch of widget (on Form1)
-  gfx.UserImages(iWinbutton1,0) ;// HV BTN
+  
+  gfx.Cls();  // Efface l'écran
+  
+  // iAngularmeter
+  gfx.UserImages(iAngularmeter1, 0);  // Coolant Temp
+  gfx.UserImages(iAngularmeter2, 0);  // Drive Temp
+  gfx.UserImages(iAngularmeter3, 0);  // Motor Temp
+  
+  // TXT LABEL
+  gfx.UserImage(iStatictext6);  // Text Title
+  gfx.UserImage(iStatictext1);  // text coolant Temp
+  gfx.UserImage(iStatictext2);  // text Dirive Temp
+  gfx.UserImage(iStatictext3);  // Text Motor Temp
 
-  gfx.imageTouchEnable(iWinbutton2, true) ;
-  gfx.UserImages(iWinbutton2,0) ;// LV BTN
 
-  gfx.UserImages(iAngularmeter1, 0) ; // Coolant Temp
-  gfx.UserImage(iStatictext1) ;  // text coolant Temp
+  // BTN AFF
+  gfx.UserImages(iWinbutton1,0);  // HV BTN
+  gfx.UserImages(iWinbutton2,0);  // LV BTN
+  gfx.UserImages(iWinbutton4,0);  // TEMP BTN
 
-  gfx.UserImages(iAngularmeter2, 0) ; // Drive Temp
-  gfx.UserImage(iStatictext2) ;  // text Dirive Temp
+  // BTN SETUP
+  gfx.imageTouchEnable(iWinbutton1, true);    // BTN HV ACTIVÉ
+  gfx.imageTouchEnable(iWinbutton2, true);    // BTN LA ACTIVÉ
+  gfx.imageTouchEnable(iWinbutton4, false);   // BTN TEMP NON-ACTIF
+  gfx.imageTouchEnable(iWinbutton3, false);   // BTN TEMP NON-ACTIF
 
-  gfx.UserImages(iAngularmeter3, 0) ; // Motor Temp
-  gfx.UserImage(iStatictext3) ;  // Text Motor Temp
-
-  gfx.UserImage(iStatictext6) ;  // Text Title
-
-  gfx.imageTouchEnable(iWinbutton4, false) ;
-  gfx.imageTouchEnable(iWinbutton3, false) ;
-  gfx.UserImages(iWinbutton4,0) ;// LV BTN
-}
+}  
 
 
 
 
 /*
-Brief   : Efface la partie au dessus des BTN
+Brief   : Affiche la page LV
 Param   : Rien
 Return  : Rien
 */
 void showLV(){
   gfx.Cls();
-  gfx.imageTouchEnable(iWinbutton4, true); // init_Winbutton4 enable touch of widget (on Form2)
-  gfx.UserImages(iWinbutton4,0); // init_Winbutton4 show initially, if required (on Form2)
+  
+  // 
+  
+
+
   gfx.imageTouchEnable(iWinbutton1, true) ; // init_Winbutton1 enable touch of widget (on Form1)
   gfx.UserImages(iWinbutton1,0) ;// HV BTN
 
@@ -214,13 +193,18 @@ void showLV(){
   gfx.imageTouchEnable(iWinbutton2, false) ;
   gfx.imageTouchEnable(iWinbutton6, false) ;
   gfx.UserImages(iWinbutton2,0) ;
+
+  gfx.imageTouchEnable(iWinbutton4, true); // init_Winbutton4 enable touch of widget (on Form2)
+  gfx.UserImages(iWinbutton4,0); // init_Winbutton4 show initially, if required (on Form2)
+
+
 }
 
 
 
 
 /*
-Brief   : Efface la partie au dessus des BTN
+Brief   : Affiche la page HV
 Param   : Rien
 Return  : Rien
 */
