@@ -11,7 +11,7 @@ gfx4desp32_gen4_ESP32_70CT gfx = gfx4desp32_gen4_ESP32_70CT();
 #include <ESP32-TWAI-CAN.hpp>
 
 
-#define CAN_TX    3    // BRUN
+#define CAN_TX    2    // BRUN
 #define CAN_RX    4   // ORANGE
 
 // VARIALBLE GLOBALE
@@ -53,12 +53,22 @@ void loop()
 {
 
     if(ESP32Can.readFrame(rxFrame, 1000))
-      gfx.printf("%d \n", rxFrame.data[0]);
+    {
+      gfx.MoveTo(250,250);
+      gfx.println("                                      ");
+      gfx.MoveTo(150,150);
+      gfx.println("DONNÉES REÇUS!!!!!!!!!");
+      //gfx.printf("%d \n", rxFrame.data[0]);
+
+    }
     else
+    {
+      gfx.MoveTo(150,150);
+      gfx.println("                                      ");
+      gfx.MoveTo(150,150);
       gfx.print("EN ATTENTE DE DONNÉES...");
+    }
 
-
-    delay(1);
 
 
 
@@ -68,7 +78,7 @@ void loop()
 
 
   // put your main code here, to run repeatedly:
-  int itouched, val ;
+  /*int itouched, val ;
   if(gfx.touch_Update())
   {
     itouched = gfx.imageTouched() ;
@@ -83,6 +93,6 @@ void loop()
           // case, one for each button or keyboard, default should end up as -1
         }                                                     // end button selection **do not alter, remove or duplicate this line**
     }
-  }
+  } */
 }
 
