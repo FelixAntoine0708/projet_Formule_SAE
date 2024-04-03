@@ -6,9 +6,9 @@ gfx4desp32_%%displaynm%% gfx = gfx4desp32_%%displaynm%%();
 
 #include <ESP32-TWAI-CAN.hpp>
 
-
-#define CAN_TX    2    // BRUN
-#define CAN_RX    4   // ORANGE
+// TX DANS TX   RX DANS RX
+#define CAN_TX    43    // BRUN
+#define CAN_RX    44   // ORANGE
 
 // VARIALBLE GLOBALE
 CanFrame rxFrame;   // Pour la trame CAN
