@@ -11,8 +11,8 @@ gfx4desp32_gen4_ESP32_70CT gfx = gfx4desp32_gen4_ESP32_70CT();
 #include <ESP32-TWAI-CAN.hpp>
 
 
-#define CAN_TX    2    // BRUN
-#define CAN_RX    4   // ORANGE
+#define CAN_TX    43    // BRUN
+#define CAN_RX    44   // ORANGE
 
 // VARIALBLE GLOBALE
 CanFrame rxFrame;   // Pour la trame CAN
