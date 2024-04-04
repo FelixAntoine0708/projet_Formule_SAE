@@ -25,19 +25,13 @@ Encironement: Visual Studio Code V 1.86.2, Système d’exploitation : Linux x6
 #define CAN_TX		12
 #define CAN_RX		13
 
-
-
-
-
 CanFrame rxFrame;
-
-
 
 void setup()
 {
   // Initialisation de la vitesse du moniteur série
   Serial.begin(115200);
-  delay(5000);
+  delay(2000);
 
   // Initialisation des GPIO pour recevoir/transmettre des trames CAN.
 	ESP32Can.setPins(CAN_TX, CAN_RX);
@@ -61,7 +55,6 @@ void setup()
         Serial.println("CAN bus failed!");
 }
 
-
 void loop()
 {
   //read_CAN(rxFrame);
@@ -69,5 +62,3 @@ void loop()
   delay(1000);
   send_CAN(COOLANT_TEMP);
 }
-
-
