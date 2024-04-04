@@ -25,7 +25,7 @@ Form
     Name                         Form1
     Alias                        Form1
     Bgtype                       Color
-    Color                        BLACK
+    Color                        0x366039
     Image                        (None)
     Source.Height                0
     Source.Left                  0

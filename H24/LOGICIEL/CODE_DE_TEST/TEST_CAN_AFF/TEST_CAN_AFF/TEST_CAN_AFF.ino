@@ -11,8 +11,13 @@ gfx4desp32_gen4_ESP32_70CT gfx = gfx4desp32_gen4_ESP32_70CT();
 #include <ESP32-TWAI-CAN.hpp>
 
 
+<<<<<<< Updated upstream
+#define CAN_TX    43
+#define CAN_RX    44
+=======
 #define CAN_TX    2    // BRUN
 #define CAN_RX    4   // ORANGE
+>>>>>>> Stashed changes
 
 // VARIALBLE GLOBALE
 CanFrame rxFrame;   // Pour la trame CAN
@@ -30,52 +35,47 @@ void setup()
   gfx.Open4dGFX("TEST_CAN_AFF"); // Opens DAT and GCI files for read using filename without extension.
   gfx.touch_Set(TOUCH_ENABLE);                // Global touch enabled
 
-
   // CAN -----------------------------------
-
-  // Initialisation des GPIO pour recevoir/transmettre des trames CAN.
   ESP32Can.setPins(CAN_TX, CAN_RX);
-
-  // Initialise la vitesse de communication du CAN.
   ESP32Can.setSpeed(ESP32Can.convertSpeed(500));
-
-  // D?mare les driver TWAI
+  ESP32Can.setRxQueueSize(1);
+  ESP32Can.setTxQueueSize(1);
   if(ESP32Can.begin())
       gfx.println("CAN bus started!");
   else
       gfx.println("CAN bus failed!");
-
-
-
+  delay(2000);
+  gfx.UserImages(iAngularmeter1,0);
+  gfx.UserImage(iLeddigits1);
+  gfx.UserImages(iAngularmeter1,0) ;                         // init_Angularmeter1 show initialy, if required
 } // end Setup **do not alter, remove or duplicate this line**
 
 void loop()
 {
-
     if(ESP32Can.readFrame(rxFrame, 1000))
     {
-      gfx.MoveTo(250,250);
-      gfx.println("                                      ");
-      gfx.MoveTo(150,150);
-      gfx.println("DONNÉES REÇUS!!!!!!!!!");
-      //gfx.printf("%d \n", rxFrame.data[0]);
-
+      for (int i=0; i<8; i++){
+        gfx.UserImages(iAngularmeter1, (int)rxFrame.data[i]);
+        if ((int)rxFrame.data[i] < 9)
+           gfx.LedDigitsDisplay((int)rxFrame.data[i], iiLeddigits1, 1, 3, 53, 0);
+        if ((int)rxFrame.data[i] > 9 && (int)rxFrame.data[i] < 99 )
+          gfx.LedDigitsDisplay((int)rxFrame.data[i], iiLeddigits1, 2, 3, 53, 0);
+          if ((int)rxFrame.data[i] > 99 && (int)rxFrame.data[i] < 999 )
+          gfx.LedDigitsDisplay((int)rxFrame.data[i], iiLeddigits1, 3, 3, 53, 0);
+          if ((int)rxFrame.data[i] > 999 && (int)rxFrame.data[i] < 9999 )
+          gfx.LedDigitsDisplay((int)rxFrame.data[i], iiLeddigits1, 4, 3, 53, 0);
+        delay(1500);
+        if(i == 7)
+          gfx.Cls();
+      }
     }
     else
     {
       gfx.MoveTo(150,150);
-      gfx.println("                                      ");
-      gfx.MoveTo(150,150);
+      gfx.Cls();
+      gfx.MoveTo(250,250);
       gfx.print("EN ATTENTE DE DONNÉES...");
     }
-
-
-
-
-
-
-
-
 
   // put your main code here, to run repeatedly:
   /*int itouched, val ;

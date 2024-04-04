@@ -26,10 +26,17 @@ gfx4desp32_%%displaynm%% gfx = gfx4desp32_%%displaynm%%();
 
 // CONSTANTES
 
+<<<<<<< Updated upstream
+// GPIO par defaut pour la communication CAN (serie)
+// !!!!!!!!!!!!!!!!! A CHANGER POUR LES BONNES!!!!!!!!!!!!!!!!!!!!
+#define CAN_TX    44
+#define CAN_RX    43
+=======
 // GPIO par d�faut pour la communication CAN (s�rie)
 // !!!!!!!!!!!!!!!!! À CHANGER POUR LES BONNES!!!!!!!!!!!!!!!!!!!!
-#define CAN_TX    3    // BRUN
-#define CAN_RX    4   // ORANGE
+#define CAN_TX    4    // BRUN
+#define CAN_RX    3   // ORANGE
+>>>>>>> Stashed changes
 
 
 // PROTOTYPE DE FCT
@@ -53,6 +60,8 @@ void setup()
   gfx.Open4dGFX("TEST_GFX_CAN"); // Opens DAT and GCI files for read using filename without extension.
   gfx.touch_Set(TOUCH_ENABLE);                // Global touch enabled
 
+  pinMode(1, OUTPUT);
+  digitalWrite(1, LOW);
   // CAN -----------------------------------
 
   // Initialisation des GPIO pour recevoir/transmettre des trames CAN.
@@ -74,11 +83,13 @@ void setup()
 void loop()
 {
 
-  String msg = "";  // Pour garder le msg CAN
+  String msg = "?";  // Pour garder le msg CAN
+
+  //gfx.println("En attente...");
 
   msg = read_CAN(rxFrame);
-
-  affiche_message(msg);
+  gfx.MoveTo(150, 150);
+  gfx.print(msg);
 
 
 
@@ -86,22 +97,22 @@ void loop()
 
 
   // put your main code here, to run repeatedly:
-  int itouched, val ;
-  if(gfx.touch_Update())
-  {
-    itouched = gfx.imageTouched() ;
-    switch (itouched)
-    {                                                         // start touched selection **do not alter, remove or duplicate this line**
+  //int itouched, val ;
+  //if(gfx.touch_Update())
+  //{
+    //itouched = gfx.imageTouched() ;
+    //switch (itouched)
+    //{                                                         // start touched selection **do not alter, remove or duplicate this line**
       // case statements for Knobs and Sliders go here
-      default :                                               // end touched selection **do not alter, remove or duplicate this line**
-        int button = gfx.ImageTouchedAuto();    // use default for keyboards and buttons
-        val = gfx.getImageValue(button);
-        switch (button)
-        {                                                     // start button selection **do not alter, remove or duplicate this line**
+      //default :                                               // end touched selection **do not alter, remove or duplicate this line**
+        //int button = gfx.ImageTouchedAuto();    // use default for keyboards and buttons
+        //val = gfx.getImageValue(button);
+        //switch (button)
+        //{                                                     // start button selection **do not alter, remove or duplicate this line**
           // case, one for each button or keyboard, default should end up as -1
-        }                                                     // end button selection **do not alter, remove or duplicate this line**
-    }
-  }
+        //}                                                     // end button selection **do not alter, remove or duplicate this line**
+    //}
+  //}
 }
 
 
