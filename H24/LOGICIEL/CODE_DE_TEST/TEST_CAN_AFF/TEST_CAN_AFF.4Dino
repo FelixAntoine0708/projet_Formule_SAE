@@ -48,22 +48,25 @@ void setup()
 
 void loop()
 {
-    if(ESP32Can.readFrame(rxFrame, 1000))
+    if(ESP32Can.readFrame(rxFrame, 25))
     {
-      for (int i=0; i<8; i++){
-        gfx.UserImages(iAngularmeter1, (int)rxFrame.data[i]);
+      int mil = ((int)rxFrame.data[4] - 48) * 100;
+      int cent = ((int)rxFrame.data[5] - 48) * 100;
+      int diz = ((int)rxFrame.data[6] - 48) * 10;
+      int uni = (int)rxFrame.data[7] - 48;
+      int total = mil + cent + diz + uni;
+
+        gfx.UserImages(iAngularmeter1, total);
         if ((int)rxFrame.data[i] < 9)
-           gfx.LedDigitsDisplay((int)rxFrame.data[i], iiLeddigits1, 1, 3, 53, 0);
+           gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 53, 0);
         if ((int)rxFrame.data[i] > 9 && (int)rxFrame.data[i] < 99 )
-          gfx.LedDigitsDisplay((int)rxFrame.data[i], iiLeddigits1, 2, 3, 53, 0);
+          gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 53, 0);
           if ((int)rxFrame.data[i] > 99 && (int)rxFrame.data[i] < 999 )
-          gfx.LedDigitsDisplay((int)rxFrame.data[i], iiLeddigits1, 3, 3, 53, 0);
+          gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 53, 0);
           if ((int)rxFrame.data[i] > 999 && (int)rxFrame.data[i] < 9999 )
-          gfx.LedDigitsDisplay((int)rxFrame.data[i], iiLeddigits1, 4, 3, 53, 0);
-        delay(1500);
-        if(i == 7)
-          gfx.Cls();
-      }
+          gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 53, 0);
+
+
     }
     else
     {
