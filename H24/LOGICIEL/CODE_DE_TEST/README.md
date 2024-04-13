@@ -14,6 +14,8 @@
   
 * TEST_PLUSIEUR_FICHIERS : Contient un code test pour voir s'il est possible de séparer les fonctions d'affichages dans plusieurs fichiers (EX. les mettre dans FCT_AFF.cpp et FCT_AFF.h). SPOILER : 4D Workshop n'aime pas cela...
 
+* TEST_FPS : Contiens un code pour observer la fluidité de l'écran.
+
 > [!CAUTION]
 > Dans le Dossier `TEST_CAN_AFF`, il n'y a pas les fichiers de la carte SD. Il dépasse la limite de 100MB de Github
 > 
