@@ -6,4 +6,4 @@
 
 * Boitier : Toutes les parties du boitier  
 
-* Écran : Schéma électrique de l'écran et fiche technique du tca9554a.
+* Écran : Schéma électrique de l'écran, fiche technique de la famille d'écran Gen4-ESP32-RGB-Series et fiche technique du tca9554a.
