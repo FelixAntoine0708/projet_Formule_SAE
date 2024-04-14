@@ -140,7 +140,7 @@ StaticText
     AutoSize                     Yes
     Caption                      Tension
     Color                        BLACK
-    Font.Color                   WHITE
+    Font.Color                   clLime
     Font.Effects                 []
     Font.Name                    Tahoma
     Font.Size                    20
@@ -159,7 +159,7 @@ StaticText
     AutoSize                     Yes
     Caption                      TEMP
     Color                        BLACK
-    Font.Color                   WHITE
+    Font.Color                   clLime
     Font.Effects                 []
     Font.Name                    Tahoma
     Font.Size                    20
@@ -178,7 +178,7 @@ StaticText
     AutoSize                     Yes
     Caption                      SOH
     Color                        BLACK
-    Font.Color                   WHITE
+    Font.Color                   clLime
     Font.Effects                 []
     Font.Name                    Tahoma
     Font.Size                    20
@@ -197,7 +197,7 @@ StaticText
     AutoSize                     Yes
     Caption                      SOC
     Color                        BLACK
-    Font.Color                   WHITE
+    Font.Color                   clLime
     Font.Effects                 []
     Font.Name                    Tahoma
     Font.Size                    20

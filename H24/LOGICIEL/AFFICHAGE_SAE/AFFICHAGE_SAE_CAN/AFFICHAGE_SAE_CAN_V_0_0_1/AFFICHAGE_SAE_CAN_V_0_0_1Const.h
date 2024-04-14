@@ -1,4 +1,4 @@
-// File generated 2024-04-12 15:22:30
+// File generated 2024-04-14 16:13:23
 // Warning! This is a generated file, any manual changes will be
 // lost during the next generation.
 
@@ -13,34 +13,38 @@
 #define iiLeddigits7            6 // offset 0x30C00
 #define iLeddigits8             7 // offset 0x3C800
 #define iiLeddigits8            8 // offset 0x43000
-#define iWinbutton1             9 // offset 0x52E00
-#define iWinbutton2            10 // offset 0x57000
-#define iWinbutton3            11 // offset 0x5B400
-#define iGauge1                12 // offset 0x5F600
-#define iLeddigits1            13 // offset 0x2F1E00
-#define iiLeddigits1           14 // offset 0x2F7200
-#define iStatictext1           15 // offset 0x304200
-#define iGauge2                16 // offset 0x306800
-#define iLeddigits2            17 // offset 0x577A00
-#define iiLeddigits2           18 // offset 0x57CE00
-#define iStatictext2           19 // offset 0x58A200
-#define iGauge3                20 // offset 0x58C600
-#define iLeddigits3            21 // offset 0x7F5400
-#define iiLeddigits3           22 // offset 0x7FA600
-#define iStatictext3           23 // offset 0x807200
-#define iStatictext4           24 // offset 0x80A200
-#define iStatictext5           25 // offset 0x80BC00
-#define iGauge4                26 // offset 0x80C800
-#define iStatictext6           27 // offset 0xA32A00
-#define iAngularmeter1         28 // offset 0xA33C00
-#define iStatictext7           29 // offset 0x1337E00
-#define iLeddigits4            30 // offset 0x1338C00
-#define iiLeddigits4           31 // offset 0x133FA00
-#define iStatictext8           32 // offset 0x1350A00
+#define iStatictext10           9 // offset 0x52E00
+#define iStatictext11          10 // offset 0x54600
+#define iStatictext12          11 // offset 0x55800
+#define iStatictext13          12 // offset 0x56600
+#define iWinbutton1            13 // offset 0x57400
+#define iWinbutton2            14 // offset 0x5B600
+#define iWinbutton3            15 // offset 0x5FA00
+#define iGauge1                16 // offset 0x63C00
+#define iLeddigits1            17 // offset 0x2F6400
+#define iiLeddigits1           18 // offset 0x2FB800
+#define iStatictext1           19 // offset 0x308800
+#define iGauge2                20 // offset 0x30AE00
+#define iLeddigits2            21 // offset 0x57C000
+#define iiLeddigits2           22 // offset 0x581400
+#define iStatictext2           23 // offset 0x58E800
+#define iGauge3                24 // offset 0x590C00
+#define iLeddigits3            25 // offset 0x7F9A00
+#define iiLeddigits3           26 // offset 0x7FEC00
+#define iStatictext3           27 // offset 0x80B800
+#define iStatictext4           28 // offset 0x80E800
+#define iStatictext5           29 // offset 0x810200
+#define iGauge4                30 // offset 0x810E00
+#define iStatictext6           31 // offset 0xA37000
+#define iAngularmeter1         32 // offset 0xA38200
+#define iStatictext7           33 // offset 0x133C400
+#define iLeddigits4            34 // offset 0x133D200
+#define iiLeddigits4           35 // offset 0x1344000
+#define iStatictext8           36 // offset 0x1355000
 
 
 static const bool inputs[] PROGMEM = { false, false, false, false, false, false, false, false, 
-                  false, true, true, true, false, false, false, false, 
+                  false, false, false, false, false, true, true, true, 
                   false, false, false, false, false, false, false, false, 
                   false, false, false, false, false, false, false, false, 
-                  false} ;
+                  false, false, false, false, false} ;

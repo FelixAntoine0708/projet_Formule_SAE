@@ -176,9 +176,9 @@ void showLV(){
   gfx.Cls();  // Efface l'écran
 
   // Widget
-  gfx.LedDigitsDisplay(numx, iiLeddigits4, 4, 3, 51, 0) ;  // Leddigits4
-  gfx.UserImages(iAngularmeter1, frame) ; // where frame is 0 to 100 (for a displayed 0 to 100)
-  gfx.UserImages(iGauge4, frame) ; // where frame is 0 to 100 (for a displayed 0 to 100)
+  gfx.LedDigitsDisplay(0, iiLeddigits4, 4, 3, 51, 0) ;  // Leddigits4
+  gfx.UserImages(iAngularmeter1, 0) ; // where frame is 0 to 100 (for a displayed 0 to 100)
+  gfx.UserImages(iGauge4, 0) ; // where frame is 0 to 100 (for a displayed 0 to 100)
 
   // TXT LABEL
   gfx.UserImage(iStatictext5) ;  // Statictext5
