@@ -65,11 +65,11 @@ LedDigits
     Digits                       4
     Height                       71
     LeadingZero                  Yes
-    Left                         44
+    Left                         48
     OutlineColor                 BLACK
     Palette.High                 clLime
     Palette.Low                  0x005100
-    Top                          192
+    Top                          124
     Width                        173
     OnChanged                    ''
     OnTouchMoving                ''
@@ -88,7 +88,7 @@ LedDigits
     OutlineColor                 BLACK
     Palette.High                 clLime
     Palette.Low                  0x005100
-    Top                          168
+    Top                          128
     Width                        166
     OnChanged                    ''
     OnTouchMoving                ''
@@ -103,11 +103,11 @@ LedDigits
     Digits                       4
     Height                       64
     LeadingZero                  Yes
-    Left                         52
+    Left                         72
     OutlineColor                 BLACK
     Palette.High                 clLime
     Palette.Low                  0x005100
-    Top                          344
+    Top                          276
     Width                        149
     OnChanged                    ''
     OnTouchMoving                ''
@@ -122,11 +122,11 @@ LedDigits
     Digits                       4
     Height                       77
     LeadingZero                  Yes
-    Left                         600
+    Left                         604
     OutlineColor                 BLACK
     Palette.High                 clLime
     Palette.Low                  0x005100
-    Top                          344
+    Top                          292
     Width                        171
     OnChanged                    ''
     OnTouchMoving                ''
@@ -146,8 +146,8 @@ StaticText
     Font.Size                    20
     Font.Style                   []
     Height                       33
-    Left                         80
-    Top                          144
+    Left                         84
+    Top                          84
     Transparent                  Yes
     Width                        93
     WordWrap                     Yes
@@ -165,8 +165,8 @@ StaticText
     Font.Size                    20
     Font.Style                   []
     Height                       33
-    Left                         115
-    Top                          306
+    Left                         108
+    Top                          232
     Transparent                  Yes
     Width                        67
     WordWrap                     Yes
@@ -184,8 +184,8 @@ StaticText
     Font.Size                    20
     Font.Style                   []
     Height                       33
-    Left                         658
-    Top                          128
+    Left                         636
+    Top                          88
     Transparent                  Yes
     Width                        52
     WordWrap                     Yes
@@ -204,7 +204,7 @@ StaticText
     Font.Style                   []
     Height                       33
     Left                         652
-    Top                          300
+    Top                          248
     Transparent                  Yes
     Width                        50
     WordWrap                     Yes
@@ -244,7 +244,7 @@ WinButton
     Font.Name                    Tahoma
     Font.Size                    8
     Font.Style                   []
-    Height                       35
+    Height                       48
     Left                         0
     Matrix                       -1
     Momentary                    Yes
@@ -267,8 +267,8 @@ WinButton
     StatusWhenOn.Size            8
     StatusWhenOn.Style           []
     StatusWhenOn.Visible         Yes
-    Top                          445
-    Width                        120
+    Top                          432
+    Width                        140
     OnChanged                    ''
     OnTouchMoving                ''
     OnTouchPressed               ''
@@ -292,7 +292,7 @@ WinButton
     Font.Name                    Tahoma
     Font.Size                    8
     Font.Style                   []
-    Height                       33
+    Height                       47
     Left                         316
     Matrix                       -1
     Momentary                    Yes
@@ -315,8 +315,8 @@ WinButton
     StatusWhenOn.Size            8
     StatusWhenOn.Style           []
     StatusWhenOn.Visible         Yes
-    Top                          447
-    Width                        128
+    Top                          433
+    Width                        142
     OnChanged                    ''
     OnTouchMoving                ''
     OnTouchPressed               ''
@@ -340,8 +340,8 @@ WinButton
     Font.Name                    Tahoma
     Font.Size                    8
     Font.Style                   []
-    Height                       35
-    Left                         680
+    Height                       46
+    Left                         652
     Matrix                       -1
     Momentary                    Yes
     Picture                      (None)
@@ -363,8 +363,8 @@ WinButton
     StatusWhenOn.Size            8
     StatusWhenOn.Style           []
     StatusWhenOn.Visible         Yes
-    Top                          445
-    Width                        120
+    Top                          434
+    Width                        148
     OnChanged                    ''
     OnTouchMoving                ''
     OnTouchPressed               ''

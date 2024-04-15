@@ -11,13 +11,9 @@ gfx4desp32_gen4_ESP32_70CT gfx = gfx4desp32_gen4_ESP32_70CT();
 #include <ESP32-TWAI-CAN.hpp>
 
 
-<<<<<<< Updated upstream
+
 #define CAN_TX    43
 #define CAN_RX    44
-=======
-#define CAN_TX    2    // BRUN
-#define CAN_RX    4   // ORANGE
->>>>>>> Stashed changes
 
 // VARIALBLE GLOBALE
 CanFrame rxFrame;   // Pour la trame CAN
@@ -52,22 +48,25 @@ void setup()
 
 void loop()
 {
-    if(ESP32Can.readFrame(rxFrame, 1000))
+    if(ESP32Can.readFrame(rxFrame, 50))
     {
-      for (int i=0; i<8; i++){
-        gfx.UserImages(iAngularmeter1, (int)rxFrame.data[i]);
-        if ((int)rxFrame.data[i] < 9)
-           gfx.LedDigitsDisplay((int)rxFrame.data[i], iiLeddigits1, 1, 3, 53, 0);
-        if ((int)rxFrame.data[i] > 9 && (int)rxFrame.data[i] < 99 )
-          gfx.LedDigitsDisplay((int)rxFrame.data[i], iiLeddigits1, 2, 3, 53, 0);
-          if ((int)rxFrame.data[i] > 99 && (int)rxFrame.data[i] < 999 )
-          gfx.LedDigitsDisplay((int)rxFrame.data[i], iiLeddigits1, 3, 3, 53, 0);
-          if ((int)rxFrame.data[i] > 999 && (int)rxFrame.data[i] < 9999 )
-          gfx.LedDigitsDisplay((int)rxFrame.data[i], iiLeddigits1, 4, 3, 53, 0);
-        delay(1500);
-        if(i == 7)
-          gfx.Cls();
-      }
+      int mil = ((int)rxFrame.data[4] - 48) * 100;
+      int cent = ((int)rxFrame.data[5] - 48) * 100;
+      int diz = ((int)rxFrame.data[6] - 48) * 10;
+      int uni = (int)rxFrame.data[7] - 48;
+      int total = mil + cent + diz + uni;
+
+        gfx.UserImages(iAngularmeter1, total);
+        if (total < 9)
+           gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 53, 0);
+        if (total > 9 && total < 99 )
+          gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 53, 0);
+          if (total > 99 && total < 999 )
+          gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 53, 0);
+          if (total > 999 && total < 9999 )
+          gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 53, 0);
+
+
     }
     else
     {

@@ -2,6 +2,21 @@
 // NB! This is a file generated from the .4Dino file, changes will be lost
 //     the next time the .4Dino file is built
 //
+/*
+Programme : AFFICHAGE_SAE_CAN_V_0_0_1.4Dino
+Auteur :    Marc-Etienne Gendron-Fontaine
+Date :      14 mars 2024
+Brief :
+
+Mat?rielle: ESP32-S3R8 (dans l'?cran), ?cran gen4_ESP32_70CT
+Encironement: Workshop 4 V4.9.0.9,
+Syst?me d?exploitation?: Windows 10 V22H2.
+
+*/
+
+
+
+
 #include "gfx4desp32_gen4_ESP32_70CT.h"
 
 gfx4desp32_gen4_ESP32_70CT gfx = gfx4desp32_gen4_ESP32_70CT();
@@ -52,9 +67,13 @@ void setup()
 
   // CAN -----------------------------------
   ESP32Can.setPins(CAN_TX, CAN_RX);
+
   ESP32Can.setSpeed(ESP32Can.convertSpeed(500));
+
   ESP32Can.setRxQueueSize(1);
   ESP32Can.setTxQueueSize(1);
+
+
   if(ESP32Can.begin())
   {
       gfx.println("CAN bus started!");
@@ -67,7 +86,7 @@ void setup()
   }
 
   setUpWidget();
-
+  show_temp();
 } // end Setup **do not alter, remove or duplicate this line**
 
 

@@ -1,3 +1,18 @@
+/*
+Programme : AFFICHAGE_SAE_CAN_V_0_0_1.4Dino
+Auteur :    Marc-Etienne Gendron-Fontaine
+Date :      14 mars 2024
+Brief :
+
+Mat?rielle: ESP32-S3R8 (dans l'Ecran), Ecran gen4_ESP32_70CT
+Encironement: Workshop 4 V4.9.0.9,
+Syst?me d?exploitation?: Windows 10 V22H2.
+
+*/
+
+
+
+
 #include "gfx4desp32_%%displaynm%%.h"
 
 gfx4desp32_%%displaynm%% gfx = gfx4desp32_%%displaynm%%();
@@ -10,9 +25,9 @@ gfx4desp32_%%displaynm%% gfx = gfx4desp32_%%displaynm%%();
 
 
 // CONSTANTE
-#define CAN_TX      43
-#define CAN_RX      44
-#define TEMP_SET_3  0xA2
+#define CAN_TX      43     // GPIO 43 comme pin TX
+#define CAN_RX      44    // GPIO 44 comme pin RX
+#define TEMP_SET_3  0xA2  // ID des valeur envoye par la DRIVE
 
 // Prototype de FCT
 void setUpWidget();
@@ -28,8 +43,8 @@ void CAN_ATT();
 
 CanFrame rxFrame;   // Pour la trame CAN
 
-int motor_temp = 0;
-int coolant_temp = 0;
+int motor_temp = 0;     // Temperature du MOTOR
+int coolant_temp = 0;   // Temperature du COOLANT
 
 
 
@@ -47,10 +62,11 @@ void setup()
   gfx.touch_Set(TOUCH_ENABLE);                // Global touch enabled
 
   // CAN -----------------------------------
-  ESP32Can.setPins(CAN_TX, CAN_RX);
+  ESP32Can.setPins(CAN_TX, CAN_RX);   // Initialisation des pin RX et TX
 
-  ESP32Can.setSpeed(ESP32Can.convertSpeed(500));
+  ESP32Can.setSpeed(ESP32Can.convertSpeed(500));  // Initialisation de la vitesse de transmission (ICI 500 Kbits)
 
+  // Initia
   ESP32Can.setRxQueueSize(1);
   ESP32Can.setTxQueueSize(1);
 
