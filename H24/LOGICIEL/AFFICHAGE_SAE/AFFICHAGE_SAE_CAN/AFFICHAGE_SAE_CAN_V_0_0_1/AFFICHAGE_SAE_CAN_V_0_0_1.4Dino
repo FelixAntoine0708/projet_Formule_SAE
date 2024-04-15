@@ -5,16 +5,34 @@ gfx4desp32_%%displaynm%% gfx = gfx4desp32_%%displaynm%%();
 #include "AFFICHAGE_SAE_CAN_V_0_0_1Const.h"    // Note. This file will not be created if there are no generated graphics
 #include <ESP32-TWAI-CAN.hpp>
 
-#define CAN_TX    43
-#define CAN_RX    44
 
+
+
+
+// CONSTANTE
+#define CAN_TX      43
+#define CAN_RX      44
 #define TEMP_SET_3  0xA2
 
+// Prototype de FCT
+void setUpWidget();
+void touch();
+void show_temp();
+void showLV();
+void showHV();
+void CAN_OK();
+void CAN_ATT();
+
+
 // VARIALBLE GLOBALE
+
 CanFrame rxFrame;   // Pour la trame CAN
 
 int motor_temp = 0;
 int coolant_temp = 0;
+
+
+
 
 void setup()
 {
@@ -30,9 +48,13 @@ void setup()
 
   // CAN -----------------------------------
   ESP32Can.setPins(CAN_TX, CAN_RX);
+
   ESP32Can.setSpeed(ESP32Can.convertSpeed(500));
+
   ESP32Can.setRxQueueSize(1);
   ESP32Can.setTxQueueSize(1);
+
+
   if(ESP32Can.begin())
   {
       gfx.println("CAN bus started!");
@@ -44,33 +66,22 @@ void setup()
       while(1);
   }
 
-
-  gfx.UserImages(iGauge1,0) ;                                // init_Gauge1 show initialy, if required
-  gfx.UserImages(iGauge2,0) ;                                // init_Gauge2 show initialy, if required
-  gfx.UserImages(iGauge3,0) ;                                // init_Gauge3 show initialy, if required
-  gfx.UserImage(iLeddigits1);                                // init_Leddigits1 show all digits at 0, only do this once
-  gfx.UserImage(iLeddigits2);                                // init_Leddigits2 show all digits at 0, only do this once
-  gfx.UserImage(iLeddigits3);                                // init_Leddigits3 show all digits at 0, only do this once
-  gfx.imageTouchEnable(iWinbutton1, true, MOMENTARY) ;       // init_Winbutton1(HV) enable touch of widget (on Form2)
-  gfx.UserImages(iWinbutton1,0) ;                            // init_Winbutton1(HV) show initially, if required (on Form2)
-  gfx.imageTouchEnable(iWinbutton2, true, MOMENTARY) ;       // init_Winbutton2 enable touch of widget (on Form2)
-  gfx.UserImages(iWinbutton2,0) ;                            // init_Winbutton2 show initially, if required (on Form2)
-  gfx.imageTouchEnable(iWinbutton3, true, MOMENTARY) ;       // init_Winbutton3 enable touch of widget (on Form2)
-  gfx.UserImages(iWinbutton3,0) ;                            // init_Winbutton3 show initially, if required (on Form2)
-  gfx.UserImage(iLeddigits4);                                // init_Leddigits4 show all digits at 0, only do this once
-  gfx.UserImages(iAngularmeter1,0) ;                         // init_Angularmeter1 show initialy, if required
-  gfx.UserImages(iGauge4,0) ;                                // init_Gauge4 show initialy, if required
-  gfx.UserImage(iLeddigits8);                                // init_Leddigits8 show all digits at 0, only do this once
-  gfx.UserImage(iLeddigits7);                                // init_Leddigits7 show all digits at 0, only do this once
-  gfx.UserImage(iLeddigits6);                                // init_Leddigits6 show all digits at 0, only do this once
-  gfx.UserImage(iLeddigits5);                                // init_Leddigits5 show all digits at 0, only do this once
+  setUpWidget();
+  show_temp();
 } // end Setup **do not alter, remove or duplicate this line**
+
+
+
+
+
 
 void loop()
 {
 
-   if(ESP32Can.readFrame(rxFrame, 25))
+   if(ESP32Can.readFrame(rxFrame, 0))
    {
+      CAN_OK();
+
       if(rxFrame.identifier == TEMP_SET_3)
       {
          coolant_temp = rxFrame.data[0] + rxFrame.data[1]<<8;
@@ -78,10 +89,15 @@ void loop()
       }
 
    }
+   else
+   {
+        CAN_ATT();
 
 
+   }
 
 
+   touch();
 
 
 
@@ -117,7 +133,63 @@ void loop()
 
 
 
+void setUpWidget()
+{
+    gfx.UserImages(iGauge1,0) ;                                // init_Gauge1 show initialy, if required
+    gfx.UserImages(iGauge2,0) ;                                // init_Gauge2 show initialy, if required
+    gfx.UserImages(iGauge3,0) ;                                // init_Gauge3 show initialy, if required
+    gfx.UserImage(iLeddigits1);                                // init_Leddigits1 show all digits at 0, only do this once
+    gfx.UserImage(iLeddigits2);                                // init_Leddigits2 show all digits at 0, only do this once
+    gfx.UserImage(iLeddigits3);                                // init_Leddigits3 show all digits at 0, only do this once
+    gfx.imageTouchEnable(iWinbutton1, true, MOMENTARY) ;       // init_Winbutton1(HV) enable touch of widget (on Form2)
+    gfx.UserImages(iWinbutton1,0) ;                            // init_Winbutton1(HV) show initially, if required (on Form2)
+    gfx.imageTouchEnable(iWinbutton2, true, MOMENTARY) ;       // init_Winbutton2 enable touch of widget (on Form2)
+    gfx.UserImages(iWinbutton2,0) ;                            // init_Winbutton2 show initially, if required (on Form2)
+    gfx.imageTouchEnable(iWinbutton3, true, MOMENTARY) ;       // init_Winbutton3 enable touch of widget (on Form2)
+    gfx.UserImages(iWinbutton3,0) ;                            // init_Winbutton3 show initially, if required (on Form2)
+    gfx.UserImage(iLeddigits4);                                // init_Leddigits4 show all digits at 0, only do this once
+    gfx.UserImages(iAngularmeter1,0) ;                         // init_Angularmeter1 show initialy, if required
+    gfx.UserImages(iGauge4,0) ;                                // init_Gauge4 show initialy, if required
+    gfx.UserImage(iLeddigits8);                                // init_Leddigits8 show all digits at 0, only do this once
+    gfx.UserImage(iLeddigits7);                                // init_Leddigits7 show all digits at 0, only do this once
+    gfx.UserImage(iLeddigits6);                                // init_Leddigits6 show all digits at 0, only do this once
+    gfx.UserImage(iLeddigits5);                                // init_Leddigits5 show all digits at 0, only do this once
 
+}
+
+
+
+
+
+/*
+Brief   : Regarde quel bouton a été pressé et affiche la page en conséquence.
+Param   : Rien
+Return  : Rien
+*/
+void touch()
+{
+  /*
+  Si l'écran détecte un événement (touch_Update), on regarde si le
+  dernier statut (touch_GetPen) est une pression sur l'écran. On regarde,
+  ensuite, quel bouton a été pressé et on affiche la page en conséquence.
+  */
+  if(gfx.touch_Update())
+  {
+    if(gfx.touch_GetPen() == TOUCH_PRESSED)
+    {
+      if(gfx.imageTouched() == iWinbutton1)
+         showHV();
+      else if(gfx.imageTouched() == iWinbutton3)
+         showLV();
+      else if(gfx.imageTouched() == iWinbutton2)
+          show_temp();
+    }
+
+  }
+
+
+
+}
 
 
 /*
@@ -167,7 +239,8 @@ Brief   : Affiche la page LV
 Param   : Rien
 Return  : Rien
 */
-void showLV(){
+void showLV()
+{
 
   gfx.Cls();  // Efface l'écran
 
@@ -202,7 +275,8 @@ Brief   : Affiche la page HV
 Param   : Rien
 Return  : Rien
 */
-void showHV(){
+void showHV()
+{
 
   gfx.Cls();  // Efface l'écran
 
@@ -213,10 +287,40 @@ void showHV(){
   gfx.LedDigitsDisplay(0, iiLeddigits5, 4, 3, 43, 0) ;  // Leddigits5
 
   // TXT LABEL
+  gfx.UserImage(iStatictext9) ;  // Statictext9
+  gfx.UserImage(iStatictext10) ;  // Statictext10
+  gfx.UserImage(iStatictext12) ;  // Statictext12
+  gfx.UserImage(iStatictext11) ;  // Statictext11
+  gfx.UserImage(iStatictext13) ;  // Statictext13
 
+  // BTN AFF
+  gfx.UserImages(iWinbutton1,0) ;
+  gfx.UserImages(iWinbutton2,0) ;
+  gfx.UserImages(iWinbutton3,0) ;
 
+  // BTN SETUP
+  gfx.imageTouchEnable(iWinbutton1, false);
+  gfx.imageTouchEnable(iWinbutton2, true);
+  gfx.imageTouchEnable(iWinbutton3, true);
 
 
 }
 
 
+
+void CAN_OK()
+{
+  gfx.MoveTo(50,50);
+  gfx.print("                        ");
+  gfx.MoveTo(50,50);
+  gfx.print("DONNÉES RECUS");
+}
+
+
+void CAN_ATT()
+{
+  gfx.MoveTo(50,50);
+  gfx.print("                        ");
+  gfx.MoveTo(50,50);
+  gfx.print("EN ATTENTE DE DONNÉES...");
+}

@@ -408,7 +408,7 @@ Gauge
     Step                         10
     Style                        BottomLeft
     TickHeight                   1
-    Top                          160
+    Top                          116
     Width                        79
     OnChanged                    ''
     OnTouchMoving                ''
@@ -427,7 +427,7 @@ LedDigits
     OutlineColor                 BLACK
     Palette.High                 clLime
     Palette.Low                  0x005100
-    Top                          344
+    Top                          300
     Width                        157
     OnChanged                    ''
     OnTouchMoving                ''
@@ -439,18 +439,18 @@ StaticText
     Alias                        Statictext1
     Alignment                    Left
     AutoSize                     Yes
-    Caption                      'Motor Temp'
+    Caption                      MotorTemp
     Color                        BLACK
     Font.Color                   clLime
     Font.Effects                 []
     Font.Name                    Tahoma
     Font.Size                    20
     Font.Style                   []
-    Height                       66
-    Left                         652
-    Top                          88
+    Height                       33
+    Left                         608
+    Top                          80
     Transparent                  Yes
-    Width                        70
+    Width                        138
     WordWrap                     Yes
 end
 Gauge
@@ -491,7 +491,7 @@ Gauge
     Step                         10
     Style                        BottomLeft
     TickHeight                   1
-    Top                          176
+    Top                          120
     Width                        75
     OnChanged                    ''
     OnTouchMoving                ''
@@ -510,7 +510,7 @@ LedDigits
     OutlineColor                 BLACK
     Palette.High                 clLime
     Palette.Low                  0x005100
-    Top                          360
+    Top                          308
     Width                        158
     OnChanged                    ''
     OnTouchMoving                ''
@@ -522,18 +522,18 @@ StaticText
     Alias                        Statictext2
     Alignment                    Left
     AutoSize                     Yes
-    Caption                      'Drive Temp'
+    Caption                      DriveTemp
     Color                        BLACK
     Font.Color                   clLime
     Font.Effects                 []
     Font.Name                    Tahoma
     Font.Size                    20
     Font.Style                   []
-    Height                       66
-    Left                         368
-    Top                          104
+    Height                       33
+    Left                         332
+    Top                          76
     Transparent                  Yes
-    Width                        68
+    Width                        129
     WordWrap                     Yes
 end
 Gauge
@@ -574,7 +574,7 @@ Gauge
     Step                         10
     Style                        BottomLeft
     TickHeight                   1
-    Top                          176
+    Top                          120
     Width                        74
     OnChanged                    ''
     OnTouchMoving                ''
@@ -589,11 +589,11 @@ LedDigits
     Digits                       4
     Height                       57
     LeadingZero                  Yes
-    Left                         24
+    Left                         12
     OutlineColor                 BLACK
     Palette.High                 clLime
     Palette.Low                  0x005100
-    Top                          368
+    Top                          308
     Width                        182
     OnChanged                    ''
     OnTouchMoving                ''
@@ -605,18 +605,18 @@ StaticText
     Alias                        Statictext3
     Alignment                    Left
     AutoSize                     Yes
-    Caption                      'Coolant Temp'
+    Caption                      CoolantTemp
     Color                        BLACK
     Font.Color                   clLime
     Font.Effects                 []
     Font.Name                    Tahoma
     Font.Size                    20
     Font.Style                   []
-    Height                       66
-    Left                         40
-    Top                          104
+    Height                       33
+    Left                         8
+    Top                          72
     Transparent                  Yes
-    Width                        90
+    Width                        158
     WordWrap                     Yes
 end
 StaticText
@@ -632,8 +632,8 @@ StaticText
     Font.Size                    25
     Font.Style                   []
     Height                       40
-    Left                         332
-    Top                          8
+    Left                         352
+    Top                          4
     Transparent                  Yes
     Width                        82
     WordWrap                     Yes
