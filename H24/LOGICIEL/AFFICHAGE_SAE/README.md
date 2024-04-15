@@ -10,6 +10,8 @@
 
 * INSTRUCTION_POUR_FAIRE_AFFICHAGE.odt : Début des instructions pour faire/coder l'affichage.
 
+* AFFICHAGE_SAE_CAN : Contiens la première version de l'affichage final.
+
 > [!TIP]  
 > Dans les fichier de code il contient:
 > * `4dArdUsd`:  Ficher d'extension graphique en Arduino
