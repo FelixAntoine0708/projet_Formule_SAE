@@ -12,7 +12,7 @@
 
 * TEST_MCP_CAN_LIB: Contient le code pour utiliser le MCP2515 avec l'écran (*Désuet*) 
   
-* TEST_PLUSIEUR_FICHIERS : Contient un code test pour voir s'il est possible de séparer les fonctions d'affichages dans plusieurs fichiers (EX. les mettre dans FCT_AFF.cpp et FCT_AFF.h). SPOILER : 4D Workshop n'aime pas cela...
+* TEST_PLUSIEUR_FICHIERS : Contient un code test pour voir s'il est possible de séparer les fonctions d'affichages dans plusieurs fichiers (EX. les mettre dans FCT_AFF.cpp et FCT_AFF.h). SPOILER : 4D Workshop n'aime pas cela... (*Désuet*)
 
 * TEST_FPS : Contiens un code pour observer la fluidité de l'écran.
 
