@@ -5,10 +5,11 @@
 /*
 Programme : AFFICHAGE_SAE_CAN_V_0_0_1.4Dino
 Auteur :    Marc-Etienne Gendron-Fontaine
-Date :      14 mars 2024
-Brief :
+Date :      14 avril 2024
+Brief :     Version 0.0.1 de l'affichage finale. L'affichage peut changer, mais le code pour le
+            CAN sera sensiblement le même.
 
-Mat?rielle: ESP32-S3R8 (dans l'?cran), ?cran gen4_ESP32_70CT
+Mat?rielle: ESP32-S3R8 (dans l'Ecran), Ecran gen4_ESP32_70CT
 Encironement: Workshop 4 V4.9.0.9,
 Syst?me d?exploitation?: Windows 10 V22H2.
 
@@ -29,9 +30,9 @@ gfx4desp32_gen4_ESP32_70CT gfx = gfx4desp32_gen4_ESP32_70CT();
 
 
 // CONSTANTE
-#define CAN_TX      43
-#define CAN_RX      44
-#define TEMP_SET_3  0xA2
+#define CAN_TX      43     // GPIO 43 comme pin TX
+#define CAN_RX      44    // GPIO 44 comme pin RX
+#define TEMP_SET_3  0xA2  // ID des valeur envoye par la DRIVE
 
 // Prototype de FCT
 void setUpWidget();
@@ -47,8 +48,8 @@ void CAN_ATT();
 
 CanFrame rxFrame;   // Pour la trame CAN
 
-int motor_temp = 0;
-int coolant_temp = 0;
+int motor_temp = 0;     // Temperature du MOTOR
+int coolant_temp = 0;   // Temperature du COOLANT
 
 
 
@@ -66,14 +67,20 @@ void setup()
   gfx.touch_Set(TOUCH_ENABLE);                // Global touch enabled
 
   // CAN -----------------------------------
-  ESP32Can.setPins(CAN_TX, CAN_RX);
+  ESP32Can.setPins(CAN_TX, CAN_RX);   // Initialisation des pin RX et TX
 
-  ESP32Can.setSpeed(ESP32Can.convertSpeed(500));
+  ESP32Can.setSpeed(ESP32Can.convertSpeed(500));  // Initialisation de la vitesse de transmission (ICI 500 Kbits)
 
+  // Initialisation du queue size
   ESP32Can.setRxQueueSize(1);
   ESP32Can.setTxQueueSize(1);
 
 
+  /*
+    Si les driver CAN démarrent, on affiche "CAN bus started!"
+    pendant 2000ms. Sinon, on affiche "CAN bus failed!" puis,
+    on entre dans une boucle infini.
+  */
   if(ESP32Can.begin())
   {
       gfx.println("CAN bus started!");
@@ -111,8 +118,8 @@ void loop()
    else
    {
         CAN_ATT();
-
-
+        delay(5000);
+        ESP.restart();
    }
 
 

@@ -1,3 +1,15 @@
+/*
+Programme : TEST_CAN_AFF.4Dino
+Auteur :    Marc-Etienne Gendron-Fontaine, Felix-Antoine Guimont
+Date :      10 avril 2024
+Brief :     Ceci est le code pour la démo pour l'événement Osentreprendre.
+
+Materielle: ESP32-S3 (x1), Ecran 7" de 4d systeme, TJA1050 (x2)
+Encironement: Workshop 4 V4.9.0.9,
+Systeme d'exploitation: Windows 10 V22H2.
+*/
+
+
 #include "gfx4desp32_%%displaynm%%.h"
 
 gfx4desp32_%%displaynm%% gfx = gfx4desp32_%%displaynm%%();
@@ -44,8 +56,13 @@ void setup()
 
 void loop()
 {
+
+    // Si on reçoit une trame CAN, on met à jour les widgets.
+    // Sinon, on affiche "EN ATTENTE DE DONNÉES..."
     if(ESP32Can.readFrame(rxFrame, 50))
     {
+
+      // Convertis les données reçues en ASCII en INTEGER.
       int mil = ((int)rxFrame.data[4] - 48) * 100;
       int cent = ((int)rxFrame.data[5] - 48) * 100;
       int diz = ((int)rxFrame.data[6] - 48) * 10;
@@ -53,7 +70,10 @@ void loop()
       int total = mil + cent + diz + uni;
 
         gfx.UserImages(iAngularmeter1, total);
-        if (total < 9)
+
+        gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 53, 0);
+
+        /*if (total < 9)
            gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 53, 0);
         if (total > 9 && total < 99 )
           gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 53, 0);
@@ -61,7 +81,7 @@ void loop()
           gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 53, 0);
           if (total > 999 && total < 9999 )
           gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 53, 0);
-
+          */
 
     }
     else
