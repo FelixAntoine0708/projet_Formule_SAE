@@ -7,3 +7,7 @@
 * FCT_AFF.cpp et FCT_AFF.h : Contiens les fonctions utiles pour l'affichage (setup, affiche, update_affichage).
 
 * CONST_AFF.h : Contiens les constantes utiles pour l'affichage (position en X et Y des boutons pour l'instant).
+
+* 13_MARS_DESUET_ : Code désuet pour le CAN.
+
+* 17_AVRIL_DESUET_ : Code désuet pour le CAN.

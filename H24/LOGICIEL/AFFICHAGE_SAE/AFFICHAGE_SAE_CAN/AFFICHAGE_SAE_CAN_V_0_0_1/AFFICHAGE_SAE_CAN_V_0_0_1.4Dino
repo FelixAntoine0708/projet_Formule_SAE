@@ -3,7 +3,7 @@ Programme : AFFICHAGE_SAE_CAN_V_0_0_1.4Dino
 Auteur :    Marc-Etienne Gendron-Fontaine
 Date :      14 avril 2024
 Brief :     Version 0.0.1 de l'affichage finale. L'affichage peut changer, mais le code pour le
-            CAN sera sensiblement le même.
+            CAN sera sensiblement le mï¿½me.
 
 Mat?rielle: ESP32-S3R8 (dans l'Ecran), Ecran gen4_ESP32_70CT
 Encironement: Workshop 4 V4.9.0.9,
@@ -77,7 +77,7 @@ void setup()
 
 
   /*
-    Si les driver CAN démarrent, on affiche "CAN bus started!"
+    Si les driver CAN dï¿½marrent, on affiche "CAN bus started!"
     pendant 2000ms. Sinon, on affiche "CAN bus failed!" puis,
     on entre dans une boucle infini.
   */
@@ -163,7 +163,11 @@ void loop()
 }
 
 
-
+/*
+Brief   : Initialisation des widgets.
+Param   : Rien
+Return  : Rien
+*/
 void setUpWidget()
 {
     gfx.UserImages(iGauge1,0) ;                                // init_Gauge1 show initialy, if required
@@ -191,16 +195,16 @@ void setUpWidget()
 
 
 /*
-Brief   : Regarde quel bouton a été pressé et affiche la page en conséquence.
+Brief   : Regarde quel bouton a ï¿½tï¿½ pressï¿½ et affiche la page en consï¿½quence.
 Param   : Rien
 Return  : Rien
 */
 void touch()
 {
   /*
-  Si l'écran détecte un événement (touch_Update), on regarde si le
-  dernier statut (touch_GetPen) est une pression sur l'écran. On regarde,
-  ensuite, quel bouton a été pressé et on affiche la page en conséquence.
+  Si l'ï¿½cran dï¿½tecte un ï¿½vï¿½nement (touch_Update), on regarde si le
+  dernier statut (touch_GetPen) est une pression sur l'ï¿½cran. On regarde,
+  ensuite, quel bouton a ï¿½tï¿½ pressï¿½ et on affiche la page en consï¿½quence.
   */
   if(gfx.touch_Update())
   {
@@ -221,13 +225,13 @@ void touch()
 
 
 /*
-Brief   : Affiche la page Température
+Brief   : Affiche la page Tempï¿½rature
 Param   : Rien
 Return  : Rien
 */
 void show_temp()
 {
-   gfx.Cls();  // Efface l'écran
+   gfx.Cls();  // Efface l'ï¿½cran
 
   // Gauge
   gfx.UserImages(iGauge1, motor_temp); // MOTOR TEMP
@@ -270,7 +274,7 @@ Return  : Rien
 void showLV()
 {
 
-  gfx.Cls();  // Efface l'écran
+  gfx.Cls();  // Efface l'ï¿½cran
 
   // Widget
   gfx.LedDigitsDisplay(0, iiLeddigits4, 4, 3, 51, 0) ;  // Leddigits4
@@ -306,7 +310,7 @@ Return  : Rien
 void showHV()
 {
 
-  gfx.Cls();  // Efface l'écran
+  gfx.Cls();  // Efface l'ï¿½cran
 
   // WIDGET
   gfx.LedDigitsDisplay(0, iiLeddigits8, 4, 3, 42, 0) ;  // Leddigits8
@@ -336,19 +340,31 @@ void showHV()
 
 
 
+
+/*
+Brief   : Affiche "DONNEES RECUS". Donc, un message pour le dÃ©bogage.
+Param   : Rien
+Return  : Rien
+*/
 void CAN_OK()
 {
   gfx.MoveTo(50,50);
   gfx.print("                        ");
   gfx.MoveTo(50,50);
-  gfx.print("DONNÉES RECUS");
+  gfx.print("DONNï¿½ES RECUS");
 }
 
 
+
+/*
+Brief   : Affiche "EN ATTENTE DE DONNï¿½ES...". Donc, un message pour le dÃ©bogage.
+Param   : Rien
+Return  : Rien
+*/
 void CAN_ATT()
 {
   gfx.MoveTo(50,50);
   gfx.print("                        ");
   gfx.MoveTo(50,50);
-  gfx.print("EN ATTENTE DE DONNÉES...");
+  gfx.print("EN ATTENTE DE DONNï¿½ES...");
 }

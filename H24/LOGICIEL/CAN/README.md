@@ -6,6 +6,4 @@
 
 * ID_CAPT.h : Ce fichier d'entête contient toutes les constantes pour les capteurs. SEUL TEMP_SET_3, qui provient de la drive, est sur. Les autre sont à la discrétion de l'université.
 
-* 13_MARS_DESUET_ : Code désuet pour le CAN.
 
-* 17_AVRIL_DESUET_ : Code désuet pour le CAN.
