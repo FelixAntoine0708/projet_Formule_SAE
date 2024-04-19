@@ -16,6 +16,8 @@
 
 * TEST_FPS : Contiens un code pour observer la fluidité de l'écran.
 
+* TEST_NEW_CODE_CAN : Teste d'une nouvelle façon de traiter les trames CAN.
+
 > [!CAUTION]
 > Dans le Dossier `TEST_CAN_AFF`, il n'y a pas les fichiers de la carte SD. Il dépasse la limite de 100MB de Github
 > 
