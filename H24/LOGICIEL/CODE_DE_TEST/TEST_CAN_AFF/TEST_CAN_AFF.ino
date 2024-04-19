@@ -49,63 +49,65 @@ void setup()
   ESP32Can.setPins(CAN_TX, CAN_RX);                 // Initialisation des Pin RX et TX
   ESP32Can.setSpeed(ESP32Can.convertSpeed(1000));    // Initialisation de la vitesse de transmission
 
-  // Initialisation du Queue size à 1.
+  // Initialisation du Queue size a 1.
   ESP32Can.setRxQueueSize(1);
   ESP32Can.setTxQueueSize(1);
 
-  // regarde si les driver CAN sont démarré
+  // regarde si les driver CAN sont demarre
   if(ESP32Can.begin())
+  {
       gfx.println("CAN bus started!");
+      delay(2000);
+  }
   else
+  {
       gfx.println("CAN bus failed!");
+      while(1);
+  }
 
 
-  delay(2000);
 
   // Initialisation des widgets
   //gfx.UserImages(iAngularmeter1,0);
   gfx.UserImage(iLeddigits1);
-  gfx.UserImages(iAngularmeter1,0);
+
 }
 
 void loop()
 {
 
-    // Si on re�oit une trame CAN, on met � jour les widgets.
-    // Sinon, on affiche "EN ATTENTE DE DONN�ES...". Bloque à
+    // Si on recoit une trame CAN, on met a jour les widgets.
+    // Sinon, on affiche "EN ATTENTE DE DONNEES...". Bloque a�
     // chaque 50 ms.
     if(ESP32Can.readFrame(rxFrame, 50))
     {
-
-      // Convertis les donn�es re�ues en ASCII en INTEGER.
-      int mil = ((int)rxFrame.data[4] - 48) * 1000;
-      int cent = ((int)rxFrame.data[5] - 48) * 100;
-      int diz = ((int)rxFrame.data[6] - 48) * 10;
-      int uni = (int)rxFrame.data[7] - 48;
-      int total = mil + cent + diz + uni;
+        // Efface  "EN ATTENTE DE DONNEES..."
+        gfx.MoveTo(250,250);
+        gfx.print("                            ");
 
 
-      // Mets à jour les widgets
-      gfx.UserImages(iAngularmeter1, total);
-      gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 53, 0);
+        // Convertis les donnees recues (en ASCII) en INTEGER.
+        int mil = ((int)rxFrame.data[4] - 48) * 1000;
+        int cent = ((int)rxFrame.data[5] - 48) * 100;
+        int diz = ((int)rxFrame.data[6] - 48) * 10;
+        int uni = (int)rxFrame.data[7] - 48;
+        int total = mil + cent + diz + uni;
 
-        /*if (total < 9)
-           gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 53, 0);
-        if (total > 9 && total < 99 )
-          gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 53, 0);
-          if (total > 99 && total < 999 )
-          gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 53, 0);
-          if (total > 999 && total < 9999 )
-          gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 53, 0);
-          */
+
+        // Mets a jour les widgets
+        //gfx.UserImages(iAngularmeter1, total);
+        gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 53, 0);
+
 
     }
     else
     {
-      gfx.MoveTo(150,150);
-      gfx.Cls();
-      gfx.MoveTo(250,250);
-      gfx.print("EN ATTENTE DE DONN�ES...");
+        gfx.Cls();  // Efface l'ecran
+
+        // Mets le curseur au position X et Y.
+        // Print ensuite "EN ATTENTE DE DONNEES..."
+        gfx.MoveTo(250,250);
+        gfx.print("EN ATTENTE DE DONNEES...");
     }
 
   // put your main code here, to run repeatedly:
