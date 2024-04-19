@@ -85,3 +85,22 @@ AngularMeter
     Width                        536
     OnChanged                    ''
 end
+LedDigits
+    Name                         Leddigits1
+    Alias                        Leddigits1
+    Color                        BLACK
+    Decimals                     2
+    Digits                       4
+    Height                       55
+    LeadingZero                  Yes
+    Left                         60
+    OutlineColor                 BLACK
+    Palette.High                 clLime
+    Palette.Low                  0x005100
+    Top                          392
+    Width                        166
+    OnChanged                    ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end

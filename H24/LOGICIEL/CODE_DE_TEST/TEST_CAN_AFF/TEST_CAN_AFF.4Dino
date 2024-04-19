@@ -40,29 +40,29 @@ void setup()
   gfx.touch_Set(TOUCH_ENABLE);                // Global touch enabled
 
   // CAN -----------------------------------
-  
-  
+
+
   ESP32Can.setPins(CAN_TX, CAN_RX);                 // Initialisation des Pin RX et TX
-  ESP32Can.setSpeed(ESP32Can.convertSpeed(500));    // Initialisation de la vitesse de transmission
-  
+  ESP32Can.setSpeed(ESP32Can.convertSpeed(1000));    // Initialisation de la vitesse de transmission
+
   // Initialisation du Queue size à 1.
   ESP32Can.setRxQueueSize(1);
   ESP32Can.setTxQueueSize(1);
-  
+
   // regarde si les driver CAN sont démarré
   if(ESP32Can.begin())
       gfx.println("CAN bus started!");
   else
       gfx.println("CAN bus failed!");
-  
-  
+
+
   delay(2000);
-  
+
   // Initialisation des widgets
-  gfx.UserImages(iAngularmeter1,0);
+  //gfx.UserImages(iAngularmeter1,0);
   gfx.UserImage(iLeddigits1);
   gfx.UserImages(iAngularmeter1,0);
-} 
+}
 
 void loop()
 {
@@ -74,7 +74,7 @@ void loop()
     {
 
       // Convertis les donn�es re�ues en ASCII en INTEGER.
-      int mil = ((int)rxFrame.data[4] - 48) * 100;
+      int mil = ((int)rxFrame.data[4] - 48) * 1000;
       int cent = ((int)rxFrame.data[5] - 48) * 100;
       int diz = ((int)rxFrame.data[6] - 48) * 10;
       int uni = (int)rxFrame.data[7] - 48;

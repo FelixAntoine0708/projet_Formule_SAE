@@ -33,12 +33,14 @@ void setup()
   gfx.touch_Set(TOUCH_ENABLE);                // Global touch enabled
 
 
-  gfx.UserImages(iAngularmeter1, 0) ; // where frame is 0 to 300 (for a displayed 0 to 300)
+  //gfx.UserImages(iAngularmeter1, 0) ; // where frame is 0 to 300 (for a displayed 0 to 300)
+
+  gfx.LedDigitsDisplay(0, iiLeddigits1, 4, 3, 41, 0) ;  // Leddigits1
 
 
 
-
-  gfx.UserImages(iAngularmeter1,0) ;                         // init_Angularmeter1 show initialy, if required
+  //gfx.UserImages(iAngularmeter1,0) ;                         // init_Angularmeter1 show initialy, if required
+  gfx.UserImage(iLeddigits1);                                // init_Leddigits1 show all digits at 0, only do this once
 } // end Setup **do not alter, remove or duplicate this line**
 
 void loop()
@@ -46,16 +48,19 @@ void loop()
 
 
 
-   for(int i=0; i<150; i++)
+  for(int i=1; i<130; i++)
    {
-     gfx.UserImages(iAngularmeter1,i);
-
+      gfx.LedDigitsDisplay(i, iiLeddigits1, 4, 3, 41, 0) ;
+     //gfx.UserImages(iAngularmeter1,i);
+      //gfx.MoveTo(50,50);
+      //gfx.print(i);
      //delay(33);
    }
-
-
-
-
+    delay(2000);
+    //gfx.UserImages(iAngularmeter1,20);
+    //gfx.UserImages(iAngularmeter1,30);
+    //gfx.UserImages(iAngularmeter1,120);
+    //gfx.UserImages(iAngularmeter1,123);
 
 
 

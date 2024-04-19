@@ -2,6 +2,18 @@
 // NB! This is a file generated from the .4Dino file, changes will be lost
 //     the next time the .4Dino file is built
 //
+/*
+Programme : TEST_CAN_AFF.4Dino
+Auteur :    Marc-Etienne Gendron-Fontaine, Felix-Antoine Guimont
+Date :      10 avril 2024
+Brief :     Ceci est le code pour la d�mo pour l'�v�nement Osentreprendre.
+
+Materielle: ESP32-S3 (x1), Ecran 7" de 4d systeme, TJA1050 (x2)
+Encironement: Workshop 4 V4.9.0.9,
+Systeme d'exploitation: Windows 10 V22H2.
+*/
+
+
 #include "gfx4desp32_gen4_ESP32_70CT.h"
 
 gfx4desp32_gen4_ESP32_70CT gfx = gfx4desp32_gen4_ESP32_70CT();
@@ -32,32 +44,52 @@ void setup()
   gfx.touch_Set(TOUCH_ENABLE);                // Global touch enabled
 
   // CAN -----------------------------------
-  ESP32Can.setPins(CAN_TX, CAN_RX);
-  ESP32Can.setSpeed(ESP32Can.convertSpeed(500));
+
+
+  ESP32Can.setPins(CAN_TX, CAN_RX);                 // Initialisation des Pin RX et TX
+  ESP32Can.setSpeed(ESP32Can.convertSpeed(1000));    // Initialisation de la vitesse de transmission
+
+  // Initialisation du Queue size à 1.
   ESP32Can.setRxQueueSize(1);
   ESP32Can.setTxQueueSize(1);
+
+  // regarde si les driver CAN sont démarré
   if(ESP32Can.begin())
       gfx.println("CAN bus started!");
   else
       gfx.println("CAN bus failed!");
+
+
   delay(2000);
-  gfx.UserImages(iAngularmeter1,0);
+
+  // Initialisation des widgets
+  //gfx.UserImages(iAngularmeter1,0);
   gfx.UserImage(iLeddigits1);
-  gfx.UserImages(iAngularmeter1,0) ;                         // init_Angularmeter1 show initialy, if required
-} // end Setup **do not alter, remove or duplicate this line**
+  gfx.UserImages(iAngularmeter1,0);
+}
 
 void loop()
 {
+
+    // Si on re�oit une trame CAN, on met � jour les widgets.
+    // Sinon, on affiche "EN ATTENTE DE DONN�ES...". Bloque à
+    // chaque 50 ms.
     if(ESP32Can.readFrame(rxFrame, 50))
     {
-      int mil = ((int)rxFrame.data[4] - 48) * 100;
+
+      // Convertis les donn�es re�ues en ASCII en INTEGER.
+      int mil = ((int)rxFrame.data[4] - 48) * 1000;
       int cent = ((int)rxFrame.data[5] - 48) * 100;
       int diz = ((int)rxFrame.data[6] - 48) * 10;
       int uni = (int)rxFrame.data[7] - 48;
       int total = mil + cent + diz + uni;
 
-        gfx.UserImages(iAngularmeter1, total);
-        if (total < 9)
+
+      // Mets à jour les widgets
+      gfx.UserImages(iAngularmeter1, total);
+      gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 53, 0);
+
+        /*if (total < 9)
            gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 53, 0);
         if (total > 9 && total < 99 )
           gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 53, 0);
@@ -65,7 +97,7 @@ void loop()
           gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 53, 0);
           if (total > 999 && total < 9999 )
           gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 53, 0);
-
+          */
 
     }
     else
@@ -73,7 +105,7 @@ void loop()
       gfx.MoveTo(150,150);
       gfx.Cls();
       gfx.MoveTo(250,250);
-      gfx.print("EN ATTENTE DE DONN�ES...");
+      gfx.print("EN ATTENTE DE DONN�ES...");
     }
 
   // put your main code here, to run repeatedly:
