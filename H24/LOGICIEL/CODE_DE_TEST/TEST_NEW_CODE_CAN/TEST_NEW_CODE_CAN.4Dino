@@ -44,7 +44,7 @@ void setup()
      // CAN -----------------------------------
     ESP32Can.setPins(CAN_TX, CAN_RX);   // Initialisation des pin RX et TX
 
-    ESP32Can.setSpeed(ESP32Can.convertSpeed(1000));  // Initialisation de la vitesse de transmission (ICI 500 Kbits)
+    ESP32Can.setSpeed(ESP32Can.convertSpeed(1000));  // Initialisation de la vitesse de transmission (ICI 1000 Kbits)
 
     // Initialisation du queue size
     ESP32Can.setRxQueueSize(1);
@@ -91,26 +91,28 @@ void loop()
     Sinon, on affiche "EN ATTENTE DE DONNEES...". Bloque a
     chaque 50 ms.
     */
-     if(ESP32Can.readFrame(rxFrame, 50))
+     if(ESP32Can.readFrame(rxFrame, 0))
      {
-        // Efface  "EN ATTENTE DE DONNEES..."
-        gfx.MoveTo(250,250);
-        gfx.print("                            ");
+
+        gfx.MoveTo(10,100);                    // Va au coordonnee X et Y 250 et 250
+        gfx.print("                         ");  // Print "EN ATTENTE DE DONNEES..."
 
         // Garde la valeur de l'entier et des decimale
-        entier = (rxFrame.data[1] * 100);
-        deci =  rxFrame.data[0];
+        entier = (rxFrame.data[0] * 100);
+        deci =  rxFrame.data[1];
 
         // Calcul la valeur total
         total = entier + deci;
 
         // Met a jour le widget
-        gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 72, 0);
+        gfx.LedDigitsDisplay(total, iiLeddigits1, 3, 3, 72, 0);
      }
      else
      {
         gfx.Cls();                              // Efface l'ecran
-        gfx.MoveTo(250,250);                    // Va au coordonnee X et Y 250 et 250
+
+
+        gfx.MoveTo(10,100);                    // Va au coordonnee X et Y 250 et 250
         gfx.print("EN ATTENTE DE DONNEES...");  // Print "EN ATTENTE DE DONNEES..."
 
      }
