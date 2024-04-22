@@ -49,7 +49,7 @@ LedDigits
     Left                         280
     OutlineColor                 BLACK
     Palette.High                 clLime
-    Palette.Low                  0x005100
+    Palette.Low                  BLACK
     Top                          164
     Width                        289
     OnChanged                    ''
