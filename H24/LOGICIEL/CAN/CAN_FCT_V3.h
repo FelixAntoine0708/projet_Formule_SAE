@@ -20,8 +20,10 @@ Encironement: Visual Studio Code V 1.86.2, Système d’exploitation : Linux x6
 
 
 void read_CAN(CanFrame rxFrame);
+
 void temp_set_3(CanFrame rxFrame);
-void drive_temp(CanFrame rxFrame);
+
+int drive_temp(CanFrame rxFrame);
 void hv_temp(CanFrame rxFrame);
 void hv_soc(CanFrame rxFrame);
 void hv_soh(CanFrame rxFrame);

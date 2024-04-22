@@ -79,9 +79,17 @@ Brief   : Décode la trame CAN pour avoir la température de la drive.
 Param   : rxFrame soit la trame CAN.
 Return  : Rien
 */
-void drive_temp(CanFrame rxFrame)
+int drive_temp(CanFrame rxFrame)
 {
+    int totale = 0;
+    int entier = 0;
+    int deci = 0;
 
+    entier = (rxFrame.date[1] * 100);
+    deci = rxFrame.data[0];
+    total = entier + deci;
+
+    return total;
 }
 
 
