@@ -2,6 +2,20 @@
 // NB! This is a file generated from the .4Dino file, changes will be lost
 //     the next time the .4Dino file is built
 //
+/*
+Programme : TEST_NEW_CODE_CAN.4Dino
+Auteur :    Marc-Etienne Gendron-Fontaine
+Date :      19 avril 2024
+Brief :     Teste d'une nouvelle faÃ§on de traiter les trames CAN.
+
+Materielle: ESP32-S3 (x1), Ecran 7" de 4d systeme, TJA1050 (x2)
+Encironement: Workshop 4 V4.9.0.9b,
+Systeme d'exploitation: Windows 10 V22H2.
+*/
+
+
+
+
 #include "gfx4desp32_gen4_ESP32_70CT.h"
 
 gfx4desp32_gen4_ESP32_70CT gfx = gfx4desp32_gen4_ESP32_70CT();
@@ -57,12 +71,12 @@ void setup()
       while(1);
   }
 
-  gfx.LedDigitsDisplay(0, iiLeddigits1, 4, 3, 72, 0) ;  // Leddigits1
+  // Initialise le widget
+  gfx.LedDigitsDisplay(0, iiLeddigits1, 4, 3, 72, 0);
+  gfx.UserImage(iLeddigits1);
 
-  gfx.UserImage(iLeddigits1);    // init_Leddigits1 show all digits at 0, only do this once
 
-
-} // end Setup **do not alter, remove or duplicate this line**
+}
 
 
 
@@ -71,33 +85,43 @@ void setup()
 void loop()
 {
      int total = 0;   // Valeur total
-     int entier = 0;  // Valeur pour les entiés
-     int deci = 0;   // Valeur pour les décimales
+     int entier = 0;  // Valeur pour les entiï¿½s
+     int deci = 0;   // Valeur pour les dï¿½cimales
 
 
-    // Si on recoit une trame CAN, on met a jour le widget.
-    // Sinon, on affiche "EN ATTENTE DE DONNEES...". Bloque aÂ 
-    // chaque 50 ms.
+
+     /*
+    Si on recoit une trame CAN, on met a jour le widget.
+    Sinon, on affiche "EN ATTENTE DE DONNEES...". Bloque a
+    chaque 50 ms.
+    */
      if(ESP32Can.readFrame(rxFrame, 50))
      {
         // Efface  "EN ATTENTE DE DONNEES..."
         gfx.MoveTo(250,250);
         gfx.print("                            ");
 
+        // Garde la valeur de l'entier et des decimale
         entier = (rxFrame.data[1] * 100);
         deci =  rxFrame.data[0];
 
+        // Calcul la valeur total
         total = entier + deci;
 
-        gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 72, 0) ;  // Leddigits1
+        // Met a jour le widget
+        gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 72, 0);
      }
      else
      {
-        gfx.Cls();
-        gfx.MoveTo(250,250);
-        gfx.print("EN ATTENTE DE DONNEES...");
+        gfx.Cls();                              // Efface l'ecran
+        gfx.MoveTo(250,250);                    // Va au coordonnee X et Y 250 et 250
+        gfx.print("EN ATTENTE DE DONNEES...");  // Print "EN ATTENTE DE DONNEES..."
 
      }
+
+
+
+   // ------------------------ !!!!!!!!! NE PAS TOUCER CETTE SECTION !!!!!!!!!!!! ----------------------------------------------
 
   // put your main code here, to run repeatedly:
   /*int itouched, val ;

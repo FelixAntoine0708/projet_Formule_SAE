@@ -67,12 +67,12 @@ void setup()
       while(1);
   }
 
-  gfx.LedDigitsDisplay(0, iiLeddigits1, 4, 3, 72, 0) ;  // Leddigits1
+  // Initialise le widget
+  gfx.LedDigitsDisplay(0, iiLeddigits1, 4, 3, 72, 0);
+  gfx.UserImage(iLeddigits1);
 
-  gfx.UserImage(iLeddigits1);    // init_Leddigits1 show all digits at 0, only do this once
 
-
-} // end Setup **do not alter, remove or duplicate this line**
+}
 
 
 
@@ -85,29 +85,39 @@ void loop()
      int deci = 0;   // Valeur pour les d�cimales
 
 
-    // Si on recoit une trame CAN, on met a jour le widget.
-    // Sinon, on affiche "EN ATTENTE DE DONNEES...". Bloque a 
-    // chaque 50 ms.
+
+     /*
+    Si on recoit une trame CAN, on met a jour le widget.
+    Sinon, on affiche "EN ATTENTE DE DONNEES...". Bloque a
+    chaque 50 ms.
+    */
      if(ESP32Can.readFrame(rxFrame, 50))
      {
         // Efface  "EN ATTENTE DE DONNEES..."
         gfx.MoveTo(250,250);
         gfx.print("                            ");
 
+        // Garde la valeur de l'entier et des decimale
         entier = (rxFrame.data[1] * 100);
         deci =  rxFrame.data[0];
 
+        // Calcul la valeur total
         total = entier + deci;
 
-        gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 72, 0) ;  // Leddigits1
+        // Met a jour le widget
+        gfx.LedDigitsDisplay(total, iiLeddigits1, 4, 3, 72, 0);
      }
      else
      {
-        gfx.Cls();
-        gfx.MoveTo(250,250);
-        gfx.print("EN ATTENTE DE DONNEES...");
+        gfx.Cls();                              // Efface l'ecran
+        gfx.MoveTo(250,250);                    // Va au coordonnee X et Y 250 et 250
+        gfx.print("EN ATTENTE DE DONNEES...");  // Print "EN ATTENTE DE DONNEES..."
 
      }
+
+
+
+   // ------------------------ !!!!!!!!! NE PAS TOUCER CETTE SECTION !!!!!!!!!!!! ----------------------------------------------
 
   // put your main code here, to run repeatedly:
   /*int itouched, val ;
