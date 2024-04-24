@@ -68,7 +68,7 @@ void setup()
   }
 
   // Initialise le widget
-  gfx.LedDigitsDisplay(0, iiLeddigits1, 4, 3, 72, 0);
+  gfx.LedDigitsDisplay(0, iiLeddigits1, 3, 3, 72, 0);
   gfx.UserImage(iLeddigits1);
 
 
@@ -110,8 +110,6 @@ void loop()
      else
      {
         gfx.Cls();                              // Efface l'ecran
-
-
         gfx.MoveTo(10,100);                    // Va au coordonnee X et Y 250 et 250
         gfx.print("EN ATTENTE DE DONNEES...");  // Print "EN ATTENTE DE DONNEES..."
 
