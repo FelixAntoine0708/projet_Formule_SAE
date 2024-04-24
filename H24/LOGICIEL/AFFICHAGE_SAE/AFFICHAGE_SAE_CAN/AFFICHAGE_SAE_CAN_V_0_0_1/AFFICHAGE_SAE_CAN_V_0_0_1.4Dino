@@ -29,7 +29,7 @@ gfx4desp32_%%displaynm%% gfx = gfx4desp32_%%displaynm%%();
 #define CAN_TX      43     // GPIO 43 comme pin TX
 #define CAN_RX      44    // GPIO 44 comme pin RX
 #define TEMP_SET_3  0xA2  // ID des valeur envoye par la DRIVE
-#define TIME_RESET  10000   // Temps avec un reset
+#define TIME_RESET  10000   // Temps avant un reset
 
 // Prototype de FCT
 void setUpWidget();
@@ -104,9 +104,14 @@ void setup()
 
 void loop()
 {
-   static int reset = 0;
+   static int reset = 0;  // Pour compter le temps avant un reset
 
-
+   /*
+     Regarde à chaque milliseconde si on a reçu une trame CAN.
+     Si oui, on traite les données et on les met dans les bonnes
+     variables. Sinon, on affiche "EN ATTENTE DE DONNEES...".
+     Si on ne reçoit rien pendant 10 secondes, on redémarre le ESP.
+   */
    if(ESP32Can.readFrame(rxFrame, 1))
    {
       CAN_OK();
@@ -127,7 +132,7 @@ void loop()
           ESP.restart();
    }
 
-
+   // Verifie si on touche au bouton.
    touch();
 
 
