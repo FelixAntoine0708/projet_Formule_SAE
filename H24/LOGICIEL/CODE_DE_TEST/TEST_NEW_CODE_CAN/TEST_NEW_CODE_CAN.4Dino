@@ -94,7 +94,7 @@ void loop()
      if(ESP32Can.readFrame(rxFrame, 50))
      {
 
-        gfx.MoveTo(10,100);                    // Va au coordonnee X et Y 250 et 250
+        gfx.MoveTo(10,100);                    // Va au coordonnee X et Y 10 et 100
         gfx.print("                         ");  // Print "EN ATTENTE DE DONNEES..."
 
         // Garde la valeur de l'entier et des decimale
@@ -110,7 +110,7 @@ void loop()
      else
      {
         gfx.Cls();                              // Efface l'ecran
-        gfx.MoveTo(10,100);                    // Va au coordonnee X et Y 250 et 250
+        gfx.MoveTo(10,100);                    // Va au coordonnee X et Y 10 et 100
         gfx.print("EN ATTENTE DE DONNEES...");  // Print "EN ATTENTE DE DONNEES..."
 
      }
