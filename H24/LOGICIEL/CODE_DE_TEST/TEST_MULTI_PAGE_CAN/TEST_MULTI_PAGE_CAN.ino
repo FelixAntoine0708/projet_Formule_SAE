@@ -6,7 +6,8 @@
 Programme : TEST_MULTI_PAGE_CAN.4Dino
 Auteur :    Marc-Etienne Gendron-Fontaine
 Date :      26 avril 2024
-Brief :     Teste d'une facons de mettre a jour des widgets qui sont sur des pages differentes.
+Brief :     Test d'une facons de mettre a jour des widgets qui sont sur des pages differentes.
+            Une meme trame CAN devrait pouvoir mettre a jour les deux widgets.
 
 Materielle: ESP32-S3 (x1), Ecran 7" de 4d systeme, TJA1050 (x2)
 Encironement: Workshop 4 V4.9.0.9b,
@@ -42,7 +43,7 @@ void page_2(bool eff);
 int val_p_1 = 0;
 int val_p_2 = 0;
 int id_widget = iWinbutton1;
-bool efface = false;
+
 
 
 void setup()
@@ -127,9 +128,9 @@ void loop()
 
    // Regarde sur quelle page on est et l'affiche.
    if(id_widget == iWinbutton1)
-      page_1(efface);
-   else if(id_widget == iWinbutton1)
-      page_2(efface);
+      page_1(false);
+   else if(id_widget == iWinbutton2)
+      page_2(false);
 
 
   /*// put your main code here, to run repeatedly:
@@ -196,17 +197,13 @@ void touch()
       {
          if(gfx.imageTouched() == iWinbutton1)
          {
-           efface = true;
-           page_1(efface);
+           page_1(true);
            id_widget = iWinbutton1;
-           efface = false;
          }
          else if (gfx.imageTouched() == iWinbutton2)
          {
-            efface = true;
-            page_2(efface);
+            page_2(true);
             id_widget = iWinbutton2;
-            efface = false;
          }
       }
     }
