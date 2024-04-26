@@ -95,7 +95,7 @@ void loop()
     Sinon, on affiche "EN ATTENTE DE DONNEES...". Bloque a
     chaque 50 ms.
     */
-     if(ESP32Can.readFrame(rxFrame, 0))
+     if(ESP32Can.readFrame(rxFrame, 50))
      {
 
         gfx.MoveTo(10,100);                    // Va au coordonnee X et Y 250 et 250
