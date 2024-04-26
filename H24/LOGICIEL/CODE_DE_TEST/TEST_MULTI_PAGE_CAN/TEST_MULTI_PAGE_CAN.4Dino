@@ -213,6 +213,9 @@ Return  : Rien
 */
 void page_1(bool eff)
 {
+    
+    // Si on affiche la page apres avoir presse un BTN,
+    // on efface la page.
     if(eff)
       gfx.Cls();  // Efface l'ecran
 
@@ -237,6 +240,9 @@ Return  : Rien
 */
 void page_2(bool eff)
 {
+    
+    // Si on affiche la page apres avoir presse un BTN,
+    // on efface la page.
     if(eff)
       gfx.Cls();  // Efface l'ecran
 
