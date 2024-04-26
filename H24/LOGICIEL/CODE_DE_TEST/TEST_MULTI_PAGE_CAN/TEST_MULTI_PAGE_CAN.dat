@@ -1,0 +1,6 @@
+"Leddigits1" 0000 0000 10C F8
+"iLeddigits1" E400 0000 10C F8
+"Leddigits2" 1E00 0003 DC AC
+"iLeddigits2" 8000 0004 DC AC
+"Winbutton1" F800 0007 04 19C
+"Winbutton2" A600 0008 258 19C
