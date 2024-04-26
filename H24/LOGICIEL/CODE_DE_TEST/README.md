@@ -18,7 +18,7 @@
 
 * TEST_NEW_CODE_CAN : Teste d'une nouvelle façon de traiter les trames CAN.
 
-* TEST_MULTI_PAGE_CAN : Teste d'une facons de mettre a jour des widgets qui sont sur des pages differentes.
+* TEST_MULTI_PAGE_CAN : Teste d'une facons de mettre a jour des widgets qui sont sur des pages differentes. Une meme trame CAN devrait pouvoir mettre a jour les deux widgets.
 
 > [!CAUTION]
 > Dans le Dossier `TEST_CAN_AFF`, il n'y a pas les fichiers de la carte SD. Il dépasse la limite de 100MB de Github

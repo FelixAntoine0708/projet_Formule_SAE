@@ -2,7 +2,8 @@
 Programme : TEST_MULTI_PAGE_CAN.4Dino
 Auteur :    Marc-Etienne Gendron-Fontaine
 Date :      26 avril 2024
-Brief :     Teste d'une facons de mettre a jour des widgets qui sont sur des pages differentes.
+Brief :     Test d'une facons de mettre a jour des widgets qui sont sur des pages differentes.
+            Une meme trame CAN devrait pouvoir mettre a jour les deux widgets.
 
 Materielle: ESP32-S3 (x1), Ecran 7" de 4d systeme, TJA1050 (x2)
 Encironement: Workshop 4 V4.9.0.9b,
