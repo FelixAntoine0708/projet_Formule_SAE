@@ -58,7 +58,7 @@ AngularMeter
     Font.Name                    Tahoma
     Font.Size                    8
     Font.Style                   []
-    Height                       382
+    Height                       277
     Labels                       10
     LabelsFont.Color             clWhite
     LabelsFont.Effects           []
@@ -66,9 +66,9 @@ AngularMeter
     LabelsFont.Size              8
     LabelsFont.Style             []
     LabelsOffset                 30
-    Left                         155
-    Maxvalue                     300
-    Minvalue                     0
+    Left                         212
+    Maxvalue                     4100
+    Minvalue                     800
     NeedleBasewidth              8
     NeedleColor                  clRed
     NeedleLength                 -1
@@ -81,8 +81,8 @@ AngularMeter
     TicksEnlarge                 10
     TicksMax                     14
     TicksMin                     5
-    Top                          0
-    Width                        490
+    Top                          76
+    Width                        418
     OnChanged                    ''
 end
 LedDigits

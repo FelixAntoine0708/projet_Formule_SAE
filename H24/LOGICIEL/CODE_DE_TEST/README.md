@@ -12,7 +12,13 @@
 
 * TEST_MCP_CAN_LIB: Contient le code pour utiliser le MCP2515 avec l'écran (*Désuet*) 
   
-* TEST_PLUSIEUR_FICHIERS : Contient un code test pour voir s'il est possible de séparer les fonctions d'affichages dans plusieurs fichiers (EX. les mettre dans FCT_AFF.cpp et FCT_AFF.h). SPOILER : 4D Workshop n'aime pas cela...
+* TEST_PLUSIEUR_FICHIERS : Contient un code test pour voir s'il est possible de séparer les fonctions d'affichages dans plusieurs fichiers (EX. les mettre dans FCT_AFF.cpp et FCT_AFF.h). SPOILER : 4D Workshop n'aime pas cela... (*Désuet*)
+
+* TEST_FPS : Contiens un code pour observer la fluidité de l'écran.
+
+* TEST_NEW_CODE_CAN : Teste d'une nouvelle façon de traiter les trames CAN.
+
+* TEST_MULTI_PAGE_CAN : Teste d'une facons de mettre a jour des widgets qui sont sur des pages differentes. Une meme trame CAN devrait pouvoir mettre a jour les deux widgets.
 
 > [!CAUTION]
 > Dans le Dossier `TEST_CAN_AFF`, il n'y a pas les fichiers de la carte SD. Il dépasse la limite de 100MB de Github
