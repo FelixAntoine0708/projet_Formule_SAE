@@ -2,7 +2,6 @@
 
 ## Ce qu'il contient
 
-* INSTRUCTION_POUR_FAIRE_AFFICHAGE.odt : Début des instructions pour faire/coder l'affichage.
 
 * AFFICHAGE_SAE_CAN : Contiens la première version de l'affichage final.
 
