@@ -34,15 +34,14 @@ CanFrame rxFrame;   // Pour la trame CAN
 
 // PROTOTYPE DE FONCTION
 void init_widget();
-void touch();
+void touch_btn();
 void page_1(bool eff);
 void page_2(bool eff);
 
 
 // VARRIABLE GLOBALE
 int val_p_1 = 0;
-int val_p_2 = 0;
-int id_widget = iWinbutton1;
+int id_btn = iWinbutton1;
 
 
 
@@ -111,7 +110,6 @@ void loop()
       deci =  rxFrame.data[1];
 
       val_p_1 = entier + deci;
-      val_p_2 = entier + deci +1000;
 
    }
    else
@@ -123,13 +121,13 @@ void loop()
    }
 
 
-   touch();
+   touch_btn();
 
 
    // Regarde sur quelle page on est et l'affiche.
-   if(id_widget == iWinbutton1)
+   if(id_btn == iWinbutton1)
       page_1(false);
-   else if(id_widget == iWinbutton2)
+   else if(id_btn == iWinbutton2)
       page_2(false);
 
 
@@ -184,7 +182,7 @@ Brief   : Regarde quel bouton a ete presse et affiche la page en consequence.
 Param   : Rien
 Return  : Rien
 */
-void touch()
+void touch_btn()
 {
   /*
   Si l'ecran detecte un evenement (touch_Update), on regarde si le
@@ -198,12 +196,12 @@ void touch()
          if(gfx.imageTouched() == iWinbutton1)
          {
            page_1(true);
-           id_widget = iWinbutton1;
+           id_btn = iWinbutton1;
          }
          else if (gfx.imageTouched() == iWinbutton2)
          {
             page_2(true);
-            id_widget = iWinbutton2;
+            id_btn = iWinbutton2;
          }
       }
     }
@@ -217,6 +215,9 @@ Return  : Rien
 */
 void page_1(bool eff)
 {
+
+    // Si on affiche la page apres avoir presse un BTN,
+    // on efface la page.
     if(eff)
       gfx.Cls();  // Efface l'ecran
 
@@ -241,6 +242,9 @@ Return  : Rien
 */
 void page_2(bool eff)
 {
+
+    // Si on affiche la page apres avoir presse un BTN,
+    // on efface la page.
     if(eff)
       gfx.Cls();  // Efface l'ecran
 
