@@ -2,6 +2,24 @@
 // NB! This is a file generated from the .4Dino file, changes will be lost
 //     the next time the .4Dino file is built
 //
+/*
+Programme : Code_Final_CANVision_V1_FA.4Dino
+Auteur :    Félix-Antoine Guimont, Marc-Etienne Gendron-Fontaine
+Date :      27 avril 2024
+Brief :     Version finale de l'affichage. Ce fichier inclus le code pour recevoir des trame CAN ainsi
+            que le code pour afficher et mettre à jour les données reçues par ces trames.
+
+Materielle: ESP32-S3 (x1), Ecran 7" de 4d systeme, TJA1050 (x2)
+Encironement: Workshop 4 V4.9.0.9b,
+Systeme d'exploitation: Windows 10 V22H2.
+*/
+
+
+
+
+
+
+
 // Pattern is ignored on this platform
 #include "gfx4desp32_gen4_ESP32_70CT.h"
 
@@ -167,8 +185,11 @@ void loop()
 }
 
 
+
 /*
-  Initialise les boutons
+Brief   : Initialise les boutons
+Param   : Rien
+Return  : Rien
 */
 void button(){
   gfx.RectangleFilled(0, 428, 800, 500, YELLOW) ;  // Rectangle1
@@ -178,10 +199,12 @@ void button(){
 }
 
 
+
+
 /*
-  brief: La page HV avec Widget
-  param:  total -> resultat du CAN
-          erase -> si premiere fois dans page
+Brief   : Affiche la page HV avec les valeurs des widgets mis à jour.
+Param   : erase, pour savoir si nous devons effacer la page ou non.
+Return  : Rien
 */
 void hv_page(Result total, bool erase){
 
@@ -217,10 +240,12 @@ void hv_page(Result total, bool erase){
 }
 
 
+
+
 /*
-  brief: La page TEMP avec Widget
-  param:  total -> resultat du CAN
-          erase -> si premiere fois dans page
+Brief   : Affiche la page TEMP avec les valeurs des widgets mis à jour.
+Param   : erase, pour savoir si nous devons effacer la page ou non.
+Return  : Rien
 */
 void temp_page(Result total, bool erase){
 
@@ -253,10 +278,11 @@ void temp_page(Result total, bool erase){
 }
 
 
+
 /*
-  brief: La page LV avec Widget
-  param:  total -> resultat du CAN
-          erase -> si premiere fois dans page
+Brief   : Affiche la page LV avec les valeurs des widgets mis à jour.
+Param   : erase, pour savoir si nous devons effacer la page ou non.
+Return  : Rien
 */
 void lv_page(Result total, bool erase){
 
@@ -291,13 +317,23 @@ void lv_page(Result total, bool erase){
 /*
   brief: Efface les Widgets de la page
 */
+
+
+/*
+Brief   : Efface les Widgets de la page en dessinant un rectangle noir.
+Param   : Rien
+Return  : Rien
+*/
 void clear(){
   gfx.RectangleFilled(0, 0, 800, 428, BLACK); // affiche un rectangle noir
 }
 
 
+
 /*
-   brief: Verifie les boutons
+Brief   : Vérifie quel bouton a été pressé et affiche la page en conséquence.
+Param   : Rien
+Return  : Rien
 */
 void btn(){
   int btnVerif;
@@ -331,8 +367,11 @@ void btn(){
 }
 
 
+
 /*
-  breif:  si un error majeur apparait clignote en rouge
+Brief   : Si une erreur majeure apparait, on fait clignoter la page en rouge.
+Param   : Rien
+Return  : Rien
 */
 void error_page(){
   for (int i=0; i<5; i++){
@@ -345,7 +384,9 @@ void error_page(){
 
 
 /*
-  Brief:  si recoit aucun message CAN
+Brief   : Si on ne reçoit aucune trame CAN, on affiche un message d'erreur.
+Param   : Rien
+Return  : Rien
 */
 void noDataRecieved() {
   gfx.UserImage(iStatictext14); // affiche un texte error
@@ -355,6 +396,13 @@ void noDataRecieved() {
 /*
   Breif:  Lecteur du CAN Bus
   return: tableau 10 valeurs
+*/
+
+
+/*
+Brief   :
+Param   : Rien
+Return  : Rien
 */
 Result readCAN(){
   Result data;
