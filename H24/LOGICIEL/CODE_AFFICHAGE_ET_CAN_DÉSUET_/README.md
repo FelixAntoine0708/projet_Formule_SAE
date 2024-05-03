@@ -11,3 +11,5 @@
 * 13_MARS_DESUET_ : Code désuet pour le CAN.
 
 * 17_AVRIL_DESUET_ : Code désuet pour le CAN.
+
+* 3_MAI_DESUET : Code désuet pour le CAN.
