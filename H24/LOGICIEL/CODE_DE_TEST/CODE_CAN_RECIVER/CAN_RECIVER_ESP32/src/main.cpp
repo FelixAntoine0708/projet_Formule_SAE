@@ -61,4 +61,6 @@ void loop()
 
   delay(1000);
   send_CAN(COOLANT_TEMP);
+  delay(1000);
+  send_CAN(DRIVE_TEMP);
 }
