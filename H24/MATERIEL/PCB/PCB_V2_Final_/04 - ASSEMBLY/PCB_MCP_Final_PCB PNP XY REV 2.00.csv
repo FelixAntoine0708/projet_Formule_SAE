@@ -1,0 +1,36 @@
+Altium Designer Pick and Place Locations
+C:\Users\Utilisateur\AppData\Local\Temp\Releases\Snapshot\1\Sources\REV 2.00 (2024-04-14)\04 - ASSEMBLY\PCB_MCP_Final_PCB PNP XY REV 2.00.csv
+
+========================================================================================================================
+File Design Information:
+
+Date:       14/04/24
+Time:       22:37
+Revision:   Not in VersionControl
+Variant:    No variations
+Units used: mil
+
+"Designator","Description","Package","Layer","Center-X(mil)","Center-Y(mil)","Rotation","Assembly Note","Assembly Type","Polarized","Manufacturer #1","Part Number #1","HelpURL"
+"U2","High-Speed CAN Transceiver, 3 to 5 V, 8-Pin SOIC (SOT96-1), RoHS, Tape and Reel","","TopLayer","858,268","700,787","0","","","","","",""
+"D2","DIODE SCHOTTKY 40V 1A SOD123F","425AD","TopLayer","614,173","1751,968","90","","","","","",""
+"SER1","SER - SERIAL CARTRIDGE MICRO","","BottomLayer","-23700,433","-17297,480","180","","NONE","","","",""
+"REV1","REV - REVISION CARTRIDGE MINI","","BottomLayer","-23700,433","-17297,480","180","","NONE","","","",""
+"U1","SIMPLE SWITCHER® Power Converter High Efficiency 1A Step-Down Voltage Regulator, 8-pin Narrow SOIC, Pb-Free","","TopLayer","881,890","1397,638","0","","","","","",""
+"J2","Flex Connector, 0.50mm Pitch, Height 2.00mm, Right angle, Slider type, ZIF, Upper contact, 30 position , Without MYLAR","None","TopLayer","241,142","1181,102","270","","","","","",""
+"J1","","","TopLayer","1691,929","1236,614","270","","","","","",""
+"C4","","None","TopLayer","1578,740","2177,165","180","","","","","",""
+"L1","","","TopLayer","527,559","1366,142","270","","","","","",""
+"R2","","","TopLayer","1537,401","295,276","0","","","","","",""
+"R5","Chip Resistor, 1 KOhm, +/- 1%, 125 mW, -55 to 155 degC, 0805 (2012 Metric), RoHS, Tape and Reel","","TopLayer","673,229","994,095","90","","","","","",""
+"R3","","","TopLayer","1094,488","934,249","90","","","","","",""
+"D1","LED GREEN CLEAR 0805 SMD","SML-210","TopLayer","1386,811","295,276","0","","","","","",""
+"C9","CAP ALUM 100UF 20% 50V SMD","","TopLayer","326,772","1885,827","0","","","","","",""
+"C8","CAP ALUM 100UF 20% 50V SMD","","TopLayer","326,772","476,378","0","","","","","",""
+"C1","CAP ALUM 100UF 20% 50V SMD","","TopLayer","1074,803","1838,583","270","","","","","",""
+"C6","CAP CER 100PF 50V C0G/NPO 0805","","TopLayer","1200,787","1118,110","270","","","","","",""
+"C5","CAP CER 100PF 50V C0G/NPO 0805","","TopLayer","1200,787","752,054","90","","","","","",""
+"C2","Chip Capacitor, 10 nF, +/- 10%, 50 V, -55 to 125 degC, 0603 (1608 Metric), RoHS, Tape and Reel","","TopLayer","779,528","1570,866","90","","","","","",""
+"R4","","","TopLayer","1094,488","753,937","90","","","","","",""
+"R1","","","TopLayer","1094,488","1120,079","270","","","","","",""
+"C7","Automotive Ceramic Capacitor, 0805, 100nF, 10%, X7R, 15%, 100V","","TopLayer","673,228","696,850","90","","","","","",""
+"C3","Automotive Ceramic Capacitor, 0805, 100nF, 10%, X7R, 15%, 100V","","TopLayer","992,126","535,433","0","","","","","",""
