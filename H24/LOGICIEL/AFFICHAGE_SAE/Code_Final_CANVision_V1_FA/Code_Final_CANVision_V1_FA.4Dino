@@ -310,10 +310,6 @@ void lv_page(Result total, bool erase){
 }
 
 
-/*
-  brief: Efface les Widgets de la page
-*/
-
 
 /*
 Brief   : Efface les Widgets de la page en dessinant un rectangle noir.
