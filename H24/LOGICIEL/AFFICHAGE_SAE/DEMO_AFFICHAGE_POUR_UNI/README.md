@@ -6,9 +6,9 @@
 
 * Code_Affichage_SAE_V1_FA_Guimont : Premier Affichage FA
 
-* AFFICHAGE_SAE_V2_M_E_G_F : Contiens le code d'une deuxième version de l'affichage SAE de M-E.
+* AFFICHAGE_SAE_V2 : Contiens le code d'une deuxième version de l'affichage SAE de M-E.
 
-* INSTRUCTION_POUR_FAIRE_AFFICHAGE.odt : Début des instructions pour faire/coder l'affichage.
+* Code_Affichage_SAE_V1_FA_Guimont_MODIF : Premier Affichage FA où les bogues sont corrigés
 
 
 > [!TIP]  

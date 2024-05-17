@@ -3,9 +3,11 @@
 ## Ce qu'il contient
 
 
-* AFFICHAGE_SAE_CAN : Contiens la première version de l'affichage final.
+* AFFICHAGE_SAE_CAN_DESUET_ : Contiens la première version de l'affichage final qui est Désuet.
 
 * DEMO_AFFICHAGE_POUR_UNI : Les démos d'affichages qui ont été montrés aux membres de l'université.
+
+* Code_Final_CANVision_V1_FA : Code de l'affichage SAE final.
 
 > [!TIP]  
 > Dans les fichier de code il contient:
