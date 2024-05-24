@@ -229,19 +229,14 @@ void send_CAN(int id)
   txTrame.extd = 0;
   txTrame.data_length_code = 8;
   
+  int val = random(0, 5);
 
-  for(int i=0; i<4; i++)
-    txTrame.data[i] = i+10;
-  
-  txTrame.data[4] = 0xAA;
-  txTrame.data[5] = 0xA1;
-  txTrame.data[6] = 0xBB;
-  txTrame.data[7] = 0xFF;
+  txTrame.data[0] = random(0, 5);  // ENTIER
+  txTrame.data[1] = random(0, 99);  // DECIMAL
 
-  // for(int i=0; i<8; i++)
-  //   txTrame.data[i] = i+1;
-  
-  txTrame.data[0] = 0;
+  for(int i=2; i<8; i++)
+    txTrame.data[i] = 0xAA;
+
 
 
   ESP32Can.writeFrame(txTrame, 1000);   // Envoie de la trame à chaque seconde (par défaut).
