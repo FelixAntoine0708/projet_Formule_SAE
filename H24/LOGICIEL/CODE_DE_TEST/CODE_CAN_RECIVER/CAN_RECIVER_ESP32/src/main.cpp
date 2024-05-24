@@ -31,11 +31,14 @@ void setup()
 {
   // Initialisation de la vitesse du moniteur série
   Serial.begin(115200);
-  delay(2000);
+  
 
   // Initialisation des GPIO pour recevoir/transmettre des trames CAN.
 	ESP32Can.setPins(CAN_TX, CAN_RX);
-
+  
+  // Initialisation du queue size
+  ESP32Can.setRxQueueSize(1);
+  ESP32Can.setTxQueueSize(1);
 
 //----------------------------------------------------------------------
   // You can set custom size for the queues - those are default
@@ -46,13 +49,21 @@ void setup()
   // Initialise la vitesse de communication du CAN.
   // .setSpeed() ne prend que des enum de type TwaiSpeed.
   // Bref, on met la vitesse convertie dans le .setSpeed.
-  ESP32Can.setSpeed(ESP32Can.convertSpeed(500));
+  ESP32Can.setSpeed(ESP32Can.convertSpeed(1000));
 
   // Démare les driver TWAI
     if(ESP32Can.begin())
-        Serial.println("CAN bus started!");
+    {
+      Serial.println("CAN bus started!");
+      delay(2000);
+    }
+        
     else
-        Serial.println("CAN bus failed!");
+    {
+      Serial.println("CAN bus failed!");
+      while(1);
+    }
+        
 }
 
 void loop()
