@@ -6,3 +6,4 @@ Le projet SAE pour UdeS Affichage
 ## Qu'est-ce qui si trouve
 * A23 - Dossier qui contient ce que nous avons fait à la session d'autonme 2023 
 * H24 - Dossier qui contient ce que nous avons fait à la session d'hiver 2024 
+* Manuel_technique_CANVision_FINAL - Le manuel technique en PDF, docx et l'Evaluation des Couts du CANVision
