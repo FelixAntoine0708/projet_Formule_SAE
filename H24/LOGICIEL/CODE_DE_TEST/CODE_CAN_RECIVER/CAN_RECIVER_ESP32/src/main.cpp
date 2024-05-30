@@ -31,7 +31,7 @@ void setup()
 {
   // Initialisation de la vitesse du moniteur série
   Serial.begin(115200);
-  
+  delay(5000);
 
   // Initialisation des GPIO pour recevoir/transmettre des trames CAN.
 	ESP32Can.setPins(CAN_TX, CAN_RX);
@@ -70,8 +70,8 @@ void loop()
 {
   //read_CAN(rxFrame);
 
-  delay(1000);
-  send_CAN(COOLANT_TEMP);
-  delay(1000);
-  send_CAN(DRIVE_TEMP);
+  delay(50);
+  send_CAN(530);
+  //delay(1000);
+  //send_CAN(0xA0);
 }
